@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html } from 'lit';
 import { BingoGridCss } from "./css/BingoGrid.css.js";
 
 class BingoGrid extends LitElement {
@@ -6,21 +6,27 @@ class BingoGrid extends LitElement {
 
     static properties = {
         items: { type: Array },
-        marked: { type: Set }
+        marked: { type: Set },
+        difficulty: { type: String },
+        hasWon: { type: Boolean }
     };
 
     constructor() {
         super();
         this.items = [];
         this.marked = new Set([12]); // FREE square pre-marked
+        this.difficulty = 'single';
+        this.hasWon = false;
     }
 
     async firstUpdated() {
+        await this.loadItems();
+    }
+
+    async loadItems() {
         try {
             const response = await fetch(new URL('./temp.json', import.meta.url));
             const data = await response.json();
-
-            console.log(data);
 
             const board = [...data.items];
             board.splice(12, 0, "FREE");
@@ -31,8 +37,14 @@ class BingoGrid extends LitElement {
         }
     }
 
+    reset() {
+        this.marked = new Set([12]);
+        this.hasWon = false;
+        this.requestUpdate();
+    }
+
     toggleSquare(index) {
-        if (index === 12) return; // Don't allow toggling FREE square
+        if (index === 12) return;
 
         if (this.marked.has(index)) {
             this.marked.delete(index);
@@ -40,6 +52,66 @@ class BingoGrid extends LitElement {
             this.marked.add(index);
         }
         this.requestUpdate();
+        this.checkWin();
+    }
+
+    checkWin() {
+        const hasValidBingo = this.hasValidBingo();
+
+        // Als er een geldige bingo is en we nog niet gewonnen hebben, dispatch win event
+        if (hasValidBingo && !this.hasWon) {
+            this.hasWon = true;
+            this.announceWin();
+        }
+
+        // Als er geen geldige bingo meer is, reset hasWon zodat opnieuw winnen mogelijk is
+        if (!hasValidBingo && this.hasWon) {
+            this.hasWon = false;
+        }
+    }
+
+    hasValidBingo() {
+        let requiredLines = 0;
+
+        switch(this.difficulty) {
+            case 'single':
+                requiredLines = 1;
+                break;
+            case 'double':
+                requiredLines = 2;
+                break;
+            case 'full':
+                return this.marked.size === 25;
+        }
+
+        let completedLines = 0;
+
+        // Check rows
+        for (let i = 0; i < 5; i++) {
+            const row = [i * 5, i * 5 + 1, i * 5 + 2, i * 5 + 3, i * 5 + 4];
+            if (row.every(idx => this.marked.has(idx))) completedLines++;
+        }
+
+        // Check columns
+        for (let i = 0; i < 5; i++) {
+            const col = [i, i + 5, i + 10, i + 15, i + 20];
+            if (col.every(idx => this.marked.has(idx))) completedLines++;
+        }
+
+        // Check diagonals
+        const diag1 = [0, 6, 12, 18, 24];
+        const diag2 = [4, 8, 12, 16, 20];
+        if (diag1.every(idx => this.marked.has(idx))) completedLines++;
+        if (diag2.every(idx => this.marked.has(idx))) completedLines++;
+
+        return completedLines >= requiredLines;
+    }
+
+    announceWin() {
+        this.dispatchEvent(new CustomEvent('win', {
+            bubbles: true,
+            composed: true
+        }));
     }
 
     render() {

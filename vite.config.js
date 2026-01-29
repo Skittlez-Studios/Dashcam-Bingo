@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
-    base: '/Dashcam-Bingo/',
+    base: '/',
     server: {
         host: true,
         allowedHosts: [

@@ -1,6 +1,6 @@
 {
   "name": "Dashcam Bingo",
-  "short_name": "Bingo",
+  "short_name": "Dashcam Bingo",
   "start_url": "/Dashcam-Bingo",
   "display": "standalone",
   "background_color": "#ffffff",

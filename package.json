@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@capacitor/android": "^8.0.2",
     "@capacitor/core": "^8.0.2",
     "lit": "^3.3.1"
   },

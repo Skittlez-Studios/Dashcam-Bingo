@@ -1,12 +1,16 @@
 import { LitElement, html, css } from 'lit';
+import './bingo-grid/BingoGrid.js';
 
 class DashcamApp extends LitElement {
   static styles = css`
     :host {
-      display: block;
+      display: flex;
       font-family: system-ui;
       padding: 1rem;
+      flex-direction: column;
+      width: 100%;
     }
+      
     h1 {
       text-align: center;
     }
@@ -20,16 +24,8 @@ class DashcamApp extends LitElement {
   render() {
     return html`
       <h1>🚗 Dashcam Bingo</h1>
-      <button @click=${this.installApp}>Install App</button>
+      <bingo-grid></bingo-grid>
     `;
-  }
-
-  installApp() {
-    if (window.deferredPrompt) {
-      window.deferredPrompt.prompt();
-    } else {
-      alert('Install via browser menu');
-    }
   }
 }
 

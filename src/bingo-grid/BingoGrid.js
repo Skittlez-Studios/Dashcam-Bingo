@@ -28,18 +28,55 @@ class BingoGrid extends LitElement {
             const response = await fetch(new URL('./temp.json', import.meta.url));
             const data = await response.json();
 
-            const board = [...data.items];
-            board.splice(12, 0, "FREE");
+            // Haal willekeurige items uit elke categorie
+            const easyItems = this.getRandomItems(data.easy, 10);
+            const mediumItems = this.getRandomItems(data.medium, 10);
+            const hardItems = this.getRandomItems(data.hard, 4);
 
-            this.items = board;
+            // Combineer alle items (totaal 24)
+            const allItems = [...easyItems, ...mediumItems, ...hardItems];
+
+            // Shuffle de items voor een willekeurige volgorde
+            const shuffled = this.shuffleArray(allItems);
+
+            // Voeg FREE toe op positie 12 (midden)
+            shuffled.splice(12, 0, "FREE");
+
+            this.items = shuffled;
         } catch (error) {
             console.error("Failed to load bingo items:", error);
         }
     }
 
+    getRandomItems(array, count) {
+        if (!array || array.length === 0) {
+            console.warn('Array is empty or undefined');
+            return [];
+        }
+
+        // Als er minder items zijn dan gevraagd, return alle items
+        if (array.length <= count) {
+            return [...array];
+        }
+
+        // Shuffle en pak de eerste 'count' items
+        const shuffled = this.shuffleArray([...array]);
+        return shuffled.slice(0, count);
+    }
+
+    shuffleArray(array) {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    }
+
     reset() {
         this.marked = new Set([12]);
         this.hasWon = false;
+        this.loadItems(); // Laad nieuwe willekeurige items
         this.requestUpdate();
     }
 

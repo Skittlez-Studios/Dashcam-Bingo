@@ -22,6 +22,8 @@ class SoundManager {
         this.loadAudioFile('click', '/sounds/click.wav');
         this.loadAudioFile('tick', '/sounds/tick.wav');
         this.loadAudioFile('win', '/sounds/win.wav');
+        this.loadAudioFile('check', '/sounds/check.mp3');
+        this.loadAudioFile('uncheck', '/sounds/uncheck.mp3');
     }
 
     loadAudioFile(name, url) {
@@ -29,13 +31,33 @@ class SoundManager {
         audio.volume = this.volume;
         audio.preload = 'auto';
 
+        audio.setAttribute('controlsList', 'nodownload');
+        audio.setAttribute('disablepictureinpicture', '');
+        audio.removeAttribute('controls');
+
+        audio.addEventListener('error', (e) => {
+            console.error(`❌ Failed to load sound "${name}" from ${url}`);
+            console.error('Error details:', {
+                error: e,
+                src: audio.src,
+                networkState: audio.networkState,
+                readyState: audio.readyState
+            });
+        });
+
         this.sounds[name] = () => {
             if (!this.enabled) return;
 
             // Clone audio zodat je hem snel achter elkaar kunt afspelen
             const sound = audio.cloneNode();
             sound.volume = this.volume;
+            sound.setAttribute('controlsList', 'nodownload');
+            sound.setAttribute('disablepictureinpicture', '');
+            sound.removeAttribute('controls');
             sound.play().catch(e => console.log('Audio play failed:', e));
+            sound.addEventListener('ended', () => {
+                sound.remove();
+            });
         };
     }
 

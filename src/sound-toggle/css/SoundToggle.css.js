@@ -13,8 +13,8 @@ export const SoundToggleCss = css`
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 3rem;
-        height: 3rem;
+        width: 3.8rem;
+        height: 3.8rem;
         background: rgba(30, 41, 59, 0.95);
         border: 2px solid rgba(71, 85, 105, 0.5);
         border-radius: 0.75rem;
@@ -31,8 +31,8 @@ export const SoundToggleCss = css`
     }
 
     .icon {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1.8rem;
+        height: 1.8rem;
         transition: transform 0.2s ease;
     }
 
@@ -62,18 +62,18 @@ export const SoundToggleCss = css`
 
     @media (max-width: 640px) {
         :host {
-            top: 0.5rem;
+            top: 2.5rem;
             right: 0.5rem;
         }
 
         button {
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 3rem;
+            height: 3rem;
         }
 
         .icon {
-            width: 1.25rem;
-            height: 1.25rem;
+            width: 1.5rem;
+            height: 1.5rem;
         }
     }
 `;

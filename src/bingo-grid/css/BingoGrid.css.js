@@ -20,15 +20,12 @@ export const BingoGridCss = css`
         grid-template-rows: repeat(5, 1fr);
         gap: 0.5rem;
         width: min(90vw, 600px);
-        max-width: 600px;
-        aspect-ratio: 1;
         margin: 0 auto;
         padding: 1rem;
         background: var(--card);
         border-radius: var(--radius);
         box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
         border: 1px solid var(--border);
-        box-sizing: border-box;
     }
 
     .tile {
@@ -40,22 +37,41 @@ export const BingoGridCss = css`
         background: var(--muted);
         border: 2px solid var(--border);
         border-radius: calc(var(--radius) - 0.25rem);
-        font-size: clamp(0.7rem, 1.8vw, 0.875rem);
+        font-size: clamp(0.75rem, 2vw, 0.875rem);
         font-weight: 500;
         text-align: center;
-        padding: 0.5rem;
+        padding: 0.75rem;
+        aspect-ratio: 1;
         cursor: pointer;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         color: var(--foreground);
         overflow: hidden;
         box-sizing: border-box;
-        width: 100%;
-        height: 100%;
-        min-width: 0;
-        min-height: 0;
+
+        /* Voorkom text selectie en blauw highlight */
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        /* Voorkom context menu op lang indrukken */
+        touch-action: manipulation;
     }
 
-    .tile:not(.free):hover {
+    /* Hover alleen voor devices met pointer (desktop) */
+    @media (hover: hover) and (pointer: fine) {
+        .tile:not(.free):hover {
+            background: var(--accent);
+            border-color: var(--muted-foreground);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    /* Long-press effect voor touch devices */
+    .tile:not(.free).long-pressing {
         background: var(--accent);
         border-color: var(--muted-foreground);
         transform: translateY(-2px);
@@ -73,7 +89,14 @@ export const BingoGridCss = css`
         box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
     }
 
-    .tile.marked:not(.free):hover {
+    @media (hover: hover) and (pointer: fine) {
+        .tile.marked:not(.free):hover {
+            background: linear-gradient(to bottom right, rgba(52, 211, 153, 0.9), rgba(16, 185, 129, 0.9));
+            box-shadow: 0 6px 8px -1px rgba(16, 185, 129, 0.4);
+        }
+    }
+
+    .tile.marked:not(.free).long-pressing {
         background: linear-gradient(to bottom right, rgba(52, 211, 153, 0.9), rgba(16, 185, 129, 0.9));
         box-shadow: 0 6px 8px -1px rgba(16, 185, 129, 0.4);
     }
@@ -82,7 +105,7 @@ export const BingoGridCss = css`
         background: linear-gradient(to bottom right, var(--primary), #2563eb);
         color: var(--primary-foreground);
         font-weight: 600;
-        font-size: clamp(0.95rem, 2.5vw, 1.25rem);
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
         border-color: #60a5fa;
         box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.4);
         cursor: default;
@@ -92,18 +115,20 @@ export const BingoGridCss = css`
         position: relative;
         z-index: 1;
         word-wrap: break-word;
-        word-break: break-word;
-        line-height: 1.2;
-        padding: 0.125rem;
-        width: 100%;
+        line-height: 1.3;
+        /* Extra bescherming tegen selectie */
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 
     .checkmark {
         position: absolute;
-        top: 0.25rem;
-        right: 0.25rem;
-        width: 1.1rem;
-        height: 1.1rem;
+        top: 0.375rem;
+        right: 0.375rem;
+        width: 1.25rem;
+        height: 1.25rem;
         background: white;
         border-radius: 50%;
         display: flex;
@@ -112,11 +137,13 @@ export const BingoGridCss = css`
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         z-index: 2;
         animation: checkmark-pop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        /* Voorkom selectie van checkmark */
+        pointer-events: none;
     }
 
     .checkmark svg {
-        width: 0.7rem;
-        height: 0.7rem;
+        width: 0.75rem;
+        height: 0.75rem;
         color: #059669;
     }
 
@@ -133,71 +160,30 @@ export const BingoGridCss = css`
 
     @media (max-width: 640px) {
         section {
-            width: calc(100vw - 1rem);
-            max-width: calc(100vw - 1rem);
-            gap: 0.25rem;
+            width: 95vw;
+            gap: 0.375rem;
+            padding: 0.75rem;
+        }
+
+        .tile {
+            font-size: clamp(0.65rem, 2.5vw, 0.75rem);
             padding: 0.5rem;
-            margin: 0 0.5rem;
-        }
-
-        .tile {
-            font-size: clamp(0.55rem, 2vw, 0.7rem);
-            padding: 0.2rem;
-            border-width: 1.5px;
-            border-radius: 0.4rem;
         }
 
         .tile.free {
-            font-size: clamp(0.8rem, 2.8vw, 0.95rem);
+            font-size: clamp(0.875rem, 3vw, 1rem);
         }
 
         .checkmark {
-            width: 0.85rem;
-            height: 0.85rem;
-            top: 0.15rem;
-            right: 0.15rem;
+            width: 1rem;
+            height: 1rem;
+            top: 0.25rem;
+            right: 0.25rem;
         }
 
         .checkmark svg {
-            width: 0.55rem;
-            height: 0.55rem;
-        }
-
-        .tile-text {
-            line-height: 1.1;
-            padding: 0.1rem;
-        }
-    }
-
-    @media (max-width: 400px) {
-        section {
-            width: calc(100vw - 0.5rem);
-            max-width: calc(100vw - 0.5rem);
-            gap: 0.2rem;
-            padding: 0.4rem;
-            margin: 0 0.25rem;
-        }
-
-        .tile {
-            font-size: clamp(0.5rem, 1.8vw, 0.6rem);
-            padding: 0.15rem;
-            border-width: 1px;
-        }
-
-        .tile.free {
-            font-size: clamp(0.7rem, 2.5vw, 0.85rem);
-        }
-
-        .checkmark {
-            width: 0.75rem;
-            height: 0.75rem;
-            top: 0.1rem;
-            right: 0.1rem;
-        }
-
-        .checkmark svg {
-            width: 0.5rem;
-            height: 0.5rem;
+            width: 0.625rem;
+            height: 0.625rem;
         }
     }
 `;

@@ -94,11 +94,14 @@ export const DifficultySelectorCss = css`
         min-height: 200px;
     }
 
-    .difficulty-btn:hover {
-        background: #475569;
-        border-color: var(--primary);
-        transform: translateY(-4px);
-        box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+    /* Hover alleen op desktop */
+    @media (hover: hover) and (pointer: fine) {
+        .difficulty-btn:hover {
+            background: #475569;
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+        }
     }
 
     .difficulty-btn:active {

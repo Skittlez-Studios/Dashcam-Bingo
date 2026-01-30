@@ -8,7 +8,8 @@ class BingoGrid extends LitElement {
         items: { type: Array },
         marked: { type: Set },
         difficulty: { type: String },
-        hasWon: { type: Boolean }
+        hasWon: { type: Boolean },
+        longPressIndex: { type: Number }
     };
 
     constructor() {
@@ -17,6 +18,7 @@ class BingoGrid extends LitElement {
         this.marked = new Set([12]); // FREE square pre-marked
         this.difficulty = 'single';
         this.hasWon = false;
+        this.longPressIndex = null;
     }
 
     async firstUpdated() {
@@ -77,6 +79,25 @@ class BingoGrid extends LitElement {
         this.marked = new Set([12]);
         this.hasWon = false;
         this.loadItems(); // Laad nieuwe willekeurige items
+        this.requestUpdate();
+    }
+
+    handleTouchStart(index, event) {
+        if (index === 12) return;
+
+        this.longPressIndex = index;
+        this.requestUpdate();
+    }
+
+    handleTouchEnd(index, event) {
+        if (index === 12) return;
+
+        this.longPressIndex = null;
+        this.requestUpdate();
+    }
+
+    handleTouchMove() {
+        this.longPressIndex = null;
         this.requestUpdate();
     }
 
@@ -155,14 +176,19 @@ class BingoGrid extends LitElement {
         return html`
             <section>
                 ${this.items.map((text, index) => {
-            const isMarked = this.marked.has(index);
-            const isFree = index === 12;
+                    const isMarked = this.marked.has(index);
+                    const isFree = index === 12;
+                    const isLongPressing = this.longPressIndex === index;
 
-            return html`
-                        <button 
-                            class="tile ${isFree ? 'free' : ''} ${isMarked ? 'marked' : ''}"
-                            @click=${() => this.toggleSquare(index)}
-                            ?disabled=${isFree}
+                    return html`
+                        <button
+                                class="tile ${isFree ? 'free' : ''} ${isMarked ? 'marked' : ''} ${isLongPressing ? 'long-pressing' : ''}"
+                                @click=${() => this.toggleSquare(index)}
+                                @touchstart=${(e) => this.handleTouchStart(index, e)}
+                                @touchend=${(e) => this.handleTouchEnd(index, e)}
+                                @touchmove=${() => this.handleTouchMove()}
+                                @contextmenu=${(e) => e.preventDefault()}
+                                ?disabled=${isFree}
                         >
                             ${isMarked && !isFree ? html`
                                 <span class="checkmark">
@@ -174,7 +200,7 @@ class BingoGrid extends LitElement {
                             <span class="tile-text">${text}</span>
                         </button>
                     `;
-        })}
+                })}
             </section>
         `;
     }

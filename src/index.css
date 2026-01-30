@@ -13,12 +13,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overscroll-behavior: none;
+}
+
 body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  overscroll-behavior: none;
+
+  -webkit-overflow-scrolling: touch;
 }
 
 @media (prefers-color-scheme: light) {
@@ -27,3 +42,44 @@ body {
     background-color: #ffffff;
   }
 }
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+/* Utility class voor touch hover effect - werkt overal! */
+.touch-hover {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Desktop hover */
+@media (hover: hover) and (pointer: fine) {
+  .touch-hover:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+  }
+}
+
+/* Mobile/touch active state */
+.touch-hover:active {
+  opacity: 0.9;
+  transform: scale(0.98);
+}
+

@@ -1,16 +1,20 @@
 import { LitElement, html } from 'lit';
 import { ConfirmationModalCss } from './css/ConfirmationModal.css.js';
+import '../TouchEffects.css.js';
+import {TouchEffectsMixin} from "../TouchEffects.css.js";
 
 class ConfirmationModal extends LitElement {
-    static styles = [ConfirmationModalCss];
+    static styles = [ConfirmationModalCss, TouchEffectsMixin];
 
     static properties = {
-        open: { type: Boolean }
+        open: { type: Boolean },
+        pressingButton: { type: String, state: true }
     };
 
     constructor() {
         super();
         this.open = false;
+        this.pressingButton = null;
     }
 
     handleConfirm() {
@@ -34,6 +38,14 @@ class ConfirmationModal extends LitElement {
         }
     }
 
+    handleTouchStart(buttonName) {
+        this.pressingButton = buttonName;
+    }
+
+    handleTouchEnd() {
+        this.pressingButton = null;
+    }
+
     render() {
         if (!this.open) return html``;
 
@@ -44,11 +56,25 @@ class ConfirmationModal extends LitElement {
           <p>Je huidige voortgang gaat verloren en het spel wordt gereset.</p>
           
           <div class="buttons">
-            <button class="btn btn-cancel" @click=${this.handleCancel}>
-              Nee, annuleren
+            <button 
+                class="btn btn-cancel touch-interactive ${this.pressingButton === 'cancel' ? 'pressing' : ''}"
+                @click=${this.handleCancel}
+                @touchstart=${() => this.handleTouchStart('cancel')}
+                @touchend=${this.handleTouchEnd}
+                @touchmove=${this.handleTouchEnd}
+                @contextmenu=${(e) => e.preventDefault()}
+            >
+                Nee, annuleren
             </button>
-            <button class="btn btn-confirm" @click=${this.handleConfirm}>
-              Ja, opnieuw beginnen
+            <button 
+                class="btn btn-confirm touch-interactive ${this.pressingButton === 'confirm' ? 'pressing' : ''}"
+                @click=${this.handleConfirm}
+                @touchstart=${() => this.handleTouchStart('confirm')}
+                @touchend=${this.handleTouchEnd}
+                @touchmove=${this.handleTouchEnd}
+                @contextmenu=${(e) => e.preventDefault()}
+            >
+                Ja, opnieuw beginnen
             </button>
           </div>
         </div>

@@ -10,19 +10,31 @@ class DashcamApp extends LitElement {
         :host {
             display: flex;
             font-family: system-ui;
-            padding: 1rem;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            min-height: 100vh;
-            max-height: 100vh;
+            height: 100vh;
+            height: 100dvh; /* Dynamic viewport height for mobile */
             background: #0f172a;
             overflow: hidden;
+            box-sizing: border-box;
+            padding: 1rem;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
         }
 
         h1 {
             text-align: center;
             color: #f1f5f9;
-            margin-bottom: 2rem;
+            margin: 0;
+            flex-shrink: 0;
+            font-size: 2rem;
         }
 
         .game-container {
@@ -30,7 +42,42 @@ class DashcamApp extends LitElement {
             flex-direction: column;
             align-items: center;
             gap: 1rem;
-            overflow: hidden;
+        }
+
+        @media (max-width: 640px) {
+            :host {
+                padding: 0.5rem;
+            }
+
+            .content-wrapper {
+                gap: 0.75rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .game-container {
+                gap: 0.75rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            :host {
+                padding: 0.25rem;
+            }
+
+            .content-wrapper {
+                gap: 0.5rem;
+            }
+
+            h1 {
+                font-size: 1.3rem;
+            }
+
+            .game-container {
+                gap: 0.5rem;
+            }
         }
     `;
 
@@ -54,6 +101,10 @@ class DashcamApp extends LitElement {
         // Prevent scrolling on body
         document.body.style.overflow = 'hidden';
         document.documentElement.style.overflow = 'hidden';
+        document.body.style.margin = '0';
+        document.body.style.padding = '0';
+        document.body.style.width = '100%';
+        document.body.style.height = '100%';
     }
 
     disconnectedCallback() {
@@ -104,36 +155,38 @@ class DashcamApp extends LitElement {
 
     render() {
         return html`
-      <h1>🚗 Dashcam Bingo</h1>
-      
-      <div class="game-container">
-        <bingo-grid 
-          .difficulty=${this.difficulty}
-          @win=${this.handleWin}>
-        </bingo-grid>
-        ${this.gameStarted ? html`
-          <reset-button @reset-requested=${this.handleResetRequest}></reset-button>
-        ` : ''}
-      </div>
+            <div class="content-wrapper">
+                <h1>🚗 Dashcam Bingo</h1>
 
-      ${!this.gameStarted ? html`
-        <difficulty-selector 
-          @difficulty-selected=${this.handleDifficultySelect}>
-        </difficulty-selector>
-      ` : ''}
+                <div class="game-container">
+                    <bingo-grid
+                            .difficulty=${this.difficulty}
+                            @win=${this.handleWin}>
+                    </bingo-grid>
+                    ${this.gameStarted ? html`
+                        <reset-button @reset-requested=${this.handleResetRequest}></reset-button>
+                    ` : ''}
+                </div>
+            </div>
 
-      <confirmation-modal
-        ?open=${this.showConfirmation}
-        @confirm=${this.handleConfirmReset}
-        @cancel=${this.handleCancelReset}>
-      </confirmation-modal>
+            ${!this.gameStarted ? html`
+                <difficulty-selector
+                        @difficulty-selected=${this.handleDifficultySelect}>
+                </difficulty-selector>
+            ` : ''}
 
-      <winner-modal
-        ?open=${this.showWinner}
-        @close=${this.handleCloseWinner}
-        @play-again=${this.handlePlayAgain}>
-      </winner-modal>
-    `;
+            <confirmation-modal
+                    ?open=${this.showConfirmation}
+                    @confirm=${this.handleConfirmReset}
+                    @cancel=${this.handleCancelReset}>
+            </confirmation-modal>
+
+            <winner-modal
+                    ?open=${this.showWinner}
+                    @close=${this.handleCloseWinner}
+                    @play-again=${this.handlePlayAgain}>
+            </winner-modal>
+        `;
     }
 }
 

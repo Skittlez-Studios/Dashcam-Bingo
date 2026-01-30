@@ -1,6 +1,7 @@
 import { LitElement, html } from 'lit';
 import { WinnerModalCss } from './css/WinnerModal.css.js';
 import { TouchEffectsMixin } from '../TouchEffects.css.js';
+import { soundManager } from '../SoundManager.js';
 
 class WinnerModal extends LitElement {
     static styles = [WinnerModalCss, TouchEffectsMixin];

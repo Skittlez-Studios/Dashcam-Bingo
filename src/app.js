@@ -4,6 +4,7 @@ import './difficulty-selector/DifficultySelector.js';
 import './reset-button/ResetButton.js';
 import './confirmation-modal/ConfirmationModal.js';
 import './winner-modal/WinnerModal.js';
+import './sound-toggle/SoundToggle.js';
 
 class DashcamApp extends LitElement {
     static styles = css`
@@ -155,6 +156,7 @@ class DashcamApp extends LitElement {
 
     render() {
         return html`
+            <sound-toggle></sound-toggle>
             <div class="content-wrapper">
                 <h1>🚗 Dashcam Bingo</h1>
 

@@ -1,5 +1,6 @@
 import { LitElement, html } from 'lit';
 import { BingoGridCss } from "./css/BingoGrid.css.js";
+import { soundManager } from '../SoundManager.js';
 
 class BingoGrid extends LitElement {
     static styles = [BingoGridCss];
@@ -106,8 +107,10 @@ class BingoGrid extends LitElement {
 
         if (this.marked.has(index)) {
             this.marked.delete(index);
+            soundManager.play("click")
         } else {
             this.marked.add(index);
+            soundManager.play("tick")
         }
         this.requestUpdate();
         this.checkWin();
@@ -119,6 +122,7 @@ class BingoGrid extends LitElement {
         // Als er een geldige bingo is en we nog niet gewonnen hebben, dispatch win event
         if (hasValidBingo && !this.hasWon) {
             this.hasWon = true;
+            soundManager.play("win");
             this.announceWin();
         }
 

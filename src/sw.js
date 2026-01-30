@@ -3,8 +3,7 @@ const CACHE = 'dashcam-bingo-v2';
 const ASSETS = [
     BASE,
     BASE + 'index.html',
-    BASE + 'manifest.webmanifest',
-    BASE + 'vite.svg'
+    BASE + 'manifest.webmanifest'
 ];
 
 self.addEventListener('install', (e) => {

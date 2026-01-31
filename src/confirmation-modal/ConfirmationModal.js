@@ -2,6 +2,7 @@ import { LitElement, html } from 'lit';
 import { ConfirmationModalCss } from './css/ConfirmationModal.css.js';
 import '../TouchEffects.css.js';
 import {TouchEffectsMixin} from "../TouchEffects.css.js";
+import { soundManager } from '../SoundManager.js';
 
 class ConfirmationModal extends LitElement {
     static styles = [ConfirmationModalCss, TouchEffectsMixin];
@@ -18,6 +19,7 @@ class ConfirmationModal extends LitElement {
     }
 
     handleConfirm() {
+        soundManager.play('click');
         this.dispatchEvent(new CustomEvent('confirm', {
             detail: { confirmed: true },
             bubbles: true,
@@ -26,6 +28,7 @@ class ConfirmationModal extends LitElement {
     }
 
     handleCancel() {
+        soundManager.play('click');
         this.dispatchEvent(new CustomEvent('cancel', {
             bubbles: true,
             composed: true

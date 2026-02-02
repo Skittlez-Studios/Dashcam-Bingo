@@ -66,10 +66,18 @@ export const DifficultySelectorCss = css`
         }
     }
 
+    h1 {
+        color: var(--foreground);
+        font-size: 2rem;
+        font-weight: 600;
+        margin: 0 0 0.5rem 0;
+        text-align: center;
+    }
+
     h2 {
         color: var(--foreground);
-        font-size: 1.875rem;
-        font-weight: 600;
+        font-size: 1rem;
+        font-weight: 400;
         margin: 0 0 0.5rem 0;
         text-align: center;
     }

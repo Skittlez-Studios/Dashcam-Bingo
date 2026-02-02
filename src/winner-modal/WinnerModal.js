@@ -18,6 +18,7 @@ class WinnerModal extends LitElement {
     }
 
     handleClose() {
+        soundManager.play('click');
         this.dispatchEvent(new CustomEvent('close', {
             bubbles: true,
             composed: true
@@ -25,6 +26,7 @@ class WinnerModal extends LitElement {
     }
 
     handlePlayAgain() {
+        soundManager.play('click');
         this.dispatchEvent(new CustomEvent('play-again', {
             bubbles: true,
             composed: true

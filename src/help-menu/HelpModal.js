@@ -20,7 +20,6 @@ class HelpModal extends LitElement {
             'intro',
             'what-are-dashcams',
             'rules',
-            'how-to-play',
             'where-to-find'
         ];
         this.touchStartX = 0;
@@ -90,8 +89,14 @@ class HelpModal extends LitElement {
             case 'intro':
                 return html`
                     <section>
-                        <h3>Het doel</h3>
-                        <p>Spot situaties tijdens het kijken van een dashcam video en vink ze af op je bingo kaart. Speel alleen of samen met vrienden/familie en probeer als eerste <strong>BINGO</strong> te krijgen!</p>
+                        <h3>Wat is Dashcam Bingo?</h3>
+                        <p>Het is de bedoeling dat Dashcam Bingo gespeeld wordt tijdens het kijken van Dashcam videos. Het doel is om zo snel mogelijk <strong>Bingo</strong> te krijgen.</p>
+                        <br>
+                        <p>Bingo behaal je door goed op te letten tijdens een dashcam video. Je start met een bingo kaart vol met allemaal verkeersacties, als je tijdens het kijken een van die acties plaats ziet nemen vink je dat vakje af.</p>
+                        <br>
+                        <p>Voordat je begint kies je een moeilijkheidsgraad, als alle vakjes van je bijbehorende moeilijkheidsgraag hebt afgevinkt heb je <strong>Bingo</strong>.</p>
+                        <br>
+                        <p>Dashcam Bingo speel je het beste samen.</p>
                     </section>
                 `;
 
@@ -99,7 +104,11 @@ class HelpModal extends LitElement {
                 return html`
                     <section>
                         <h3>Wat zijn dashcam videos?</h3>
-                        <p>Veel mensen gebruiken tijdens het rijden een dashcam. Hiermee kunnen opvallende situaties op beeld worden gebracht. Op YouTube zijn videos waar deze dashcam videos in een compilatie worden gezet.</p>
+                        <p>Dashcam video’s zijn beelden die zijn opgenomen met een kleine camera die achter de voorruit (of soms achterruit) van een auto is gemonteerd.</p>
+                        <br>
+                        <p>De dashcam begint automatisch met filmen zodra de auto start. De camera slaat beelden op in korte fragmenten. Wanneer een gebruiker een moment handmatig markeert — of wanneer de camera zelf een botsing detecteert — wordt dit fragment beveiligd opgeslagen zodat het later teruggekeken kan worden.</p>
+                        <br>
+                        <p>Veel van deze beelden belanden online in zogenaamde compilatievideo's. Dit gebeurt vaak om asociaal weggedrag aan de kaak te stellen of puur ter vermaak.</p>
                     </section>
                 `;
 
@@ -110,27 +119,15 @@ class HelpModal extends LitElement {
                         <ol>
                             <li><strong>Kies je moeilijkheidsgraad:</strong>
                                 <ul>
-                                    <li><span class="badge green">I</span> Enkele Rij - 1 rij voor bingo</li>
-                                    <li><span class="badge orange">II</span> Dubbele Rij - 2 rijen voor bingo</li>
-                                    <li><span class="badge red">III</span> Volle Kaart - Alle vakjes voor bingo</li>
+                                    <li><span class="badge green">I</span> Enkele Rij - 1 rij om bingo te halen</li>
+                                    <li><span class="badge orange">II</span> Dubbele Rij - 2 rijen om bingo te halen</li>
+                                    <li><span class="badge red">III</span> Volle Kaart - Alle vakjes om bingo te halen</li>
                                 </ul>
                             </li>
-                            <li><strong>Zet een dashcam video aan</strong> op een ander apparaat</li>
-                            <li><strong>Let op in dashcam videos</strong> naar de situaties op je kaart</li>
-                            <li><strong>Tik op een vakje</strong> als je die situatie spot</li>
-                            <li><strong>Win!</strong> wanneer je het doel hebt gehaald</li>
+                            <li><strong>Start een dashcam video</strong> op een ander scherm</li>
+                            <li><strong>Vink de verkeersacties af</strong> van jouw bingokaart</li>
+                            <li><strong>Bingo!</strong> wanneer je het doel hebt gehaald</li>
                         </ol>
-                    </section>
-                `;
-
-            case 'how-to-play':
-                return html`
-                    <section>
-                        <h3>Hoe gebruik ik deze app?</h3>
-                        <p>- Klik op een vakje om hem af te vinken.</p> 
-                        <p>- Houd een vakje ingedrukt om een beschrijving te zien over wat er in het vakje staat.</p> 
-                        <p>- Druk op "Probeer Opnieuw" om de bingokaart leeg te maken en een nieuwe te genereren.</p>
-                        <p>- Druk rechtsboven in de pagina op het geluidsicoontje om de geluidseffecten van de applicatie aan of uit te zetten.</p>
                     </section>
                 `;
 
@@ -196,7 +193,7 @@ class HelpModal extends LitElement {
                         </svg>
                     </div>
 
-                    <h2>Hoe speel je Dashcam Bingo?</h2>
+                    <h2>Uitleg Dashcam Bingo</h2>
 
                     <div 
                         class="content"

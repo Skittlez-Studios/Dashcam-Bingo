@@ -278,4 +278,53 @@ export const DifficultySelectorCss = css`
             column-gap: 1rem;
         }
     }
+
+    .custom-card-banner {
+        background: rgba(16, 185, 129, 0.15);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 0.5rem;
+        padding: 0.625rem 0.875rem;
+        margin: 0 auto 1.5rem auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: fit-content;
+    }
+
+    .banner-icon {
+        width: 1.125rem;
+        height: 1.125rem;
+        color: #10b981;
+        flex-shrink: 0;
+    }
+
+    .banner-text {
+        font-size: 0.9375rem;
+        color: var(--muted-foreground);
+        white-space: nowrap;
+    }
+
+    .banner-text strong {
+        color: #10b981;
+        font-weight: 700;
+        font-family: 'Courier New', monospace;
+        letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 640px) {
+        .custom-card-banner {
+            padding: 0.5rem 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .banner-icon {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .banner-text {
+            font-size: 0.875rem;
+        }
+    }
 `;

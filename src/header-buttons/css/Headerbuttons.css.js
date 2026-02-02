@@ -1,11 +1,17 @@
 import { css } from 'lit';
 
-export const HelpButtonCss = css`
+export const HeaderButtonsCss = css`
     :host {
         display: block;
     }
 
-    button {
+    .buttons-container {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .btn {
         all: unset;
         display: flex;
         align-items: center;
@@ -27,37 +33,40 @@ export const HelpButtonCss = css`
         touch-action: manipulation;
     }
 
-    .icon {
-        width: 1.9rem;
-        height: 1.9rem;
+    .btn .icon {
+        width: 1.8rem;
+        height: 1.8rem;
         transition: transform 0.2s ease;
     }
 
     @media (hover: hover) and (pointer: fine) {
-        button:hover {
+        .btn:hover {
             background: rgba(51, 65, 85, 0.95);
             border-color: rgba(148, 163, 184, 0.5);
             transform: scale(1.05);
         }
 
-        button:hover .icon {
-            transform: scale(1.1) rotate(15deg);
+        .btn:hover .icon {
+            transform: scale(1.1);
         }
     }
 
-    button:active,
-    button.pressing {
+    .btn:active,
+    .btn.pressing {
         transform: scale(0.95);
     }
 
     @media (max-width: 640px) {
+        .buttons-container {
+            gap: 0.5rem;
+        }
 
-        button {
+        .btn {
             width: 3rem;
             height: 3rem;
         }
 
-        .icon {
+        .btn .icon {
             width: 1.5rem;
             height: 1.5rem;
         }

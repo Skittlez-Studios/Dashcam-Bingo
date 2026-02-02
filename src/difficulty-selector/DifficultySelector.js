@@ -7,12 +7,14 @@ class DifficultySelector extends LitElement {
     static styles = [DifficultySelectorCss, TouchEffectsMixin];
 
     static properties = {
-        pressingButton: { type: String, state: true }
+        pressingButton: { type: String, state: true },
+        customCard: { type: Object }
     };
 
     constructor() {
         super();
         this.pressingButton = null;
+        this.customCard = null;
     }
 
     selectDifficulty(difficulty) {
@@ -36,8 +38,18 @@ class DifficultySelector extends LitElement {
         return html`
             <div class="backdrop">
                 <div class="modal">
-                    <h2>Kies je moeilijkheidsgraad</h2>
+                    <h2>${this.customCard ? 'Kies je spelmodus' : 'Kies je moeilijkheidsgraad'}</h2>
                     <p class="subtitle">Selecteer hoe je wilt spelen</p>
+
+                    ${this.customCard ? html`
+                    <div class="custom-card-banner">
+                        <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <span class="banner-text">Eigen kaart geladen: <strong>${this.customCard.code}</strong></span>
+                    </div>
+                ` : ''}
 
                     <div class="buttons">
                         <button
@@ -51,17 +63,12 @@ class DifficultySelector extends LitElement {
                         >
                             <div class="icon-wrapper icon-wrapper-green">
                                 <svg class="icon" viewBox="0 0 28 28">
-                                    <!-- Eerste rij - gevuld (wit) -->
                                     <circle cx="6" cy="6" r="2.5" fill="white"/>
                                     <circle cx="14" cy="6" r="2.5" fill="white"/>
                                     <circle cx="22" cy="6" r="2.5" fill="white"/>
-
-                                    <!-- Tweede rij - leeg (donkerder groen met opacity) -->
                                     <circle cx="6" cy="14" r="2.5" fill="rgba(255, 255, 255, 0.3)"/>
                                     <circle cx="14" cy="14" r="2.5" fill="rgba(255, 255, 255, 0.3)"/>
                                     <circle cx="22" cy="14" r="2.5" fill="rgba(255, 255, 255, 0.3)"/>
-
-                                    <!-- Derde rij - leeg (donkerder groen met opacity) -->
                                     <circle cx="6" cy="22" r="2.5" fill="rgba(255, 255, 255, 0.3)"/>
                                     <circle cx="14" cy="22" r="2.5" fill="rgba(255, 255, 255, 0.3)"/>
                                     <circle cx="22" cy="22" r="2.5" fill="rgba(255, 255, 255, 0.3)"/>
@@ -82,17 +89,12 @@ class DifficultySelector extends LitElement {
                         >
                             <div class="icon-wrapper icon-wrapper-orange">
                                 <svg class="icon" viewBox="0 0 28 28">
-                                    <!-- Eerste rij - gevuld (wit) -->
                                     <circle cx="6" cy="6" r="2.5" fill="white"/>
                                     <circle cx="14" cy="6" r="2.5" fill="white"/>
                                     <circle cx="22" cy="6" r="2.5" fill="white"/>
-
-                                    <!-- Tweede rij - gevuld (wit) -->
                                     <circle cx="6" cy="14" r="2.5" fill="white"/>
                                     <circle cx="14" cy="14" r="2.5" fill="white"/>
                                     <circle cx="22" cy="14" r="2.5" fill="white"/>
-
-                                    <!-- Derde rij - leeg (donkerder blauw met opacity) -->
                                     <circle cx="6" cy="22" r="2.5" fill="rgba(255, 255, 255, 0.3)"/>
                                     <circle cx="14" cy="22" r="2.5" fill="rgba(255, 255, 255, 0.3)"/>
                                     <circle cx="22" cy="22" r="2.5" fill="rgba(255, 255, 255, 0.3)"/>
@@ -113,15 +115,12 @@ class DifficultySelector extends LitElement {
                         >
                             <div class="icon-wrapper icon-wrapper-red">
                                 <svg class="icon" viewBox="0 0 28 28">
-                                    <!-- Alle rijen - gevuld (wit) -->
                                     <circle cx="6" cy="6" r="2.5" fill="white"/>
                                     <circle cx="14" cy="6" r="2.5" fill="white"/>
                                     <circle cx="22" cy="6" r="2.5" fill="white"/>
-
                                     <circle cx="6" cy="14" r="2.5" fill="white"/>
                                     <circle cx="14" cy="14" r="2.5" fill="white"/>
                                     <circle cx="22" cy="14" r="2.5" fill="white"/>
-
                                     <circle cx="6" cy="22" r="2.5" fill="white"/>
                                     <circle cx="14" cy="22" r="2.5" fill="white"/>
                                     <circle cx="22" cy="22" r="2.5" fill="white"/>

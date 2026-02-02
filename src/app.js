@@ -7,6 +7,10 @@ import './winner-modal/WinnerModal.js';
 import './sound-toggle/SoundToggle.js';
 import './help-menu/HelpButton.js';
 import './help-menu/HelpModal.js';
+import './header-buttons/HeaderButtons.js';
+import './create-card-modal/CreateCardModal.js';
+import './create-card-modal/SuccessModal.js';
+import './load-card-modal/LoadCardModal.js';
 
 class DashcamApp extends LitElement {
     static styles = css`
@@ -23,6 +27,26 @@ class DashcamApp extends LitElement {
             overflow: hidden;
             box-sizing: border-box;
             padding: 1rem;
+        }
+
+        .left-buttons {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .right-buttons {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            z-index: 100;
         }
 
         .content-wrapper {
@@ -73,6 +97,16 @@ class DashcamApp extends LitElement {
                 padding: 0.5rem;
             }
 
+            .left-buttons {
+                top: 0.5rem;
+                left: 0.5rem;
+            }
+
+            .right-buttons {
+                top: 0.5rem;
+                right: 0.5rem;
+            }
+
             .content-wrapper {
                 gap: 1rem;
             }
@@ -120,7 +154,12 @@ class DashcamApp extends LitElement {
         difficulty: { type: String },
         showConfirmation: { type: Boolean },
         showWinner: { type: Boolean },
-        showHelp: { type: Boolean }
+        showHelp: { type: Boolean },
+        showCreateModal: { type: Boolean },
+        showSuccessModal: { type: Boolean },
+        cardCode: { type: String },
+        showLoadModal: { type: Boolean },
+        loadedCard: { type: Object }
     };
 
     constructor() {
@@ -130,6 +169,11 @@ class DashcamApp extends LitElement {
         this.showConfirmation = false;
         this.showWinner = false;
         this.showHelp = false;
+        this.showCreateModal = false;
+        this.showSuccessModal = false;
+        this.cardCode = '';
+        this.showLoadModal = false;
+        this.loadedCard = null;
     }
 
     connectedCallback() {
@@ -140,6 +184,11 @@ class DashcamApp extends LitElement {
         document.body.style.padding = '0';
         document.body.style.width = '100%';
         document.body.style.height = '100%';
+
+        this.addEventListener('open-create-modal', this.handleOpenCreateModal);
+        this.addEventListener('card-created', this.handleCardCreated);
+        this.addEventListener('open-load-modal', this.handleOpenLoadModal);
+        this.addEventListener('card-loaded', this.handleCardLoaded);
     }
 
     disconnectedCallback() {
@@ -148,9 +197,46 @@ class DashcamApp extends LitElement {
         document.documentElement.style.overflow = '';
     }
 
+    handleCardCreated(e) {
+        this.cardCode = e.detail.code;
+        this.showSuccessModal = true;
+    }
+
+    handleSuccessModalClose() {
+        this.showSuccessModal = false;
+        this.cardCode = '';
+    }
+
+    handleOpenCreateModal() {
+        this.showCreateModal = true;
+    }
+
+    handleCreateModalClose() {
+        this.showCreateModal = false;
+    }
+
+    handleOpenLoadModal() {
+        this.showLoadModal = true;
+    }
+
+    handleCardLoaded(e) {
+        this.showLoadModal = false;
+        this.loadedCard = e.detail;
+        this.gameStarted = false;
+    }
+
     handleDifficultySelect(e) {
         this.difficulty = e.detail.difficulty;
         this.gameStarted = true;
+
+        if (this.loadedCard) {
+            setTimeout(() => {
+                const grid = this.shadowRoot.querySelector('bingo-grid');
+                if (grid) {
+                    grid.customCard = this.loadedCard;
+                }
+            }, 0);
+        }
     }
 
     handleResetRequest() {
@@ -192,13 +278,21 @@ class DashcamApp extends LitElement {
     resetGame() {
         this.gameStarted = false;
         this.difficulty = '';
+        this.loadedCard = null;
         this.shadowRoot.querySelector('bingo-grid')?.reset();
     }
 
     render() {
         return html`
-            <help-button @help-requested=${this.handleHelpOpen}></help-button>
-            <sound-toggle></sound-toggle>
+            <div class="left-buttons">
+                <help-button @help-requested=${this.handleHelpOpen}></help-button>
+                <sound-toggle></sound-toggle>
+            </div>
+
+            <div class="right-buttons">
+                <header-buttons></header-buttons>
+            </div>
+
             <div class="content-wrapper">
                 <div class="title-container">
                     <h1>Dashcam Bingo</h1>
@@ -208,6 +302,7 @@ class DashcamApp extends LitElement {
                 <div class="game-container">
                     <bingo-grid
                             .difficulty=${this.difficulty}
+                            .customCard=${this.loadedCard}
                             @win=${this.handleWin}>
                     </bingo-grid>
                     ${this.gameStarted ? html`
@@ -218,6 +313,7 @@ class DashcamApp extends LitElement {
 
             ${!this.gameStarted ? html`
                 <difficulty-selector
+                        .customCard=${this.loadedCard}
                         @difficulty-selected=${this.handleDifficultySelect}>
                 </difficulty-selector>
             ` : ''}
@@ -238,6 +334,22 @@ class DashcamApp extends LitElement {
                     @close=${this.handleCloseWinner}
                     @play-again=${this.handlePlayAgain}>
             </winner-modal>
+
+            <create-card-modal
+                    ?open=${this.showCreateModal}
+                    @close=${this.handleCreateModalClose}>
+            </create-card-modal>
+
+            <load-card-modal
+                    ?open=${this.showLoadModal}
+                    @close=${() => this.showLoadModal = false}>
+            </load-card-modal>
+
+            <success-modal
+                    ?open=${this.showSuccessModal}
+                    .code=${this.cardCode}
+                    @close=${this.handleSuccessModalClose}>
+            </success-modal>
         `;
     }
 }

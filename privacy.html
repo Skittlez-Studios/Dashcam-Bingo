@@ -41,12 +41,14 @@
         li { margin-bottom: 8px; }
         .last-updated { font-style: italic; color: #7f8c8d; margin-bottom: 30px; display: block; }
         .contact-box { background: #e8f4fd; padding: 20px; border-radius: 8px; border-left: 5px solid #3498db; margin-top: 30px; }
+        .warning-box { background: #fff3cd; padding: 20px; border-radius: 8px; border-left: 5px solid #ffc107; margin-top: 20px; }
+        strong { color: #2c3e50; }
     </style>
 </head>
 <body>
 <div class="container">
     <h1>Privacy Policy</h1>
-    <span class="last-updated">Last Updated: January 30, 2026</span>
+    <span class="last-updated">Last Updated: February 3, 2026</span>
 
     <p>This privacy policy applies to the <strong>Dashcam Bingo</strong> mobile application (herein referred to as "the Application") created by <strong>Skittlez Studios</strong>. The Application is provided as an Ad-Supported service intended for use "as is".</p>
 
@@ -56,9 +58,59 @@
     <ul>
         <li><a href="https://www.google.com/policies/privacy/" target="_blank">Google Play Services</a></li>
         <li><a href="https://support.google.com/admob/answer/6128543?hl=en" target="_blank">Google AdMob</a></li>
+        <li><a href="https://firebase.google.com/support/privacy" target="_blank">Google Firebase</a></li>
     </ul>
 
-    <h2>2. Data Safety Disclosure</h2>
+    <h2>2. Custom Bingo Cards</h2>
+    <p>The Application allows users to create and share custom bingo cards. When you create a custom bingo card, we collect and store the following information:</p>
+
+    <h3>2.1 Data We Collect</h3>
+    <ul>
+        <li><strong>Card Content:</strong> The titles and descriptions of the 24-25 bingo items you create</li>
+        <li><strong>Access Code:</strong> A unique 6-digit code generated to access and share your card</li>
+        <li><strong>Timestamp:</strong> The date and time when the card was created</li>
+    </ul>
+
+    <h3>2.2 How We Use This Data</h3>
+    <ul>
+        <li>To store and retrieve your custom bingo cards</li>
+        <li>To enable sharing of cards via the 6-digit access code</li>
+        <li>To automatically delete cards after 30 days (see section 2.4)</li>
+    </ul>
+
+    <h3>2.3 Data Storage and Location</h3>
+    <p>Custom bingo card data is stored on <strong>Google Firebase servers located in Frankfurt, Germany (EU)</strong>. This ensures compliance with European data protection regulations including GDPR.</p>
+
+    <h3>2.4 Data Retention</h3>
+    <p><strong>Custom bingo cards are automatically deleted after 30 days from creation.</strong> After this period, the card and its access code will no longer be accessible. We do not provide manual deletion options as all cards are automatically removed.</p>
+
+    <h3>2.5 Public Accessibility</h3>
+    <p><strong>Important:</strong> Custom bingo cards are <strong>not private</strong>. Anyone who has the 6-digit access code can view and use the card. Treat the access code as a shareable link. Do not include sensitive, personal, or confidential information in your custom cards.</p>
+
+    <div class="warning-box">
+        <h3>2.6 User-Generated Content Disclaimer</h3>
+        <p><strong>Skittlez Studios is not responsible for the content created by users.</strong> Users are solely responsible for the bingo cards they create. We do not monitor, review, or approve custom card content before it is stored.</p>
+        <p>By creating a custom bingo card, you agree that:</p>
+        <ul>
+            <li>You will not create cards containing illegal, offensive, discriminatory, or harmful content</li>
+            <li>You will not include personal information about yourself or others</li>
+            <li>You are responsible for any content you create and share</li>
+            <li>We reserve the right to remove cards that violate our terms or applicable laws</li>
+        </ul>
+        <p>If you encounter inappropriate content, please report it to us at <strong>support@skittlez-studios.com</strong></p>
+    </div>
+
+    <h3>2.7 Your Rights (GDPR)</h3>
+    <p>Under the General Data Protection Regulation (GDPR), you have the following rights regarding your custom bingo card data:</p>
+    <ul>
+        <li><strong>Right of Access:</strong> Request information about what data we store about your card</li>
+        <li><strong>Right to Erasure:</strong> Request immediate deletion of your card (before the 30-day automatic deletion)</li>
+        <li><strong>Right to Object:</strong> Object to the processing of your card data</li>
+        <li><strong>Right to Data Portability:</strong> Request a copy of your card data in a machine-readable format</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at <strong>support@skittlez-studios.com</strong> with your 6-digit card access code.</p>
+
+    <h2>3. Data Safety Disclosure</h2>
     <p>In compliance with the Google Play Data Safety requirements, the following information is collected and shared via the Google AdMob SDK:</p>
     <ul>
         <li><strong>Approximate Location:</strong> Derived from your IP address to show relevant regional ads.</li>
@@ -67,29 +119,32 @@
         <li><strong>Diagnostics:</strong> Crash logs and performance data to improve app stability.</li>
     </ul>
 
-    <h2>3. Third-Party Services</h2>
+    <h2>4. Third-Party Services</h2>
     <p>The Application uses the following third-party services that may collect information used to identify you:</p>
     <ul>
         <li><strong>Google AdMob:</strong> For displaying advertisements</li>
         <li><strong>Google Play Services:</strong> For core app functionality</li>
+        <li><strong>Google Firebase Firestore:</strong> For storing custom bingo card data (Frankfurt, Germany)</li>
     </ul>
 
-    <h2>4. Cookies</h2>
+    <h2>5. Cookies</h2>
     <p>This Application does not use cookies explicitly. However, third-party code and libraries used by this Application may use "cookies" to collect information and improve their services.</p>
 
-    <h2>5. Security</h2>
-    <p>We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.</p>
+    <h2>6. Security</h2>
+    <p>We value your trust in providing us your information, thus we are striving to use commercially acceptable means of protecting it. Custom bingo card data is stored on secure Google Firebase servers with industry-standard encryption. However, no method of transmission over the internet or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.</p>
 
-    <h2>6. Children's Privacy</h2>
-    <p>This Application does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13 years of age.</p>
+    <h2>7. Children's Privacy</h2>
+    <p>This Application does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13 years of age. If you are a parent or guardian and you are aware that your child has created a custom bingo card, please contact us so we can take necessary action.</p>
 
-    <h2>7. Changes to This Privacy Policy</h2>
-    <p>We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+    <h2>8. Changes to This Privacy Policy</h2>
+    <p>We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. Changes are effective immediately upon posting.</p>
 
     <div class="contact-box">
-        <h2>8. Contact Us</h2>
-        <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at:</p>
+        <h2>9. Contact Us</h2>
+        <p>If you have any questions, suggestions, or requests regarding our Privacy Policy or your data, do not hesitate to contact us at:</p>
         <p><strong>Email:</strong> support@skittlez-studios.com</p>
+        <p><strong>Data Controller:</strong> Skittlez Studios</p>
+        <p>For GDPR-related requests, please include your 6-digit card access code if applicable.</p>
     </div>
 </div>
 </body>

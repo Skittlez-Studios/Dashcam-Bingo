@@ -35,8 +35,12 @@ class BingoGrid extends LitElement {
     }
 
     updated(changedProperties) {
-        if (changedProperties.has('customCard') && this.customCard) {
-            this.loadCustomCard();
+        if (changedProperties.has('customCard')) {
+            if (this.customCard) {
+                this.loadCustomCard();
+            } else if (changedProperties.get('customCard') !== undefined) {
+                this.loadItems();
+            }
         }
     }
 

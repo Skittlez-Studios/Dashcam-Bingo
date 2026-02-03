@@ -23,14 +23,75 @@ class SuccessModal extends LitElement {
         this.showWarning = false;
     }
 
-    handleCopyCode() {
+    async handleCopyCode() {
         soundManager.play('click');
-        navigator.clipboard.writeText(this.code);
-        this.copied = true;
 
-        setTimeout(() => {
-            this.copied = false;
-        }, 2000);
+        try {
+            // Modern clipboard API
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                await navigator.clipboard.writeText(this.code);
+                this.copied = true;
+            } else {
+                // Fallback voor oudere browsers en mobile
+                this.fallbackCopyToClipboard(this.code);
+            }
+
+            setTimeout(() => {
+                this.copied = false;
+            }, 2000);
+        } catch (err) {
+            console.error('Copy failed, trying fallback:', err);
+            this.fallbackCopyToClipboard(this.code);
+        }
+    }
+
+    fallbackCopyToClipboard(text) {
+        // Create temporary textarea
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.top = '0';
+        textarea.style.left = '0';
+        textarea.style.width = '2em';
+        textarea.style.height = '2em';
+        textarea.style.padding = '0';
+        textarea.style.border = 'none';
+        textarea.style.outline = 'none';
+        textarea.style.boxShadow = 'none';
+        textarea.style.background = 'transparent';
+        textarea.setAttribute('readonly', '');
+        textarea.style.opacity = '0';
+
+        document.body.appendChild(textarea);
+
+        // Select and copy
+        textarea.focus();
+        textarea.select();
+
+        // iOS specific
+        if (navigator.userAgent.match(/ipad|iphone/i)) {
+            const range = document.createRange();
+            range.selectNodeContents(textarea);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            textarea.setSelectionRange(0, 999999);
+        }
+
+        try {
+            const successful = document.execCommand('copy');
+            if (successful) {
+                this.copied = true;
+                setTimeout(() => {
+                    this.copied = false;
+                }, 2000);
+            }
+        } catch (err) {
+            console.error('Fallback copy failed:', err);
+            alert(`Kon niet automatisch kopiëren. Code: ${text}`);
+        }
+
+        document.body.removeChild(textarea);
     }
 
     handleCloseAttempt() {

@@ -88,7 +88,7 @@ export const CreateCardModalCss = css`
     .modal {
         background: var(--card);
         border-radius: var(--radius);
-        max-width: 650px;
+        max-width: 900px;
         width: 100%;
         max-height: 90vh;
         display: flex;

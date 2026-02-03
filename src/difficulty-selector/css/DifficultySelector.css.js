@@ -29,7 +29,7 @@ export const DifficultySelectorCss = css`
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 1000;
+        z-index: 50;
         padding: 1rem;
         animation: fade-in 0.2s ease;
     }
@@ -310,6 +310,114 @@ export const DifficultySelectorCss = css`
         font-weight: 700;
         font-family: 'Courier New', monospace;
         letter-spacing: 0.05em;
+    }
+
+    .custom-card-banner {
+        background: rgba(16, 185, 129, 0.15);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 0.5rem;
+        padding: 0.625rem 0.875rem 0.625rem 1rem;
+        margin: 0 auto 1.5rem auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: fit-content;
+        position: relative;
+    }
+
+    .banner-icon {
+        width: 1.125rem;
+        height: 1.125rem;
+        color: #10b981;
+        flex-shrink: 0;
+    }
+
+    .banner-text {
+        font-size: 0.9375rem;
+        color: var(--muted-foreground);
+        white-space: nowrap;
+    }
+
+    .banner-text strong {
+        color: #10b981;
+        font-weight: 700;
+        font-family: 'Courier New', monospace;
+        letter-spacing: 0.05em;
+    }
+
+    .remove-card-btn {
+        all: unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-left: 0.5rem;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        flex-shrink: 0;
+        opacity: 0.6;
+
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        user-select: none;
+        touch-action: manipulation;
+    }
+
+    .remove-card-btn svg {
+        width: 1rem;
+        height: 1rem;
+        color: #94a3b8;
+        transition: color 0.2s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .remove-card-btn:hover {
+            opacity: 1;
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .remove-card-btn:hover svg {
+            color: #ef4444;
+        }
+    }
+
+    .remove-card-btn:active,
+    .remove-card-btn.pressing {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+
+    .remove-card-btn.pressing svg {
+        color: #ef4444;
+    }
+
+    @media (max-width: 640px) {
+        .custom-card-banner {
+            padding: 0.5rem 0.75rem 0.5rem 0.875rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .banner-icon {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .banner-text {
+            font-size: 0.875rem;
+        }
+
+        .remove-card-btn {
+            width: 1.125rem;
+            height: 1.125rem;
+        }
+
+        .remove-card-btn svg {
+            width: 0.9375rem;
+            height: 0.9375rem;
+        }
     }
 
     @media (max-width: 640px) {

@@ -147,6 +147,47 @@ class DashcamApp extends LitElement {
                 gap: 0.5rem;
             }
         }
+
+        .card-indicator {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin: 0 auto;
+        }
+
+        .card-label {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #94a3b8;
+        }
+
+        .card-code {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #10b981;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 640px) {
+            .card-label {
+                font-size: 1.2rem;
+            }
+
+            .card-code {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .card-label {
+                font-size: 1rem;
+            }
+
+            .card-code {
+                font-size: 1rem;
+            }
+        }
     `;
 
     static properties = {
@@ -189,6 +230,7 @@ class DashcamApp extends LitElement {
         this.addEventListener('card-created', this.handleCardCreated);
         this.addEventListener('open-load-modal', this.handleOpenLoadModal);
         this.addEventListener('card-loaded', this.handleCardLoaded);
+        this.addEventListener('remove-custom-card', this.handleRemoveCustomCard);
     }
 
     disconnectedCallback() {
@@ -200,11 +242,18 @@ class DashcamApp extends LitElement {
     handleCardCreated(e) {
         this.cardCode = e.detail.code;
         this.showSuccessModal = true;
+        this.showCreateModal = false;
     }
 
     handleSuccessModalClose() {
         this.showSuccessModal = false;
         this.cardCode = '';
+
+        const createModal = this.shadowRoot.querySelector('create-card-modal');
+        if (createModal) {
+            createModal.open = false;
+            createModal.resetErrors();
+        }
     }
 
     handleOpenCreateModal() {
@@ -223,6 +272,20 @@ class DashcamApp extends LitElement {
         this.showLoadModal = false;
         this.loadedCard = e.detail;
         this.gameStarted = false;
+    }
+
+    handleRemoveCustomCard() {
+        this.loadedCard = null;
+        this.gameStarted = false;
+        this.difficulty = '';
+
+        const grid = this.shadowRoot.querySelector('bingo-grid');
+        if (grid) {
+            grid.customCard = null;
+            grid.reset();
+        }
+
+        this.requestUpdate();
     }
 
     handleDifficultySelect(e) {
@@ -299,6 +362,12 @@ class DashcamApp extends LitElement {
                     <div class="title-underline"></div>
                 </div>
 
+                ${this.gameStarted && this.loadedCard ? html`
+                    <div class="card-indicator">
+                        <span class="card-label">Kaart:</span>
+                        <span class="card-code">${this.loadedCard.code}</span>
+                    </div>
+                ` : ''}
                 <div class="game-container">
                     <bingo-grid
                             .difficulty=${this.difficulty}

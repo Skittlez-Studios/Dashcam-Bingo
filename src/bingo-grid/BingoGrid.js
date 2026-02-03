@@ -13,7 +13,8 @@ class BingoGrid extends LitElement {
         longPressIndex: { type: Number },
         longPressTimer: { type: Number, state: true },
         wasLongPress: { type: Boolean, state: true },
-        customCard: { type: Object }
+        customCard: { type: Object },
+        bingoCount: { type: Number, state: true }
     };
 
     constructor() {
@@ -26,6 +27,7 @@ class BingoGrid extends LitElement {
         this.longPressTimer = null;
         this.wasLongPress = false;
         this.customCard = null;
+        this.bingoCount = 0;
     }
 
     async firstUpdated() {
@@ -113,6 +115,7 @@ class BingoGrid extends LitElement {
 
     reset() {
         this.customCard = null;
+        this.bingoCount = 0;
 
         if (this.items.length === 25 && this.items[12]?.title === "Gratis") {
             this.marked = new Set([12]);
@@ -196,6 +199,24 @@ class BingoGrid extends LitElement {
     }
 
     checkWin() {
+        if (this.difficulty === 'marathon') {
+            const currentBingoCount = this.countCompletedLines();
+            if (currentBingoCount !== this.bingoCount) {
+                if (currentBingoCount > this.bingoCount) {
+                    soundManager.play("pling");
+                }
+                this.bingoCount = currentBingoCount;
+                this.dispatchEvent(new CustomEvent('bingo-count-update', {
+                    detail: { count: this.bingoCount },
+                    bubbles: true,
+                    composed: true
+                }));
+
+                this.requestUpdate();
+            }
+            return;
+        }
+
         const hasValidBingo = this.hasValidBingo();
 
         if (hasValidBingo && !this.hasWon) {
@@ -209,20 +230,9 @@ class BingoGrid extends LitElement {
         }
     }
 
-    hasValidBingo() {
-        let requiredLines = 0;
 
-        switch(this.difficulty) {
-            case 'single':
-                requiredLines = 1;
-                break;
-            case 'double':
-                requiredLines = 2;
-                break;
-            case 'full':
-                return this.marked.size === 25;
-        }
 
+    countCompletedLines() {
         let completedLines = 0;
 
         // Check rows
@@ -243,7 +253,24 @@ class BingoGrid extends LitElement {
         if (diag1.every(idx => this.marked.has(idx))) completedLines++;
         if (diag2.every(idx => this.marked.has(idx))) completedLines++;
 
-        return completedLines >= requiredLines;
+        return completedLines;
+    }
+
+    hasValidBingo() {
+        const completedLines = this.countCompletedLines();
+
+        switch(this.difficulty) {
+            case 'single':
+                return completedLines >= 1;
+            case 'double':
+                return completedLines >= 2;
+            case 'full':
+                return this.marked.size === 25;
+            case 'marathon':
+                return false; // Never win in marathon mode
+            default:
+                return false;
+        }
     }
 
     announceWin() {

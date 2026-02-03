@@ -27,6 +27,7 @@ class DashcamApp extends LitElement {
             overflow: hidden;
             box-sizing: border-box;
             padding: 1rem;
+            padding-top: max(1rem, env(safe-area-inset-top));
         }
 
         .left-buttons {
@@ -37,6 +38,7 @@ class DashcamApp extends LitElement {
             gap: 0.5rem;
             align-items: center;
             z-index: 100;
+            margin-top: env(safe-area-inset-top, 0);
         }
 
         .right-buttons {
@@ -47,6 +49,7 @@ class DashcamApp extends LitElement {
             gap: 0.5rem;
             align-items: center;
             z-index: 100;
+            margin-top: env(safe-area-inset-top, 0);
         }
 
         .content-wrapper {
@@ -57,6 +60,7 @@ class DashcamApp extends LitElement {
         }
 
         .title-container {
+            width: 100%;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -188,6 +192,68 @@ class DashcamApp extends LitElement {
                 font-size: 1rem;
             }
         }
+
+        .bingo-counter {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .counter-label {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #94a3b8;
+        }
+
+        .counter-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #10b981;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .bingo-counter {
+                position: static;
+                justify-content: center;
+                margin-top: 0.25rem;
+            }
+
+            .title-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .counter-label {
+                font-size: 1.125rem;
+            }
+
+            .counter-value {
+                font-size: 1.125rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .counter-label {
+                font-size: 1rem;
+            }
+
+            .counter-value {
+                font-size: 1rem;
+            }
+        }
     `;
 
     static properties = {
@@ -200,7 +266,8 @@ class DashcamApp extends LitElement {
         showSuccessModal: { type: Boolean },
         cardCode: { type: String },
         showLoadModal: { type: Boolean },
-        loadedCard: { type: Object }
+        loadedCard: { type: Object },
+        bingoCount: { type: Number }
     };
 
     constructor() {
@@ -215,6 +282,7 @@ class DashcamApp extends LitElement {
         this.cardCode = '';
         this.showLoadModal = false;
         this.loadedCard = null;
+        this.bingoCount = 0;
     }
 
     connectedCallback() {
@@ -231,12 +299,17 @@ class DashcamApp extends LitElement {
         this.addEventListener('open-load-modal', this.handleOpenLoadModal);
         this.addEventListener('card-loaded', this.handleCardLoaded);
         this.addEventListener('remove-custom-card', this.handleRemoveCustomCard);
+        this.addEventListener('bingo-count-update', this.handleBingoCountUpdate);
     }
 
     disconnectedCallback() {
         super.disconnectedCallback();
         document.body.style.overflow = '';
         document.documentElement.style.overflow = '';
+    }
+
+    handleBingoCountUpdate(e) {
+        this.bingoCount = e.detail.count;
     }
 
     handleCardCreated(e) {
@@ -342,6 +415,7 @@ class DashcamApp extends LitElement {
         this.gameStarted = false;
         this.difficulty = '';
         this.loadedCard = null;
+        this.bingoCount = 0;
         this.shadowRoot.querySelector('bingo-grid')?.reset();
     }
 
@@ -358,7 +432,15 @@ class DashcamApp extends LitElement {
 
             <div class="content-wrapper">
                 <div class="title-container">
-                    <h1>Dashcam Bingo</h1>
+                    <div class="title-row">
+                        <h1>Dashcam Bingo</h1>
+                        ${this.gameStarted && this.difficulty === 'marathon' ? html`
+                            <div class="bingo-counter">
+                                <span class="counter-label">Bingos:</span>
+                                <span class="counter-value">${this.bingoCount}</span>
+                            </div>
+                        ` : ''}
+                    </div>
                     <div class="title-underline"></div>
                 </div>
 

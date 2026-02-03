@@ -24,6 +24,7 @@ class SoundManager {
         this.loadAudioFile('win', '/sounds/win.wav');
         this.loadAudioFile('check', '/sounds/check.mp3');
         this.loadAudioFile('uncheck', '/sounds/uncheck.mp3');
+        this.loadAudioFile('pling', '/sounds/pling.wav');
     }
 
     loadAudioFile(name, url) {

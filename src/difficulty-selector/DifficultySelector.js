@@ -96,7 +96,7 @@ class DifficultySelector extends LitElement {
                                 </svg>
                             </div>
                             <span class="title">Enkele Rij</span>
-                            <span class="description">Win door 1 rij horizontaal, verticaal of diagonaal helemaal af te vinken</span>
+                            <span class="description">Win door 1 rij horizontaal, verticaal of diagonaal af te vinken</span>
                         </button>
 
                         <button
@@ -122,7 +122,7 @@ class DifficultySelector extends LitElement {
                                 </svg>
                             </div>
                             <span class="title">Dubbele Rij</span>
-                            <span class="description">Win door 2 rijen horizontaal, verticaal of diagonaal helemaal af te vinken</span>
+                            <span class="description">Win door 2 rijen horizontaal, verticaal of diagonaal af te vinken</span>
                         </button>
 
                         <button
@@ -148,7 +148,31 @@ class DifficultySelector extends LitElement {
                                 </svg>
                             </div>
                             <span class="title">Volle Kaart</span>
-                            <span class="description">Win door alle vakjes op de kaart af te vinken</span>
+                            <span class="description">Win door alle vakjes af te vinken en de bingo kaart compleet te maken</span>                        
+                        </button>
+                        <button
+                            class="difficulty-btn touch-interactive ${this.pressingButton === 'marathon' ? 'pressing' : ''}"
+                            @click=${() => this.selectDifficulty('marathon')}
+                            @touchstart=${() => this.handleTouchStart('marathon')}
+                            @touchend=${this.handleTouchEnd}
+                            @touchmove=${this.handleTouchEnd}
+                            @touchcancel=${this.handleTouchEnd}
+                            @contextmenu=${(e) => e.preventDefault()}
+                        >
+                            <div class="icon-wrapper icon-wrapper-purple">
+                                <svg class="icon" viewBox="0 0 28 28">
+                                    <circle cx="6" cy="6" r="2.5" fill="white"/>
+                                    <circle cx="14" cy="6" r="2.5" fill="white"/>
+                                    <circle cx="22" cy="6" r="2.5" fill="white"/>
+                                    <circle cx="6" cy="14" r="2.5" fill="white"/>
+                                    <circle cx="14" cy="14" r="2.5" fill="white"/>
+                                    <circle cx="22" cy="14" r="2.5" fill="rgba(255, 255, 255, 0.3)"/>
+                                    <circle cx="6" cy="22" r="2.5" fill="white"/>
+                                    <circle cx="14" cy="22" r="2.5" fill="rgba(255, 255, 255, 0.3)"/>
+                                    <circle cx="22" cy="22" r="2.5" fill="white"/>
+                            </div>
+                            <span class="title">Bingo Teller</span>
+                            <span class="description">Verzamel zo veel mogelijk bingos met de automatische bingoteller</span>
                         </button>
                     </div>
                 </div>

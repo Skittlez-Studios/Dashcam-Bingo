@@ -19,6 +19,9 @@ export const DifficultySelectorCss = css`
 
         --hard-light: #ef4444;
         --hard-dark: #dc2626;
+
+        --marathon-light: #a855f7;
+        --marathon-dark: #7e22ce;
     }
 
     .backdrop {
@@ -53,6 +56,9 @@ export const DifficultySelectorCss = css`
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         animation: slide-up 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
+        margin-top: 4rem;
+        max-height: calc(100vh - 5rem);
+        overflow-y: auto;
     }
 
     @keyframes slide-up {
@@ -91,7 +97,7 @@ export const DifficultySelectorCss = css`
 
     .buttons {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
 
@@ -139,6 +145,11 @@ export const DifficultySelectorCss = css`
         background: linear-gradient(135deg, var(--hard-light) 0%, var(--hard-dark) 100%);
     }
 
+    /* Paars = Marathon (infinite) */
+    .icon-wrapper-purple {
+        background: linear-gradient(135deg, var(--marathon-light) 0%, var(--marathon-dark) 100%);
+    }
+
     .icon {
         width: 3.5rem;
         height: 3.5rem;
@@ -167,6 +178,10 @@ export const DifficultySelectorCss = css`
         .difficulty-btn:hover .icon-wrapper-red {
             box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.6);
         }
+
+        .difficulty-btn:hover .icon-wrapper-purple {
+            box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.6);
+        }
     }
 
     .difficulty-btn:active {
@@ -191,7 +206,6 @@ export const DifficultySelectorCss = css`
         color: var(--muted-foreground);
         text-align: center;
         width: 100%;
-        height: 4rem; /* Vaste hoogte voor ~3 regels */
         display: flex;
         align-items: flex-start;
         justify-content: center;

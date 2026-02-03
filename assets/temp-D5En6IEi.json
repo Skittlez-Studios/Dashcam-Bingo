@@ -1,0 +1,388 @@
+{
+  "easy": [
+    {
+      "title": "Brake Check",
+      "description": "Een bestuurder trapt zonder noodzaak hard op de rem om de achterligger te pesten."
+    },
+    {
+      "title": "Rood Licht Negeren",
+      "description": "Een voertuig negeert een duidelijk rood stoplicht."
+    },
+    {
+      "title": "Geen Knipperlicht Gebruiken",
+      "description": "Een voertuig slaat af of wisselt van baan zonder richting aan te geven."
+    },
+    {
+      "title": "Afsnijden",
+      "description": "Een auto voegt in met veel te weinig tussenruimte (afsnijden)."
+    },
+    {
+      "title": "Claxon Concert",
+      "description": "Er wordt agressief of langdurig getoeterd."
+    },
+    {
+      "title": "De Middelvinger",
+      "description": "Een weggebruiker heeft kramp aan de middelvinger."
+    },
+    {
+      "title": "Rechts Inhalen",
+      "description": "Een voertuig passeert een ander voertuig via de rechterbaan."
+    },
+    {
+      "title": "Rotonde Fout",
+      "description": "Een bestuurder maakt onjuist gebruik van een rotonde."
+    },
+    {
+      "title": "Scheldpartij",
+      "description": "Audio van geschreeuw, gevloek of ruzie."
+    },
+    {
+      "title": "Bumperklever",
+      "description": "Een auto rijdt veel te dicht op de auto voor zich."
+    },
+    {
+      "title": "Rijden over verdrijvingsvlak",
+      "description": "Bestuurder negeert de gearceerde strepen."
+    },
+    {
+      "title": "Twijfelaar op de weg",
+      "description": "Iemand heeft voorrang maar blijft onzeker stilstaan, wat verwarring schept."
+    },
+    {
+      "title": "Vluchtstrookrijder",
+      "description": "De vluchtstrook wordt illegaal gebruikt om voorbij te rijden."
+    },
+    {
+      "title": "U mag daar niet parkeren",
+      "description": "Auto staat stil op een plek waar hij niet hoort te staan."
+    },
+    {
+      "title": "Jaywalker",
+      "description": "Een voetganger steekt zomaar de weg over zonder zebrapad."
+    },
+    {
+      "title": "Linksrijder",
+      "description": "Een voertuig houdt onnodig lang de inhaalstrook bezet."
+    },
+    {
+      "title": "Verblinded Groot Licht",
+      "description": "Een tegenligger of achterligger verblindt met felle lichten."
+    },
+    {
+      "title": "Bocht Afsnijden",
+      "description": "Een tegenligger komt op jouw weghelft tijdens het nemen van een bocht."
+    },
+    {
+      "title": "Grote Splash",
+      "description": "Auto rijdt door of in water en zorgt voor een enorme splash."
+    },
+    {
+      "title": "Vrachtwagen Race",
+      "description": "Een vrachtwagen haalt een andere vrachtwagen tergend langzaam in."
+    },
+    {
+      "title": "Enige op de wereld",
+      "description": "Bestuurder gedraagt zich alsof hij de enige op de weg is."
+    },
+    {
+      "title": "Kleine Auto Grote Dromen",
+      "description": "Een kleine auto doet iets gevaarlijks."
+    },
+    {
+      "title": "Ik rij waar ik wil",
+      "description": "Voertuig rijdt niet op de voorbestemde weg."
+    },
+    {
+      "title": "Spookfietser",
+      "description": "Fietser rijdt tegen het verkeer in."
+    },
+    {
+      "title": "Auto zonder lichten",
+      "description": "Bestuurder rijdt in het donker zonder verlichting."
+    },
+    {
+      "title": "Minister van Defensie",
+      "description": "Auto staat stil en blokkeerd de weg."
+    },
+    {
+      "title": "Rijden over doorgetrokken streep",
+      "description": "Illegale baanwissel over een doorgetrokken lijn."
+    },
+    {
+      "title": "Eenogige Auto",
+      "description": "Auto waarbij één koplamp kapot is."
+    },
+    {
+      "title": "Woonwijk Racer",
+      "description": "Voertuig rijdt zichtbaar veel te hard in een 30km zone."
+    },
+    {
+      "title": "Uw pakketje is vertaagd",
+      "description": "Ongeluk met bestelbusje."
+    },
+    {
+      "title": "Raketje",
+      "description": "Bestuurder trekt heel hard op of rijd veel te hard."
+    },
+    {
+      "title": "Stoeprandje knuffelen",
+      "description": "Bestuurder schat de bocht verkeerd in en pakt de stoeprand."
+    },
+    {
+      "title": "Wapperende lading",
+      "description": "Iets op het dak of in de aanhanger zit niet goed vast en wappert gevaarlijk."
+    },
+    {
+      "title": "Haaientanden negeren",
+      "description": "Geen voorrang verlenen waar dat wel moet."
+    },
+    {
+      "title": "Zebrapad negeren",
+      "description": "Voetgangers worden bijna van de sokken gereden op een oversteekplaats."
+    },
+    {
+      "title": "Voorsorteer fout",
+      "description": "Rechts afslaan vanuit de linkerbaan of andersom."
+    },
+    {
+      "title": "Verf ruilen",
+      "description": "Auto's schrapen tegen elkaar."
+    },
+    {
+      "title": "Tikkie",
+      "description": "Een auto geeft een andere auto een tik (Botsing)."
+    },
+    {
+      "title": "Object op de weg",
+      "description": "Er ligt een object op de weg."
+    },
+    {
+      "title": "Road rage",
+      "description": "Voertuigen maken ruzie op de weg."
+    },
+    {
+      "title": "Fatibe incident",
+      "description": "Een fatbike is betrokken bij een incident op de weg."
+    },
+    {
+      "title": "Knipperlicht is optioneel",
+      "description": "Een voertuig gebruikt geen knipperlicht waar dat wel nodig is."
+    },    {
+      "title": "Trucker POV",
+      "description": "Een video genomen vanuit een vrachtwagen."
+    },
+    {
+      "title": "Kut muziek",
+      "description": "Slechte muziek te horen in video."
+    },
+    {
+      "title": "Code bruin",
+      "description": "Een moment op de weg waarvan je broek bruin wordt."
+    },
+    {
+      "title": "Slak",
+      "description": "Een weggebruiker rijd veel te zacht."
+    },
+    {
+      "title": "Aan de kant voor de Volkswagen",
+      "description": "Volkswagen bestuurder rijdt hard en asociaal."
+    },
+    {
+      "title": "Slecht weer",
+      "description": "Regen, onweer, hagel, wind etc."
+    },
+    {
+      "title": "Gevaarlijke inhaalactie",
+      "description": "Een voertuig haalt in op een plek waar dat niet handig is of mag."
+    }
+  ],
+  "medium": [
+    {
+      "title": "Uitstappen",
+      "description": "Bestuurder van voertuig stapt uit waar dat niet mag."
+    },
+    {
+      "title": "Fietser zonder licht",
+      "description": "Fietser rijd in het donker zonder verlichting."
+    },
+    {
+      "title": "Dashcammer zit fout",
+      "description": "De weggebruiker die de video heeft gemaakt zit fout."
+    },
+    {
+      "title": "Een idioot mist nooit zijn afslag",
+      "description": "Weggebruiker pakt op het laatste moment nog een afslag."
+    },
+    {
+      "title": "Lesauto incident",
+      "description": "Een incident op de weg waar een lesauto betrokken is."
+    },
+    {
+      "title": "Karma momentje",
+      "description": "Een voertuig doet iets stoms maar krijgt karma."
+    },
+    {
+      "title": "Zelf gereden",
+      "description": "Een plek waar je zelf een keer hebt gereden."
+    },
+    {
+      "title": "Random U-Turn",
+      "description": "Iemand draait de auto plotseling om op een onlogische plek."
+    },
+    {
+      "title": "Spookrijder",
+      "description": "Een auto komt de verkeerde kant op rijden op snelweg of eenrichtingsweg."
+    },
+    {
+      "title": "Zwaailichten",
+      "description": "Een voertuig gebruikt zwaailichten."
+    },
+    {
+      "title": "Auto gaat schaatsen",
+      "description": "Voertuig rijd op gladde weg en verliest de controle."
+    },
+    {
+      "title": "Tweewieler geramd",
+      "description": "Aanrijding waarbij een tweewieler het slachtoffer is."
+    },
+    {
+      "title": "Dier op weg",
+      "description": "Er bevind zich een dier op de weg die daar niet hoort."
+    },
+    {
+      "title": "Verloren lading",
+      "description": "Er valt iets van een voertuig."
+    },
+    {
+      "title": "Airbag pop",
+      "description": "De airbags zijn zichtbaar uitgeklapt na een botsing."
+    },
+    {
+      "title": "Spiegel tik",
+      "description": "Twee auto's rijden te dicht langs elkaar en tikken spiegels eraf."
+    },
+    {
+      "title": "Off-Road",
+      "description": "Een auto belandt in de berm, greppel of het gras."
+    },
+    {
+      "title": "Motorbrand",
+      "description": "Er komt rook of vuur onder de motorkap vandaan."
+    },
+    {
+      "title": "Kettingbotsing",
+      "description": "Drie of meer auto's botsen op elkaar."
+    },
+    {
+      "title": "Hit and Run",
+      "description": "De veroorzaker van een ongeval rijdt snel door."
+    },
+    {
+      "title": "Slingerende aanhanger/caravan",
+      "description": "Aanhanger of caravan begint gevaarlijk te slingeren."
+    },
+    {
+      "title": "Paalknuffelaar",
+      "description": "Auto komt tot stilstand tegen een paal."
+    },
+    {
+      "title": "Parkeerschade",
+      "description": "Auto botst tegen een geparkeerde auto."
+    },
+    {
+      "title": "Tweewieler Slide",
+      "description": "Een tweewieler glijdt onderuit."
+    },
+    {
+      "title": "Middenberm Crosser",
+      "description": "Auto steekt via het gras over naar de andere rijbaan."
+    },
+    {
+      "title": "OV blokkeerder",
+      "description": "Auto staat stil en blokkeerd openbaar vervoer."
+    },
+    {
+      "title": "Stoeprijder",
+      "description": "Auto rijdt over het voetpad of fietspad."
+    },
+    {
+      "title": "Good Samaritan",
+      "description": "Voertuig verleend voorang waar dat niet hoeft."
+    },
+    {
+      "title": "Slechte wegen",
+      "description": "Kuilen, gaten of andere slechte wegcondities."
+    },
+    {
+      "title": "Total loss",
+      "description": "Auto is total loss na ongeluk."
+    }
+
+  ],
+  "hard": [
+    {
+      "title": "Drunk Driver",
+      "description": "Weggebruiker heeft duidelijk iets te diep in het glaasje gekeken."
+    },
+    {
+      "title": "Los wiel",
+      "description": "Een band laat los en rolt zelfstandig verder."
+    },
+    {
+      "title": "PIT maneuver",
+      "description": "Auto tikt achterkant ander aan waardoor deze spint (zoals politie doet)."
+    },
+    {
+      "title": "T-Bone",
+      "description": "Een auto wordt vol in de zijkant geraakt op een kruispunt."
+    },
+    {
+      "title": "Wie zet daar ook een muur neer?",
+      "description": "Auto rijdt tegen een muur aan."
+    },
+    {
+      "title": "Politieachtervolging",
+      "description": "Achtervolging met politie."
+    },
+    {
+      "title": "Koprol",
+      "description": "Een auto slaat over de kop."
+    },
+    {
+      "title": "Drift success",
+      "description": "Iemand probeert te driften in een bocht em houdt de controle."
+    },
+    {
+      "title": "Explosie",
+      "description": "Grote explosie in beeld."
+    },
+    {
+      "title": "Bambi op de Kap",
+      "description": "Een dier wordt aangereden."
+    },
+    {
+      "title": "Supercar Crash",
+      "description": "Luxe auto heeft een crash."
+    },
+    {
+      "title": "Rollende botsing",
+      "description": "Auto's botsen terwijl ze langzaam rijden."
+    },
+    {
+      "title": "I believe I can fly",
+      "description": "Voertuig komt met 4 wielen van de grond."
+    },
+    {
+      "title": "Snelweg pile-up",
+      "description": "Grote kettingbotsing op de snelweg."
+    },
+    {
+      "title": "Vangrail knuffelen",
+      "description": "Voertuig raakt de vangrail."
+    },
+    {
+      "title": "Flinke klapper",
+      "description": "Zware botsing met veel schade."
+    }
+  ]
+}

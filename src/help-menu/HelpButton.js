@@ -1,10 +1,10 @@
-// components/HelpButton.js
 import { LitElement, html } from 'lit';
 import { HelpButtonCss } from './css/HelpButton.css.js';
+import { TouchEffectsMixin } from '../TouchEffects.css.js';
 import { soundManager } from '../SoundManager.js';
 
 class HelpButton extends LitElement {
-    static styles = HelpButtonCss;
+    static styles = [HelpButtonCss, TouchEffectsMixin];
 
     static properties = {
         pressing: { type: Boolean, state: true }
@@ -31,25 +31,20 @@ class HelpButton extends LitElement {
         this.pressing = false;
     }
 
-    handleTouchCancel() {
-        this.pressing = false;
-    }
-
     render() {
         return html`
             <button 
-                class="${this.pressing ? 'pressing' : ''}"
                 @click=${this.handleClick}
                 @touchstart=${this.handleTouchStart}
                 @touchend=${this.handleTouchEnd}
-                @touchmove=${this.handleTouchEnd}
-                @touchcancel=${this.handleTouchCancel}
-                @contextmenu=${(e) => e.preventDefault()}
-                title="Hoe werkt het spel?"
+                @touchcancel=${this.handleTouchEnd}
+                class="touch-interactive ${this.pressing ? 'pressing' : ''}"
                 aria-label="Help"
-            >
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                title="Help">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <circle cx="12" cy="17" r="0.5" fill="currentColor"></circle>
                 </svg>
             </button>
         `;

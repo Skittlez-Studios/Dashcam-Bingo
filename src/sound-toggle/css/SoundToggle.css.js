@@ -2,10 +2,13 @@ import { css } from 'lit';
 
 export const SoundToggleCss = css`
     :host {
+        /* ❌ VERWIJDERD - geen fixed positioning meer
         position: fixed;
         top: 1rem;
         right: 1rem;
         z-index: 9999;
+        */
+        display: block;
     }
 
     button {
@@ -61,10 +64,6 @@ export const SoundToggleCss = css`
     }
 
     @media (max-width: 640px) {
-        :host {
-            top: 2.5rem;
-            right: 0.5rem;
-        }
 
         button {
             width: 3rem;

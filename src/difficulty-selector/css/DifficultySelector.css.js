@@ -194,7 +194,7 @@ export const DifficultySelectorCss = css`
         color: var(--foreground);
         text-align: center;
         width: 100%;
-        height: 2rem; /* Vaste hoogte voor 1 regel */
+        height: 2rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -211,127 +211,6 @@ export const DifficultySelectorCss = css`
         justify-content: center;
         line-height: 1.4;
         padding: 0 0.5rem;
-    }
-
-    @media (max-width: 768px) {
-        .modal {
-            max-width: 600px;
-        }
-
-        .buttons {
-            grid-template-columns: 1fr;
-            gap: 0.75rem;
-        }
-
-        .difficulty-btn {
-            padding: 1.5rem;
-            grid-template-columns: auto 1fr; /* Icon links, tekst rechts */
-            grid-template-rows: auto auto;
-            column-gap: 1.5rem;
-            row-gap: 0.5rem;
-            align-items: center;
-            justify-items: start;
-        }
-
-        .icon-wrapper {
-            width: 4rem;
-            height: 4rem;
-            min-width: 4rem;
-            grid-row: 1 / 3; /* Icon spans beide rijen */
-            grid-column: 1;
-            border-radius: 1rem;
-        }
-
-        .icon {
-            width: 3rem;
-            height: 3rem;
-        }
-
-        .title {
-            grid-row: 1;
-            grid-column: 2;
-            text-align: left;
-            justify-content: flex-start;
-            height: auto;
-            font-size: 1.125rem;
-        }
-
-        .description {
-            grid-row: 2;
-            grid-column: 2;
-            text-align: left;
-            justify-content: flex-start;
-            align-items: flex-start;
-            height: auto;
-            font-size: 0.8rem;
-            padding: 0;
-        }
-    }
-
-    @media (max-width: 640px) {
-        .modal {
-            padding: 1.5rem;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-        }
-
-        .subtitle {
-            font-size: 0.875rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .icon-wrapper {
-            width: 3.5rem;
-            height: 3.5rem;
-            min-width: 3.5rem;
-        }
-
-        .icon {
-            width: 2.5rem;
-            height: 2.5rem;
-        }
-    }
-
-    @media (max-width: 464px) {
-        .difficulty-btn {
-            padding: 1rem;
-            column-gap: 1rem;
-        }
-    }
-
-    .custom-card-banner {
-        background: rgba(16, 185, 129, 0.15);
-        border: 1px solid rgba(16, 185, 129, 0.3);
-        border-radius: 0.5rem;
-        padding: 0.625rem 0.875rem;
-        margin: 0 auto 1.5rem auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        width: fit-content;
-    }
-
-    .banner-icon {
-        width: 1.125rem;
-        height: 1.125rem;
-        color: #10b981;
-        flex-shrink: 0;
-    }
-
-    .banner-text {
-        font-size: 0.9375rem;
-        color: var(--muted-foreground);
-        white-space: nowrap;
-    }
-
-    .banner-text strong {
-        color: #10b981;
-        font-weight: 700;
-        font-family: 'Courier New', monospace;
-        letter-spacing: 0.05em;
     }
 
     .custom-card-banner {
@@ -416,10 +295,76 @@ export const DifficultySelectorCss = css`
         color: #ef4444;
     }
 
-    @media (max-width: 640px) {
-        .custom-card-banner {
-            padding: 0.5rem 0.75rem 0.5rem 0.875rem;
+    /* ✅ Mobile breakpoint (768px) */
+    @media (max-width: 768px) {
+        .modal {
+            max-width: 600px;
+            padding: 1.5rem; /* ✅ Kleiner */
+            margin-top: 5rem;
+        }
+
+        h1 {
+            font-size: 1.5rem; /* ✅ Kleiner */
+        }
+
+        .subtitle {
+            font-size: 0.875rem; /* ✅ Kleiner */
             margin-bottom: 1.25rem;
+        }
+
+        .buttons {
+            grid-template-columns: 1fr;
+            gap: 0.625rem; /* ✅ Kleiner */
+        }
+
+        .difficulty-btn {
+            padding: 1.125rem; /* ✅ Compacter */
+            grid-template-columns: auto 1fr;
+            grid-template-rows: auto auto;
+            column-gap: 1rem; /* ✅ Kleiner */
+            row-gap: 0.375rem;
+            align-items: center;
+            justify-items: start;
+        }
+
+        .icon-wrapper {
+            width: 3.25rem; /* ✅ Kleiner */
+            height: 3.25rem;
+            min-width: 3.25rem;
+            grid-row: 1 / 3;
+            grid-column: 1;
+            border-radius: 0.625rem;
+        }
+
+        .icon {
+            width: 2.25rem; /* ✅ Kleiner */
+            height: 2.25rem;
+        }
+
+        .title {
+            grid-row: 1;
+            grid-column: 2;
+            text-align: left;
+            justify-content: flex-start;
+            height: auto;
+            font-size: 1rem; /* ✅ Kleiner */
+        }
+
+        .description {
+            grid-row: 2;
+            grid-column: 2;
+            text-align: left;
+            justify-content: flex-start;
+            align-items: flex-start;
+            height: auto;
+            font-size: 0.75rem; /* ✅ Kleiner */
+            padding: 0;
+            line-height: 1.3;
+        }
+
+        .custom-card-banner {
+            padding: 0.5rem 0.75rem;
+            margin-bottom: 1rem;
         }
 
         .banner-icon {
@@ -428,7 +373,7 @@ export const DifficultySelectorCss = css`
         }
 
         .banner-text {
-            font-size: 0.875rem;
+            font-size: 0.8125rem; /* ✅ Kleiner */
         }
 
         .remove-card-btn {
@@ -437,24 +382,44 @@ export const DifficultySelectorCss = css`
         }
 
         .remove-card-btn svg {
-            width: 0.9375rem;
-            height: 0.9375rem;
+            width: 0.875rem;
+            height: 0.875rem;
         }
     }
 
-    @media (max-width: 640px) {
-        .custom-card-banner {
-            padding: 0.5rem 0.75rem;
-            margin-bottom: 1.25rem;
+    /* ✅ Extra small screens */
+    @media (max-width: 400px) {
+        .modal {
+            padding: 1.25rem;
+            margin-top: 4.5rem;
         }
 
-        .banner-icon {
-            width: 1rem;
-            height: 1rem;
+        h1 {
+            font-size: 1.375rem;
         }
 
-        .banner-text {
-            font-size: 0.875rem;
+        .difficulty-btn {
+            padding: 1rem;
+            column-gap: 0.875rem;
+        }
+
+        .icon-wrapper {
+            width: 3rem;
+            height: 3rem;
+            min-width: 3rem;
+        }
+
+        .icon {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .title {
+            font-size: 0.9375rem;
+        }
+
+        .description {
+            font-size: 0.6875rem;
         }
     }
 `;

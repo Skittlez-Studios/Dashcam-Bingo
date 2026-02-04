@@ -4,10 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
     base: '/',
     server: {
-        host: true,
-        allowedHosts: [
-            'unlibelously-untaintable-dilan.ngrok-free.dev'
-        ]
+        host: true
     },
     plugins: [
         VitePWA({

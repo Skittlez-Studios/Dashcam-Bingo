@@ -161,19 +161,12 @@
       "description": "Voertuigen maken ruzie op de weg."
     },
     {
-      "title": "Fatibe incident",
+      "title": "Fatbike incident",
       "description": "Een fatbike is betrokken bij een incident op de weg."
     },
     {
-      "title": "Knipperlicht is optioneel",
-      "description": "Een voertuig gebruikt geen knipperlicht waar dat wel nodig is."
-    },    {
       "title": "Trucker POV",
       "description": "Een video genomen vanuit een vrachtwagen."
-    },
-    {
-      "title": "Kut muziek",
-      "description": "Slechte muziek te horen in video."
     },
     {
       "title": "Code bruin",
@@ -181,7 +174,7 @@
     },
     {
       "title": "Slak",
-      "description": "Een weggebruiker rijd veel te zacht."
+      "description": "Een weggebruiker rijd veel te langzaam."
     },
     {
       "title": "Aan de kant voor de Volkswagen",
@@ -194,6 +187,10 @@
     {
       "title": "Gevaarlijke inhaalactie",
       "description": "Een voertuig haalt in op een plek waar dat niet handig is of mag."
+    },
+    {
+      "title": "Kut Volvo",
+      "description": "Volvo rijdt hinderlijk."
     }
   ],
   "medium": [
@@ -227,11 +224,11 @@
     },
     {
       "title": "Random U-Turn",
-      "description": "Iemand draait de auto plotseling om op een onlogische plek."
+      "description": "Iemand draait het voertuig plotseling om op een onlogische plek."
     },
     {
       "title": "Spookrijder",
-      "description": "Een auto komt de verkeerde kant op rijden op snelweg of eenrichtingsweg."
+      "description": "Een voertuig komt de verkeerde kant op rijden op snelweg of eenrichtingsweg."
     },
     {
       "title": "Zwaailichten",
@@ -316,8 +313,11 @@
     {
       "title": "Total loss",
       "description": "Auto is total loss na ongeluk."
+    },
+    {
+      "title": "Vangrail knuffelen",
+      "description": "Voertuig raakt de vangrail."
     }
-
   ],
   "hard": [
     {
@@ -353,32 +353,20 @@
       "description": "Iemand probeert te driften in een bocht em houdt de controle."
     },
     {
-      "title": "Explosie",
-      "description": "Grote explosie in beeld."
-    },
-    {
       "title": "Bambi op de Kap",
       "description": "Een dier wordt aangereden."
     },
     {
       "title": "Supercar Crash",
-      "description": "Luxe auto heeft een crash."
+      "description": "Dure auto heeft een crash."
     },
     {
-      "title": "Rollende botsing",
+      "title": "Langzame botsing",
       "description": "Auto's botsen terwijl ze langzaam rijden."
     },
     {
       "title": "I believe I can fly",
       "description": "Voertuig komt met 4 wielen van de grond."
-    },
-    {
-      "title": "Snelweg pile-up",
-      "description": "Grote kettingbotsing op de snelweg."
-    },
-    {
-      "title": "Vangrail knuffelen",
-      "description": "Voertuig raakt de vangrail."
     },
     {
       "title": "Flinke klapper",

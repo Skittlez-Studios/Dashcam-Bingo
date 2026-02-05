@@ -2,6 +2,7 @@ import { LitElement, html } from 'lit';
 import { CreateCardModalCss } from './css/CreateCardModal.css.js';
 import { TouchEffectsMixin } from '../TouchEffects.css.js';
 import { soundManager } from '../SoundManager.js';
+import { hapticManager } from '../HapticsManager.js';
 import { createCard } from '../utils/supabase.js';
 
 class CreateCardModal extends LitElement {
@@ -40,6 +41,7 @@ class CreateCardModal extends LitElement {
 
     handleFreeTileToggle(index, e) {
         soundManager.play('click');
+        hapticManager.vibrate(2)
         const tile = this.tiles[index];
         tile.disabled = e.target.checked;
 
@@ -56,6 +58,7 @@ class CreateCardModal extends LitElement {
     handleBackdropClick(e) {
         if (e.target.classList.contains('modal-backdrop')) {
             soundManager.play('click');
+            hapticManager.vibrate(2)
             this.open = false;
             this.resetErrors();
             this.dispatchEvent(new CustomEvent('close', { bubbles: true, composed: true }));
@@ -64,6 +67,7 @@ class CreateCardModal extends LitElement {
 
     handleCloseButton() {
         soundManager.play('click');
+        hapticManager.vibrate(2)
         this.open = false;
         this.resetErrors();
         this.dispatchEvent(new CustomEvent('close', { bubbles: true, composed: true }));
@@ -140,6 +144,7 @@ class CreateCardModal extends LitElement {
 
     async handleCreate() {
         soundManager.play('click');
+        hapticManager.vibrate(2)
 
         if (!this.validateAllTiles()) {
             this.errorMessage = 'Vul alle velden correct in';

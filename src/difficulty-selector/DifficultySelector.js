@@ -2,6 +2,7 @@ import { LitElement, html } from 'lit';
 import { DifficultySelectorCss } from './css/DifficultySelector.css.js';
 import { TouchEffectsMixin } from '../TouchEffects.css.js';
 import { soundManager } from '../SoundManager.js';
+import {hapticManager} from "../HapticsManager.js";
 
 class DifficultySelector extends LitElement {
     static styles = [DifficultySelectorCss, TouchEffectsMixin];
@@ -19,6 +20,7 @@ class DifficultySelector extends LitElement {
 
     selectDifficulty(difficulty) {
         soundManager.play('click');
+        hapticManager.vibrate(2)
         this.dispatchEvent(new CustomEvent('difficulty-selected', {
             detail: { difficulty },
             bubbles: true,
@@ -29,6 +31,7 @@ class DifficultySelector extends LitElement {
     handleRemoveCard(e) {
         e.stopPropagation();
         soundManager.play('click');
+        hapticManager.vibrate(2)
         this.dispatchEvent(new CustomEvent('remove-custom-card', {
             bubbles: true,
             composed: true

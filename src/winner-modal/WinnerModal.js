@@ -2,6 +2,7 @@ import { LitElement, html } from 'lit';
 import { WinnerModalCss } from './css/WinnerModal.css.js';
 import { TouchEffectsMixin } from '../TouchEffects.css.js';
 import { soundManager } from '../SoundManager.js';
+import {hapticManager} from "../HapticsManager.js";
 
 class WinnerModal extends LitElement {
     static styles = [WinnerModalCss, TouchEffectsMixin];
@@ -19,6 +20,7 @@ class WinnerModal extends LitElement {
 
     handleClose() {
         soundManager.play('click');
+        hapticManager.vibrate(2);
         this.dispatchEvent(new CustomEvent('close', {
             bubbles: true,
             composed: true

@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit';
 import { soundManager } from '../SoundManager.js';
 import { TouchEffectsMixin } from '../TouchEffects.css.js';
 import { SoundToggleCss } from './css/SoundToggle.css.js';
+import { hapticManager } from '../HapticsManager.js';
 
 class SoundToggle extends LitElement {
     static styles = [SoundToggleCss, TouchEffectsMixin];
@@ -36,6 +37,7 @@ class SoundToggle extends LitElement {
         this.enabled = soundManager.toggle();
 
         if (this.enabled) {
+            hapticManager.vibrate(2);
             soundManager.play('click');
         }
     }

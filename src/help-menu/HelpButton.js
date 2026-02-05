@@ -2,6 +2,7 @@ import { LitElement, html } from 'lit';
 import { HelpButtonCss } from './css/HelpButton.css.js';
 import { TouchEffectsMixin } from '../TouchEffects.css.js';
 import { soundManager } from '../SoundManager.js';
+import {hapticManager} from "../HapticsManager.js";
 
 class HelpButton extends LitElement {
     static styles = [HelpButtonCss, TouchEffectsMixin];
@@ -17,6 +18,7 @@ class HelpButton extends LitElement {
 
     handleClick() {
         soundManager.play('click');
+        hapticManager.vibrate(2);
         this.dispatchEvent(new CustomEvent('help-requested', {
             bubbles: true,
             composed: true

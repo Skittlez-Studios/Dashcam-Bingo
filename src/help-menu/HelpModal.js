@@ -1,6 +1,7 @@
 import { LitElement, html } from 'lit';
 import { HelpModalCss } from './css/HelpModal.css.js';
 import { soundManager } from '../SoundManager.js';
+import {hapticManager} from "../HapticsManager.js";
 
 class HelpModal extends LitElement {
     static styles = HelpModalCss;
@@ -34,6 +35,7 @@ class HelpModal extends LitElement {
 
     handleClose() {
         soundManager.play('click');
+        hapticManager.vibrate(2)
         this.dispatchEvent(new CustomEvent('close', {
             bubbles: true,
             composed: true
@@ -48,6 +50,7 @@ class HelpModal extends LitElement {
 
     nextPage() {
         soundManager.play('click');
+        hapticManager.vibrate(2)
         if (this.currentPage < this.pages.length - 1) {
             this.currentPage++;
         }
@@ -55,6 +58,7 @@ class HelpModal extends LitElement {
 
     prevPage() {
         soundManager.play('click');
+        hapticManager.vibrate(2)
         if (this.currentPage > 0) {
             this.currentPage--;
         }

@@ -2,6 +2,7 @@ import { LitElement, html } from 'lit';
 import { ResetButtonCss } from './css/ResetButton.css.js';
 import { TouchEffectsMixin } from '../TouchEffects.css.js';
 import { soundManager } from '../SoundManager.js';
+import { hapticManager} from "../HapticsManager.js";
 
 class ResetButton extends LitElement {
     static styles = [ResetButtonCss, TouchEffectsMixin];
@@ -17,6 +18,7 @@ class ResetButton extends LitElement {
 
     handleClick() {
         soundManager.play('click');
+        hapticManager.vibrate(2);
         this.dispatchEvent(new CustomEvent('reset-requested', {
             bubbles: true,
             composed: true

@@ -2,6 +2,7 @@ import { LitElement, html } from 'lit';
 import { SuccessModalCss } from './css/SuccessModal.css.js';
 import { TouchEffectsMixin } from '../TouchEffects.css.js';
 import { soundManager } from '../SoundManager.js';
+import {hapticManager} from "../HapticsManager.js";
 
 class SuccessModal extends LitElement {
     static styles = [SuccessModalCss, TouchEffectsMixin];
@@ -25,6 +26,7 @@ class SuccessModal extends LitElement {
 
     async handleCopyCode() {
         soundManager.play('click');
+        hapticManager.vibrate(2);
 
         try {
             // Modern clipboard API
@@ -96,11 +98,13 @@ class SuccessModal extends LitElement {
 
     handleCloseAttempt() {
         soundManager.play('click');
+        hapticManager.vibrate(2);
         this.showWarning = true;
     }
 
     handleConfirmClose() {
         soundManager.play('click');
+        hapticManager.vibrate(2);
         this.open = false;
         this.showWarning = false;
         this.copied = false;
@@ -109,6 +113,7 @@ class SuccessModal extends LitElement {
 
     handleCancelClose() {
         soundManager.play('click');
+        hapticManager.vibrate(2);
         this.showWarning = false;
     }
 

@@ -189,12 +189,12 @@ class BingoGrid extends LitElement {
         }
 
         if (this.marked.has(index)) {
-            hapticManager.vibrate(20);
+            hapticManager.vibrate(5);
             soundManager.play("uncheck");
             this.marked.delete(index);
         } else {
             soundManager.play("check");
-            hapticManager.vibrate(40);
+            hapticManager.vibrate(10);
             this.marked.add(index);
         }
         this.requestUpdate();

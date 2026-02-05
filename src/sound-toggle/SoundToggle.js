@@ -35,9 +35,9 @@ class SoundToggle extends LitElement {
 
     toggle() {
         this.enabled = soundManager.toggle();
+        hapticManager.vibrate(2);
 
         if (this.enabled) {
-            hapticManager.vibrate(2);
             soundManager.play('click');
         }
     }

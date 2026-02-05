@@ -3,6 +3,7 @@ import { LoadCardModalCss } from './css/LoadCardModal.css.js';
 import { TouchEffectsMixin } from '../TouchEffects.css.js';
 import { soundManager } from '../SoundManager.js';
 import { getCard } from '../utils/supabase.js';
+import {hapticManager} from "../HapticsManager.js";
 
 class LoadCardModal extends LitElement {
     static styles = [LoadCardModalCss, TouchEffectsMixin];
@@ -27,6 +28,7 @@ class LoadCardModal extends LitElement {
     handleBackdropClick(e) {
         if (e.target.classList.contains('modal-backdrop') && !this.isLoading) {
             soundManager.play('click');
+            hapticManager.vibrate(2);
             this.close();
         }
     }
@@ -34,6 +36,7 @@ class LoadCardModal extends LitElement {
     handleCloseButton() {
         if (this.isLoading) return;
         soundManager.play('click');
+        hapticManager.vibrate(2);
         this.close();
     }
 
@@ -55,6 +58,7 @@ class LoadCardModal extends LitElement {
 
     async handleLoad() {
         soundManager.play('click');
+        hapticManager.vibrate(2);
 
         if (this.code.length !== 6) {
             this.error = 'Code moet 6 cijfers zijn';

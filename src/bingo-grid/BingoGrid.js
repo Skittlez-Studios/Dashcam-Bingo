@@ -1,6 +1,7 @@
 import { LitElement, html } from 'lit';
 import { BingoGridCss } from "./css/BingoGrid.css.js";
 import { soundManager } from '../SoundManager.js';
+import { hapticManager} from "../HapticsManager.js";
 
 class BingoGrid extends LitElement {
     static styles = [BingoGridCss];
@@ -188,11 +189,13 @@ class BingoGrid extends LitElement {
         }
 
         if (this.marked.has(index)) {
-            this.marked.delete(index);
+            hapticManager.vibrate(20);
             soundManager.play("uncheck");
+            this.marked.delete(index);
         } else {
-            this.marked.add(index);
             soundManager.play("check");
+            hapticManager.vibrate(40);
+            this.marked.add(index);
         }
         this.requestUpdate();
         this.checkWin();

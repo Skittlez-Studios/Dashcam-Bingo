@@ -27,8 +27,14 @@ class BingoGrid extends LitElement {
         this.longPressIndex = null;
         this.longPressTimer = null;
         this.wasLongPress = false;
+        this.blockClick = false;
         this.customCard = null;
         this.bingoCount = 0;
+
+        this.startX = null;
+        this.startY = null;
+        this.moveThreshold = 10;
+        this.longPressDelay = 150;
     }
 
     async firstUpdated() {
@@ -139,43 +145,88 @@ class BingoGrid extends LitElement {
         return 'tooltip-center';
     }
 
+    getCoords(event) {
+        if (!event) return { clientX: null, clientY: null };
+        if (event.touches && event.touches[0]) {
+            return { clientX: event.touches[0].clientX, clientY: event.touches[0].clientY };
+        }
+        if (event.changedTouches && event.changedTouches[0]) {
+            return { clientX: event.changedTouches[0].clientX, clientY: event.changedTouches[0].clientY };
+        }
+        return { clientX: event.clientX ?? null, clientY: event.clientY ?? null };
+    }
+
     handlePressStart(index, event) {
         const isFree = this.items[index]?.title === "Gratis";
         if (isFree) return;
 
+        const coords = this.getCoords(event);
+        this.startX = coords.clientX;
+        this.startY = coords.clientY;
+
         this.wasLongPress = false;
+        this.blockClick = false;
+
+        if (this.longPressTimer) {
+            clearTimeout(this.longPressTimer);
+            this.longPressTimer = null;
+        }
 
         this.longPressTimer = setTimeout(() => {
             this.wasLongPress = true;
+            this.blockClick = true;
             this.longPressIndex = index;
             this.requestUpdate();
-        }, 150);
+        }, this.longPressDelay);
+    }
+
+    handlePressMove(index, event) {
+        if (!this.longPressTimer || this.startX == null || this.startY == null) return;
+
+        const coords = this.getCoords(event);
+        if (coords.clientX == null || coords.clientY == null) return;
+
+        const dx = Math.abs(coords.clientX - this.startX);
+        const dy = Math.abs(coords.clientY - this.startY);
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist > this.moveThreshold) {
+            clearTimeout(this.longPressTimer);
+            this.longPressTimer = null;
+
+            if (this.longPressIndex === index) {
+                this.longPressIndex = null;
+            }
+            this.wasLongPress = false;
+            this.blockClick = false;
+            this.requestUpdate();
+        }
     }
 
     handlePressEnd(index, event) {
         const isFree = this.items[index]?.title === "Gratis";
         if (isFree) return;
 
+        const coords = this.getCoords(event);
+
         if (this.longPressTimer) {
             clearTimeout(this.longPressTimer);
             this.longPressTimer = null;
         }
+
+        if (this.longPressIndex === index) {
+            this.longPressIndex = null;
+        }
+
+        this.startX = null;
+        this.startY = null;
 
         setTimeout(() => {
-            this.longPressIndex = null;
             this.wasLongPress = false;
+            this.blockClick = false;
             this.requestUpdate();
         }, 50);
-    }
 
-    handlePressMove() {
-        if (this.longPressTimer) {
-            clearTimeout(this.longPressTimer);
-            this.longPressTimer = null;
-        }
-
-        this.longPressIndex = null;
-        this.wasLongPress = false;
         this.requestUpdate();
     }
 
@@ -183,8 +234,14 @@ class BingoGrid extends LitElement {
         const isFree = this.items[index]?.title === "Gratis";
         if (isFree) return;
 
-        if (this.wasLongPress) {
-            event.preventDefault();
+        if (this.blockClick || this.wasLongPress) {
+            try {
+                event.preventDefault();
+                event.stopPropagation();
+            } catch (e) {
+            }
+            this.blockClick = false;
+            this.wasLongPress = false;
             return;
         }
 
@@ -232,8 +289,6 @@ class BingoGrid extends LitElement {
             this.hasWon = false;
         }
     }
-
-
 
     countCompletedLines() {
         let completedLines = 0;
@@ -306,10 +361,10 @@ class BingoGrid extends LitElement {
                                 @click=${(e) => this.toggleSquare(index, e)}
                                 @mousedown=${(e) => this.handlePressStart(index, e)}
                                 @mouseup=${(e) => this.handlePressEnd(index, e)}
-                                @mouseleave=${() => this.handlePressMove()}
+                                @mouseleave=${(e) => this.handlePressMove(index, e)}
                                 @touchstart=${(e) => this.handlePressStart(index, e)}
                                 @touchend=${(e) => this.handlePressEnd(index, e)}
-                                @touchmove=${() => this.handlePressMove()}
+                                @touchmove=${(e) => this.handlePressMove(index, e)}
                                 @contextmenu=${(e) => e.preventDefault()}
                                 ?disabled=${isFree}
                             >

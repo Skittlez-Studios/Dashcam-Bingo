@@ -90,11 +90,11 @@ class HelpModal extends LitElement {
                 return html`
                     <section>
                         <h3>Wat is Dashcam Bingo?</h3>
-                        <p>Het is de bedoeling dat Dashcam Bingo gespeeld wordt tijdens het kijken van Dashcam videos. Het doel is om zo snel mogelijk <strong>Bingo</strong> te krijgen.</p>
+                        <p>Het is de bedoeling dat Dashcam Bingo gespeeld wordt tijdens het kijken van dashcamvideo's. Het doel is om zo snel mogelijk <strong>bingo</strong> te krijgen.</p>
                         <br>
-                        <p>Bingo behaal je door goed op te letten tijdens een dashcam video. Je start met een bingo kaart vol met allemaal verkeersacties, als je tijdens het kijken een van die acties plaats ziet nemen vink je dat vakje af.</p>
+                        <p>Bingo behaal je door goed op te letten tijdens een dashcamvideo. Je start met een bingokaart vol met verschillende verkeersacties. Als je tijdens het kijken een van die acties ziet plaatsvinden, vink je dat vakje af.</p>
                         <br>
-                        <p>Voordat je begint kies je een moeilijkheidsgraad, als alle vakjes van je bijbehorende moeilijkheidsgraag hebt afgevinkt heb je <strong>Bingo</strong>.</p>
+                        <p>Voordat je begint, kies je een moeilijkheidsgraad. Als je alle vakjes van de bijbehorende moeilijkheidsgraad hebt afgevinkt, heb je <strong>bingo</strong>.</p>
                         <br>
                         <p>Dashcam Bingo speel je het beste samen.</p>
                     </section>

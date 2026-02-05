@@ -122,6 +122,7 @@ class HelpModal extends LitElement {
                                     <li><span class="badge green">I</span> Enkele Rij - 1 rij om bingo te halen</li>
                                     <li><span class="badge orange">II</span> Dubbele Rij - 2 rijen om bingo te halen</li>
                                     <li><span class="badge red">III</span> Volle Kaart - Alle vakjes om bingo te halen</li>
+                                    <li><span class="badge purple">V</span> Bingo Teller - Scoor zoveel mogelijk bingo's</li>
                                 </ul>
                             </li>
                             <li><strong>Start een dashcam video</strong> op een ander scherm</li>

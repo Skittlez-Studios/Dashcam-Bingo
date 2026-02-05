@@ -226,6 +226,11 @@ export const HelpModalCss = css`
         color: #ef4444;
     }
 
+    .badge.purple {
+        background: rgba(139, 92, 246, 0.2);
+        color: #8b5cf6;
+    }
+
     .warning {
         display: flex;
         gap: 0.75rem;

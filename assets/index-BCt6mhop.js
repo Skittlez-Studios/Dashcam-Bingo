@@ -838,8 +838,8 @@ import{createClient as pe}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
 `;class Oe extends b{static styles=[Ue,w];static properties={pressingButton:{type:String,state:!0},customCard:{type:Object}};constructor(){super(),this.pressingButton=null,this.customCard=null}selectDifficulty(e){p.play("click"),u.vibrate(2),this.dispatchEvent(new CustomEvent("difficulty-selected",{detail:{difficulty:e},bubbles:!0,composed:!0}))}handleRemoveCard(e){e.stopPropagation(),p.play("click"),u.vibrate(2),this.dispatchEvent(new CustomEvent("remove-custom-card",{bubbles:!0,composed:!0}))}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}render(){return d`
             <div class="backdrop">
                 <div class="modal" data-nosnippet>
-                    <h1>${this.customCard?"Welkom bij Dashcam Bing":"Kies je moeilijkheidsgraad"}</h1>
-                    <h2 class="subtitle">Kies je moeilijkheidsgraad en streep verkeersgekte af</h2>
+                    <h1>Welkom bij Dashcam Bingo</h1>
+                    <h2 class="subtitle">Kies je moeilijkheidsgraad om het spel te beginnen</h2>
                     ${this.customCard?d`
                     <div class="custom-card-banner">
                         <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

@@ -50,8 +50,8 @@ class DifficultySelector extends LitElement {
         return html`
             <div class="backdrop">
                 <div class="modal" data-nosnippet>
-                    <h1>${this.customCard ? 'Welkom bij Dashcam Bing' : 'Kies je moeilijkheidsgraad'}</h1>
-                    <h2 class="subtitle">Kies je moeilijkheidsgraad en streep verkeersgekte af</h2>
+                    <h1>Welkom bij Dashcam Bingo</h1>
+                    <h2 class="subtitle">Kies je moeilijkheidsgraad om het spel te beginnen</h2>
                     ${this.customCard ? html`
                     <div class="custom-card-banner">
                         <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

@@ -31,10 +31,12 @@ class BingoGrid extends LitElement {
         this.customCard = null;
         this.bingoCount = 0;
 
+        // instellingen voor long-press
         this.startX = null;
         this.startY = null;
         this.moveThreshold = 10;
-        this.longPressDelay = 150;
+        this.longPressDelay = 200;
+        this.activePointerId = null;
     }
 
     async firstUpdated() {
@@ -147,18 +149,24 @@ class BingoGrid extends LitElement {
 
     getCoords(event) {
         if (!event) return { clientX: null, clientY: null };
-        if (event.touches && event.touches[0]) {
-            return { clientX: event.touches[0].clientX, clientY: event.touches[0].clientY };
-        }
-        if (event.changedTouches && event.changedTouches[0]) {
-            return { clientX: event.changedTouches[0].clientX, clientY: event.changedTouches[0].clientY };
-        }
-        return { clientX: event.clientX ?? null, clientY: event.clientY ?? null };
+        if (event.clientX != null && event.clientY != null) return { clientX: event.clientX, clientY: event.clientY };
+        if (event.touches && event.touches[0]) return { clientX: event.touches[0].clientX, clientY: event.touches[0].clientY };
+        if (event.changedTouches && event.changedTouches[0]) return { clientX: event.changedTouches[0].clientX, clientY: event.changedTouches[0].clientY };
+        return { clientX: null, clientY: null };
     }
 
     handlePressStart(index, event) {
         const isFree = this.items[index]?.title === "Gratis";
         if (isFree) return;
+
+        if (event.pointerId != null) {
+            try {
+                event.target.setPointerCapture?.(event.pointerId);
+                this.activePointerId = event.pointerId;
+            } catch (e) {
+                this.activePointerId = null;
+            }
+        }
 
         const coords = this.getCoords(event);
         this.startX = coords.clientX;
@@ -176,11 +184,14 @@ class BingoGrid extends LitElement {
             this.wasLongPress = true;
             this.blockClick = true;
             this.longPressIndex = index;
+            try { hapticManager?.vibrate?.(20); } catch(e) {}
             this.requestUpdate();
         }, this.longPressDelay);
     }
 
     handlePressMove(index, event) {
+        if (event.pointerId != null && this.activePointerId != null && event.pointerId !== this.activePointerId) return;
+
         if (!this.longPressTimer || this.startX == null || this.startY == null) return;
 
         const coords = this.getCoords(event);
@@ -191,14 +202,23 @@ class BingoGrid extends LitElement {
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist > this.moveThreshold) {
-            clearTimeout(this.longPressTimer);
-            this.longPressTimer = null;
-
+            if (this.longPressTimer) {
+                clearTimeout(this.longPressTimer);
+                this.longPressTimer = null;
+            }
             if (this.longPressIndex === index) {
                 this.longPressIndex = null;
             }
             this.wasLongPress = false;
             this.blockClick = false;
+
+            try {
+                if (this.activePointerId != null) {
+                    event.target.releasePointerCapture?.(this.activePointerId);
+                }
+            } catch(e) {}
+            this.activePointerId = null;
+
             this.requestUpdate();
         }
     }
@@ -207,7 +227,12 @@ class BingoGrid extends LitElement {
         const isFree = this.items[index]?.title === "Gratis";
         if (isFree) return;
 
-        const coords = this.getCoords(event);
+        if (event.pointerId != null && this.activePointerId != null) {
+            try {
+                event.target.releasePointerCapture?.(this.activePointerId);
+            } catch (e) {}
+        }
+        this.activePointerId = null;
 
         if (this.longPressTimer) {
             clearTimeout(this.longPressTimer);
@@ -342,14 +367,14 @@ class BingoGrid extends LitElement {
         return html`
             <section>
                 ${this.items.map((item, index) => {
-            const isMarked = this.marked.has(index);
-            const isFree = item?.title === "Gratis";
-            const showTooltip = this.longPressIndex === index;
-            const title = typeof item === 'string' ? item : item.title;
-            const description = typeof item === 'string' ? '' : item.description;
-            const tooltipClass = this.getTooltipClass(index);
+                    const isMarked = this.marked.has(index);
+                    const isFree = item?.title === "Gratis";
+                    const showTooltip = this.longPressIndex === index;
+                    const title = typeof item === 'string' ? item : item.title;
+                    const description = typeof item === 'string' ? '' : item.description;
+                    const tooltipClass = this.getTooltipClass(index);
 
-            return html`
+                    return html`
                         <div class="tile-container">
                             ${showTooltip && description ? html`
                                 <div class="tooltip ${tooltipClass}">
@@ -357,16 +382,14 @@ class BingoGrid extends LitElement {
                                 </div>
                             ` : ''}
                             <button
-                                class="tile ${isFree ? 'free' : ''} ${isMarked ? 'marked' : ''} ${showTooltip ? 'long-pressing' : ''}"
-                                @click=${(e) => this.toggleSquare(index, e)}
-                                @mousedown=${(e) => this.handlePressStart(index, e)}
-                                @mouseup=${(e) => this.handlePressEnd(index, e)}
-                                @mouseleave=${(e) => this.handlePressMove(index, e)}
-                                @touchstart=${(e) => this.handlePressStart(index, e)}
-                                @touchend=${(e) => this.handlePressEnd(index, e)}
-                                @touchmove=${(e) => this.handlePressMove(index, e)}
-                                @contextmenu=${(e) => e.preventDefault()}
-                                ?disabled=${isFree}
+                                    class="tile ${isFree ? 'free' : ''} ${isMarked ? 'marked' : ''} ${showTooltip ? 'long-pressing' : ''}"
+                                    @click=${(e) => this.toggleSquare(index, e)}
+                                    @pointerdown=${(e) => this.handlePressStart(index, e)}
+                                    @pointermove=${(e) => this.handlePressMove(index, e)}
+                                    @pointerup=${(e) => this.handlePressEnd(index, e)}
+                                    @pointercancel=${(e) => this.handlePressEnd(index, e)}
+                                    @contextmenu=${(e) => e.preventDefault()}
+                                    ?disabled=${isFree}
                             >
                                 ${isMarked && !isFree ? html`
                                     <span class="checkmark">
@@ -379,7 +402,7 @@ class BingoGrid extends LitElement {
                             </button>
                         </div>
                     `;
-        })}
+                })}
             </section>
         `;
     }

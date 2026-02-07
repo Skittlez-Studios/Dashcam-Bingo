@@ -9,7 +9,7 @@ export default defineConfig({
     plugins: [
         VitePWA({
             registerType: 'autoUpdate',
-            includeAssets: ['icons/icon-192.png', 'icons/icon-512.png'],  // extra assets die je wil includen
+            includeAssets: ['icons/icon-192.png', 'icons/round-512-icon.png'],
             manifest: {
                 name: 'Dashcam Bingo',
                 short_name: 'Bingo',

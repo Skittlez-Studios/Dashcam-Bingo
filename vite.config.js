@@ -24,7 +24,7 @@ export default defineConfig({
                         type: 'image/png'
                     },
                     {
-                        src: 'icons/maskable-icon-512.png',
+                        src: 'icons/round-512-icon.png',
                         sizes: '512x512',
                         type: 'image/png',
                         purpose: 'maskable'

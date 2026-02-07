@@ -1,20 +1,28 @@
+import { Network } from '@capacitor/network';
+
 class OfflineDetector {
     constructor() {
-        this.isOnline = navigator.onLine;
+        this.isOnline = true;
+        this.init();
+    }
 
-        window.addEventListener('online', () => {
-            this.isOnline = true;
-            this.notifyListeners();
-        });
+    async init() {
+        // Check initiële status
+        const status = await Network.getStatus();
+        this.isOnline = status.connected;
+        console.log('Initial network status:', status);
 
-        window.addEventListener('offline', () => {
-            this.isOnline = false;
+        // Luister naar network changes
+        Network.addListener('networkStatusChange', (status) => {
+            console.log('Network status changed:', status);
+            this.isOnline = status.connected;
             this.notifyListeners();
         });
     }
 
-    check() {
-        return navigator.onLine;
+    async check() {
+        const status = await Network.getStatus();
+        return status.connected;
     }
 
     notifyListeners() {

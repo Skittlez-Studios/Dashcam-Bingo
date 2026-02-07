@@ -631,4 +631,41 @@ export const CreateCardModalCss = css`
         background: var(--muted);
         cursor: not-allowed;
     }
+
+    .btn-create:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background: var(--muted);
+    }
+
+    .offline-warning {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem 1rem;
+        gap: 1rem;
+    }
+
+    .offline-icon {
+        width: 64px;
+        height: 64px;
+        color: var(--error);
+        stroke-width: 1.5;
+    }
+
+    .offline-warning h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--foreground);
+    }
+
+    .offline-warning p {
+        margin: 0;
+        font-size: 1rem;
+        color: var(--muted-foreground);
+        line-height: 1.5;
+    }
 `;

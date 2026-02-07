@@ -4,6 +4,7 @@ import { TouchEffectsMixin } from '../TouchEffects.css.js';
 import { soundManager } from '../SoundManager.js';
 import { hapticManager } from '../HapticsManager.js';
 import { createCard } from '../utils/supabase.js';
+import { offlineDetector } from '../utils/OfflineDetector.js';
 
 class CreateCardModal extends LitElement {
     static styles = [CreateCardModalCss, TouchEffectsMixin];
@@ -16,7 +17,8 @@ class CreateCardModal extends LitElement {
         showErrorPopup: { type: Boolean, state: true },
         errorMessage: { type: String, state: true },
         hasFreeTile: { type: Boolean, state: true },
-        isSubmitting: { type: Boolean, state: true }
+        isSubmitting: { type: Boolean, state: true },
+        isOffline: { type: Boolean, state: true }
     };
 
     constructor() {
@@ -29,6 +31,8 @@ class CreateCardModal extends LitElement {
         this.errorMessage = '';
         this.hasFreeTile = true;
         this.isSubmitting = false;
+        this.isOffline = !offlineDetector.check();
+        this.handleConnectionChange = this.handleConnectionChange.bind(this);
     }
 
     initializeTiles() {
@@ -38,6 +42,11 @@ class CreateCardModal extends LitElement {
             disabled: false
         }));
     }
+
+    handleConnectionChange(e) {
+        this.isOffline = !e.detail.isOnline;
+    }
+
 
     handleFreeTileToggle(index, e) {
         soundManager.play('click');
@@ -219,11 +228,13 @@ class CreateCardModal extends LitElement {
     connectedCallback() {
         super.connectedCallback();
         this.addEventListener('keydown', this.handleKeydown);
+        window.addEventListener('connection-change', this.handleConnectionChange);
     }
 
     disconnectedCallback() {
         super.disconnectedCallback();
         this.removeEventListener('keydown', this.handleKeydown);
+        window.removeEventListener('connection-change', this.handleConnectionChange);
     }
 
     getErrorMessage(index, field) {
@@ -278,6 +289,20 @@ class CreateCardModal extends LitElement {
                     </div>
 
                     <div class="modal-body">
+                        ${this.isOffline ? html`
+                            <div class="offline-warning">
+                                <svg class="offline-icon" role="img" aria-label="Geen internetverbinding" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M2.88 8.15a13.94 13.94 0 0 1 18.24 0"></path>
+                                    <path d="M6.46 11.73a9.96 9.96 0 0 1 11.08 0"></path>
+                                    <path d="M10.04 15.31a5.98 5.98 0 0 1 3.92 0"></path>
+                                    <circle cx="12" cy="18.5" r="0.8" fill="currentColor" stroke="none"></circle>
+                                    <line x1="3" y1="3" x2="21" y2="21"></line>
+                                </svg>
+
+                                <h3>Geen internetverbinding</h3>
+                                <p>Je hebt een internetverbinding nodig om een kaart aan te maken.</p>
+                            </div>
+                        ` : html`
                         <div class="tiles-list">
                             ${this.tiles.map((tile, index) => {
             const isMiddle = index === 12;
@@ -341,6 +366,7 @@ class CreateCardModal extends LitElement {
                                 `;
         })}
                         </div>
+                        `}
                     </div>
 
                     <div class="modal-footer">
@@ -359,7 +385,7 @@ class CreateCardModal extends LitElement {
                             @touchstart=${() => this.handleTouchStart('create')}
                             @touchend=${this.handleTouchEnd}
                             @touchcancel=${this.handleTouchEnd}
-                            ?disabled=${this.isSubmitting}>
+                            ?disabled=${this.isSubmitting || this.isOffline}>
                             ${this.isSubmitting ? html`
                                 <span class="btn-spinner"></span>
                                 Maken...

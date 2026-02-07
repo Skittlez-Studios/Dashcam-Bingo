@@ -5,7 +5,7 @@
     <!-- Homepage / Main App -->
     <url>
         <loc>https://dashcam-bingo.nl/</loc>
-        <lastmod>2026-02-02</lastmod>
+        <lastmod>2026-07-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="nl" href="https://dashcam-bingo.nl/"/>
@@ -15,7 +15,7 @@
     <!-- Privacy Policy -->
     <url>
         <loc>https://dashcam-bingo.nl/privacy.html</loc>
-        <lastmod>2026-01-30</lastmod>
+        <lastmod>2026-02-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
         <xhtml:link rel="alternate" hreflang="nl" href="https://dashcam-bingo.nl/privacy.html"/>

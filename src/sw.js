@@ -1,5 +1,5 @@
 const BASE = '/Dashcam-Bingo/';
-const CACHE = 'dashcam-bingo-v2';
+const CACHE = 'dashcam-bingo-v3';
 const ASSETS = [
     BASE,
     BASE + 'index.html',

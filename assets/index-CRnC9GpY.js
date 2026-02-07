@@ -1,6 +1,6 @@
-import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const i of document.querySelectorAll('link[rel="modulepreload"]'))r(i);new MutationObserver(i=>{for(const o of i)if(o.type==="childList")for(const s of o.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&r(s)}).observe(document,{childList:!0,subtree:!0});function t(i){const o={};return i.integrity&&(o.integrity=i.integrity),i.referrerPolicy&&(o.referrerPolicy=i.referrerPolicy),i.crossOrigin==="use-credentials"?o.credentials="include":i.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function r(i){if(i.ep)return;i.ep=!0;const o=t(i);fetch(i.href,o)}})();const L=globalThis,O=L.ShadowRoot&&(L.ShadyCSS===void 0||L.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,N=Symbol(),G=new WeakMap;let se=class{constructor(e,t,r){if(this._$cssResult$=!0,r!==N)throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=e,this.t=t}get styleSheet(){let e=this.o;const t=this.t;if(O&&e===void 0){const r=t!==void 0&&t.length===1;r&&(e=G.get(t)),e===void 0&&((this.o=e=new CSSStyleSheet).replaceSync(this.cssText),r&&G.set(t,e))}return e}toString(){return this.cssText}};const pe=n=>new se(typeof n=="string"?n:n+"",void 0,N),v=(n,...e)=>{const t=n.length===1?n[0]:e.reduce((r,i,o)=>r+(s=>{if(s._$cssResult$===!0)return s.cssText;if(typeof s=="number")return s;throw Error("Value passed to 'css' function must be a 'css' function result: "+s+". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.")})(i)+n[o+1],n[0]);return new se(t,n,N)},me=(n,e)=>{if(O)n.adoptedStyleSheets=e.map(t=>t instanceof CSSStyleSheet?t:t.styleSheet);else for(const t of e){const r=document.createElement("style"),i=L.litNonce;i!==void 0&&r.setAttribute("nonce",i),r.textContent=t.cssText,n.appendChild(r)}},V=O?n=>n:n=>n instanceof CSSStyleSheet?(e=>{let t="";for(const r of e.cssRules)t+=r.cssText;return pe(t)})(n):n;const{is:ge,defineProperty:fe,getOwnPropertyDescriptor:be,getOwnPropertyNames:ve,getOwnPropertySymbols:xe,getPrototypeOf:we}=Object,I=globalThis,F=I.trustedTypes,ye=F?F.emptyScript:"",ke=I.reactiveElementPolyfillSupport,_=(n,e)=>n,U={toAttribute(n,e){switch(e){case Boolean:n=n?ye:null;break;case Object:case Array:n=n==null?n:JSON.stringify(n)}return n},fromAttribute(n,e){let t=n;switch(e){case Boolean:t=n!==null;break;case Number:t=n===null?null:Number(n);break;case Object:case Array:try{t=JSON.parse(n)}catch{t=null}}return t}},ae=(n,e)=>!ge(n,e),J={attribute:!0,type:String,converter:U,reflect:!1,useDefault:!1,hasChanged:ae};Symbol.metadata??=Symbol("metadata"),I.litPropertyMetadata??=new WeakMap;let S=class extends HTMLElement{static addInitializer(e){this._$Ei(),(this.l??=[]).push(e)}static get observedAttributes(){return this.finalize(),this._$Eh&&[...this._$Eh.keys()]}static createProperty(e,t=J){if(t.state&&(t.attribute=!1),this._$Ei(),this.prototype.hasOwnProperty(e)&&((t=Object.create(t)).wrapped=!0),this.elementProperties.set(e,t),!t.noAccessor){const r=Symbol(),i=this.getPropertyDescriptor(e,r,t);i!==void 0&&fe(this.prototype,e,i)}}static getPropertyDescriptor(e,t,r){const{get:i,set:o}=be(this.prototype,e)??{get(){return this[t]},set(s){this[t]=s}};return{get:i,set(s){const c=i?.call(this);o?.call(this,s),this.requestUpdate(e,c,r)},configurable:!0,enumerable:!0}}static getPropertyOptions(e){return this.elementProperties.get(e)??J}static _$Ei(){if(this.hasOwnProperty(_("elementProperties")))return;const e=we(this);e.finalize(),e.l!==void 0&&(this.l=[...e.l]),this.elementProperties=new Map(e.elementProperties)}static finalize(){if(this.hasOwnProperty(_("finalized")))return;if(this.finalized=!0,this._$Ei(),this.hasOwnProperty(_("properties"))){const t=this.properties,r=[...ve(t),...xe(t)];for(const i of r)this.createProperty(i,t[i])}const e=this[Symbol.metadata];if(e!==null){const t=litPropertyMetadata.get(e);if(t!==void 0)for(const[r,i]of t)this.elementProperties.set(r,i)}this._$Eh=new Map;for(const[t,r]of this.elementProperties){const i=this._$Eu(t,r);i!==void 0&&this._$Eh.set(i,t)}this.elementStyles=this.finalizeStyles(this.styles)}static finalizeStyles(e){const t=[];if(Array.isArray(e)){const r=new Set(e.flat(1/0).reverse());for(const i of r)t.unshift(V(i))}else e!==void 0&&t.push(V(e));return t}static _$Eu(e,t){const r=t.attribute;return r===!1?void 0:typeof r=="string"?r:typeof e=="string"?e.toLowerCase():void 0}constructor(){super(),this._$Ep=void 0,this.isUpdatePending=!1,this.hasUpdated=!1,this._$Em=null,this._$Ev()}_$Ev(){this._$ES=new Promise(e=>this.enableUpdating=e),this._$AL=new Map,this._$E_(),this.requestUpdate(),this.constructor.l?.forEach(e=>e(this))}addController(e){(this._$EO??=new Set).add(e),this.renderRoot!==void 0&&this.isConnected&&e.hostConnected?.()}removeController(e){this._$EO?.delete(e)}_$E_(){const e=new Map,t=this.constructor.elementProperties;for(const r of t.keys())this.hasOwnProperty(r)&&(e.set(r,this[r]),delete this[r]);e.size>0&&(this._$Ep=e)}createRenderRoot(){const e=this.shadowRoot??this.attachShadow(this.constructor.shadowRootOptions);return me(e,this.constructor.elementStyles),e}connectedCallback(){this.renderRoot??=this.createRenderRoot(),this.enableUpdating(!0),this._$EO?.forEach(e=>e.hostConnected?.())}enableUpdating(e){}disconnectedCallback(){this._$EO?.forEach(e=>e.hostDisconnected?.())}attributeChangedCallback(e,t,r){this._$AK(e,r)}_$ET(e,t){const r=this.constructor.elementProperties.get(e),i=this.constructor._$Eu(e,r);if(i!==void 0&&r.reflect===!0){const o=(r.converter?.toAttribute!==void 0?r.converter:U).toAttribute(t,r.type);this._$Em=e,o==null?this.removeAttribute(i):this.setAttribute(i,o),this._$Em=null}}_$AK(e,t){const r=this.constructor,i=r._$Eh.get(e);if(i!==void 0&&this._$Em!==i){const o=r.getPropertyOptions(i),s=typeof o.converter=="function"?{fromAttribute:o.converter}:o.converter?.fromAttribute!==void 0?o.converter:U;this._$Em=i;const c=s.fromAttribute(t,o.type);this[i]=c??this._$Ej?.get(i)??c,this._$Em=null}}requestUpdate(e,t,r,i=!1,o){if(e!==void 0){const s=this.constructor;if(i===!1&&(o=this[e]),r??=s.getPropertyOptions(e),!((r.hasChanged??ae)(o,t)||r.useDefault&&r.reflect&&o===this._$Ej?.get(e)&&!this.hasAttribute(s._$Eu(e,r))))return;this.C(e,t,r)}this.isUpdatePending===!1&&(this._$ES=this._$EP())}C(e,t,{useDefault:r,reflect:i,wrapped:o},s){r&&!(this._$Ej??=new Map).has(e)&&(this._$Ej.set(e,s??t??this[e]),o!==!0||s!==void 0)||(this._$AL.has(e)||(this.hasUpdated||r||(t=void 0),this._$AL.set(e,t)),i===!0&&this._$Em!==e&&(this._$Eq??=new Set).add(e))}async _$EP(){this.isUpdatePending=!0;try{await this._$ES}catch(t){Promise.reject(t)}const e=this.scheduleUpdate();return e!=null&&await e,!this.isUpdatePending}scheduleUpdate(){return this.performUpdate()}performUpdate(){if(!this.isUpdatePending)return;if(!this.hasUpdated){if(this.renderRoot??=this.createRenderRoot(),this._$Ep){for(const[i,o]of this._$Ep)this[i]=o;this._$Ep=void 0}const r=this.constructor.elementProperties;if(r.size>0)for(const[i,o]of r){const{wrapped:s}=o,c=this[i];s!==!0||this._$AL.has(i)||c===void 0||this.C(i,void 0,o,c)}}let e=!1;const t=this._$AL;try{e=this.shouldUpdate(t),e?(this.willUpdate(t),this._$EO?.forEach(r=>r.hostUpdate?.()),this.update(t)):this._$EM()}catch(r){throw e=!1,this._$EM(),r}e&&this._$AE(t)}willUpdate(e){}_$AE(e){this._$EO?.forEach(t=>t.hostUpdated?.()),this.hasUpdated||(this.hasUpdated=!0,this.firstUpdated(e)),this.updated(e)}_$EM(){this._$AL=new Map,this.isUpdatePending=!1}get updateComplete(){return this.getUpdateComplete()}getUpdateComplete(){return this._$ES}shouldUpdate(e){return!0}update(e){this._$Eq&&=this._$Eq.forEach(t=>this._$ET(t,this[t])),this._$EM()}updated(e){}firstUpdated(e){}};S.elementStyles=[],S.shadowRootOptions={mode:"open"},S[_("elementProperties")]=new Map,S[_("finalized")]=new Map,ke?.({ReactiveElement:S}),(I.reactiveElementVersions??=[]).push("2.1.2");const W=globalThis,Z=n=>n,H=W.trustedTypes,Q=H?H.createPolicy("lit-html",{createHTML:n=>n}):void 0,le="$lit$",y=`lit$${Math.random().toFixed(9).slice(2)}$`,de="?"+y,$e=`<${de}>`,C=document,B=()=>C.createComment(""),j=n=>n===null||typeof n!="object"&&typeof n!="function",Y=Array.isArray,Ce=n=>Y(n)||typeof n?.[Symbol.iterator]=="function",R=`[ 	
-\f\r]`,A=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,ee=/-->/g,te=/>/g,k=RegExp(`>|${R}(?:([^\\s"'>=/]+)(${R}*=${R}*(?:[^ 	
-\f\r"'\`<>=]|("|')|))|$)`,"g"),re=/'/g,ie=/"/g,ce=/^(?:script|style|textarea|title)$/i,Ee=n=>(e,...t)=>({_$litType$:n,strings:e,values:t}),l=Ee(1),T=Symbol.for("lit-noChange"),f=Symbol.for("lit-nothing"),oe=new WeakMap,$=C.createTreeWalker(C,129);function he(n,e){if(!Y(n)||!n.hasOwnProperty("raw"))throw Error("invalid template strings array");return Q!==void 0?Q.createHTML(e):e}const Se=(n,e)=>{const t=n.length-1,r=[];let i,o=e===2?"<svg>":e===3?"<math>":"",s=A;for(let c=0;c<t;c++){const h=n[c];let d,m,a=-1,g=0;for(;g<h.length&&(s.lastIndex=g,m=s.exec(h),m!==null);)g=s.lastIndex,s===A?m[1]==="!--"?s=ee:m[1]!==void 0?s=te:m[2]!==void 0?(ce.test(m[2])&&(i=RegExp("</"+m[2],"g")),s=k):m[3]!==void 0&&(s=k):s===k?m[0]===">"?(s=i??A,a=-1):m[1]===void 0?a=-2:(a=s.lastIndex-m[2].length,d=m[1],s=m[3]===void 0?k:m[3]==='"'?ie:re):s===ie||s===re?s=k:s===ee||s===te?s=A:(s=k,i=void 0);const x=s===k&&n[c+1].startsWith("/>")?" ":"";o+=s===A?h+$e:a>=0?(r.push(d),h.slice(0,a)+le+h.slice(a)+y+x):h+y+(a===-2?c:x)}return[he(n,o+(n[t]||"<?>")+(e===2?"</svg>":e===3?"</math>":"")),r]};class P{constructor({strings:e,_$litType$:t},r){let i;this.parts=[];let o=0,s=0;const c=e.length-1,h=this.parts,[d,m]=Se(e,t);if(this.el=P.createElement(d,r),$.currentNode=this.el.content,t===2||t===3){const a=this.el.content.firstChild;a.replaceWith(...a.childNodes)}for(;(i=$.nextNode())!==null&&h.length<c;){if(i.nodeType===1){if(i.hasAttributes())for(const a of i.getAttributeNames())if(a.endsWith(le)){const g=m[s++],x=i.getAttribute(a).split(y),E=/([.?@])?(.*)/.exec(g);h.push({type:1,index:o,name:E[2],strings:x,ctor:E[1]==="."?ze:E[1]==="?"?Ae:E[1]==="@"?_e:D}),i.removeAttribute(a)}else a.startsWith(y)&&(h.push({type:6,index:o}),i.removeAttribute(a));if(ce.test(i.tagName)){const a=i.textContent.split(y),g=a.length-1;if(g>0){i.textContent=H?H.emptyScript:"";for(let x=0;x<g;x++)i.append(a[x],B()),$.nextNode(),h.push({type:2,index:++o});i.append(a[g],B())}}}else if(i.nodeType===8)if(i.data===de)h.push({type:2,index:o});else{let a=-1;for(;(a=i.data.indexOf(y,a+1))!==-1;)h.push({type:7,index:o}),a+=y.length-1}o++}}static createElement(e,t){const r=C.createElement("template");return r.innerHTML=e,r}}function z(n,e,t=n,r){if(e===T)return e;let i=r!==void 0?t._$Co?.[r]:t._$Cl;const o=j(e)?void 0:e._$litDirective$;return i?.constructor!==o&&(i?._$AO?.(!1),o===void 0?i=void 0:(i=new o(n),i._$AT(n,t,r)),r!==void 0?(t._$Co??=[])[r]=i:t._$Cl=i),i!==void 0&&(e=z(n,i._$AS(n,e.values),i,r)),e}class Te{constructor(e,t){this._$AV=[],this._$AN=void 0,this._$AD=e,this._$AM=t}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(e){const{el:{content:t},parts:r}=this._$AD,i=(e?.creationScope??C).importNode(t,!0);$.currentNode=i;let o=$.nextNode(),s=0,c=0,h=r[0];for(;h!==void 0;){if(s===h.index){let d;h.type===2?d=new M(o,o.nextSibling,this,e):h.type===1?d=new h.ctor(o,h.name,h.strings,this,e):h.type===6&&(d=new Be(o,this,e)),this._$AV.push(d),h=r[++c]}s!==h?.index&&(o=$.nextNode(),s++)}return $.currentNode=C,i}p(e){let t=0;for(const r of this._$AV)r!==void 0&&(r.strings!==void 0?(r._$AI(e,r,t),t+=r.strings.length-2):r._$AI(e[t])),t++}}class M{get _$AU(){return this._$AM?._$AU??this._$Cv}constructor(e,t,r,i){this.type=2,this._$AH=f,this._$AN=void 0,this._$AA=e,this._$AB=t,this._$AM=r,this.options=i,this._$Cv=i?.isConnected??!0}get parentNode(){let e=this._$AA.parentNode;const t=this._$AM;return t!==void 0&&e?.nodeType===11&&(e=t.parentNode),e}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(e,t=this){e=z(this,e,t),j(e)?e===f||e==null||e===""?(this._$AH!==f&&this._$AR(),this._$AH=f):e!==this._$AH&&e!==T&&this._(e):e._$litType$!==void 0?this.$(e):e.nodeType!==void 0?this.T(e):Ce(e)?this.k(e):this._(e)}O(e){return this._$AA.parentNode.insertBefore(e,this._$AB)}T(e){this._$AH!==e&&(this._$AR(),this._$AH=this.O(e))}_(e){this._$AH!==f&&j(this._$AH)?this._$AA.nextSibling.data=e:this.T(C.createTextNode(e)),this._$AH=e}$(e){const{values:t,_$litType$:r}=e,i=typeof r=="number"?this._$AC(e):(r.el===void 0&&(r.el=P.createElement(he(r.h,r.h[0]),this.options)),r);if(this._$AH?._$AD===i)this._$AH.p(t);else{const o=new Te(i,this),s=o.u(this.options);o.p(t),this.T(s),this._$AH=o}}_$AC(e){let t=oe.get(e.strings);return t===void 0&&oe.set(e.strings,t=new P(e)),t}k(e){Y(this._$AH)||(this._$AH=[],this._$AR());const t=this._$AH;let r,i=0;for(const o of e)i===t.length?t.push(r=new M(this.O(B()),this.O(B()),this,this.options)):r=t[i],r._$AI(o),i++;i<t.length&&(this._$AR(r&&r._$AB.nextSibling,i),t.length=i)}_$AR(e=this._$AA.nextSibling,t){for(this._$AP?.(!1,!0,t);e!==this._$AB;){const r=Z(e).nextSibling;Z(e).remove(),e=r}}setConnected(e){this._$AM===void 0&&(this._$Cv=e,this._$AP?.(e))}}class D{get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}constructor(e,t,r,i,o){this.type=1,this._$AH=f,this._$AN=void 0,this.element=e,this.name=t,this._$AM=i,this.options=o,r.length>2||r[0]!==""||r[1]!==""?(this._$AH=Array(r.length-1).fill(new String),this.strings=r):this._$AH=f}_$AI(e,t=this,r,i){const o=this.strings;let s=!1;if(o===void 0)e=z(this,e,t,0),s=!j(e)||e!==this._$AH&&e!==T,s&&(this._$AH=e);else{const c=e;let h,d;for(e=o[0],h=0;h<o.length-1;h++)d=z(this,c[r+h],t,h),d===T&&(d=this._$AH[h]),s||=!j(d)||d!==this._$AH[h],d===f?e=f:e!==f&&(e+=(d??"")+o[h+1]),this._$AH[h]=d}s&&!i&&this.j(e)}j(e){e===f?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,e??"")}}class ze extends D{constructor(){super(...arguments),this.type=3}j(e){this.element[this.name]=e===f?void 0:e}}class Ae extends D{constructor(){super(...arguments),this.type=4}j(e){this.element.toggleAttribute(this.name,!!e&&e!==f)}}class _e extends D{constructor(e,t,r,i,o){super(e,t,r,i,o),this.type=5}_$AI(e,t=this){if((e=z(this,e,t,0)??f)===T)return;const r=this._$AH,i=e===f&&r!==f||e.capture!==r.capture||e.once!==r.once||e.passive!==r.passive,o=e!==f&&(r===f||i);i&&this.element.removeEventListener(this.name,this,r),o&&this.element.addEventListener(this.name,this,e),this._$AH=e}handleEvent(e){typeof this._$AH=="function"?this._$AH.call(this.options?.host??this.element,e):this._$AH.handleEvent(e)}}class Be{constructor(e,t,r){this.element=e,this.type=6,this._$AN=void 0,this._$AM=t,this.options=r}get _$AU(){return this._$AM._$AU}_$AI(e){z(this,e)}}const je=W.litHtmlPolyfillSupport;je?.(P,M),(W.litHtmlVersions??=[]).push("3.3.2");const Pe=(n,e,t)=>{const r=t?.renderBefore??e;let i=r._$litPart$;if(i===void 0){const o=t?.renderBefore??null;r._$litPart$=i=new M(e.insertBefore(B(),o),o,void 0,t??{})}return i._$AI(n),i};const X=globalThis;class b extends S{constructor(){super(...arguments),this.renderOptions={host:this},this._$Do=void 0}createRenderRoot(){const e=super.createRenderRoot();return this.renderOptions.renderBefore??=e.firstChild,e}update(e){const t=this.render();this.hasUpdated||(this.renderOptions.isConnected=this.isConnected),super.update(e),this._$Do=Pe(t,this.renderRoot,this.renderOptions)}connectedCallback(){super.connectedCallback(),this._$Do?.setConnected(!0)}disconnectedCallback(){super.disconnectedCallback(),this._$Do?.setConnected(!1)}render(){return T}}b._$litElement$=!0,b.finalized=!0,X.litElementHydrateSupport?.({LitElement:b});const Me=X.litElementPolyfillSupport;Me?.({LitElement:b});(X.litElementVersions??=[]).push("4.2.2");const Le=v`
+import{createClient as pe}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const i of document.querySelectorAll('link[rel="modulepreload"]'))r(i);new MutationObserver(i=>{for(const o of i)if(o.type==="childList")for(const s of o.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&r(s)}).observe(document,{childList:!0,subtree:!0});function t(i){const o={};return i.integrity&&(o.integrity=i.integrity),i.referrerPolicy&&(o.referrerPolicy=i.referrerPolicy),i.crossOrigin==="use-credentials"?o.credentials="include":i.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function r(i){if(i.ep)return;i.ep=!0;const o=t(i);fetch(i.href,o)}})();const L=globalThis,U=L.ShadowRoot&&(L.ShadyCSS===void 0||L.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,N=Symbol(),q=new WeakMap;let se=class{constructor(e,t,r){if(this._$cssResult$=!0,r!==N)throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=e,this.t=t}get styleSheet(){let e=this.o;const t=this.t;if(U&&e===void 0){const r=t!==void 0&&t.length===1;r&&(e=q.get(t)),e===void 0&&((this.o=e=new CSSStyleSheet).replaceSync(this.cssText),r&&q.set(t,e))}return e}toString(){return this.cssText}};const me=n=>new se(typeof n=="string"?n:n+"",void 0,N),v=(n,...e)=>{const t=n.length===1?n[0]:e.reduce((r,i,o)=>r+(s=>{if(s._$cssResult$===!0)return s.cssText;if(typeof s=="number")return s;throw Error("Value passed to 'css' function must be a 'css' function result: "+s+". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.")})(i)+n[o+1],n[0]);return new se(t,n,N)},ge=(n,e)=>{if(U)n.adoptedStyleSheets=e.map(t=>t instanceof CSSStyleSheet?t:t.styleSheet);else for(const t of e){const r=document.createElement("style"),i=L.litNonce;i!==void 0&&r.setAttribute("nonce",i),r.textContent=t.cssText,n.appendChild(r)}},V=U?n=>n:n=>n instanceof CSSStyleSheet?(e=>{let t="";for(const r of e.cssRules)t+=r.cssText;return me(t)})(n):n;const{is:fe,defineProperty:be,getOwnPropertyDescriptor:ve,getOwnPropertyNames:xe,getOwnPropertySymbols:we,getPrototypeOf:ye}=Object,H=globalThis,F=H.trustedTypes,ke=F?F.emptyScript:"",$e=H.reactiveElementPolyfillSupport,_=(n,e)=>n,R={toAttribute(n,e){switch(e){case Boolean:n=n?ke:null;break;case Object:case Array:n=n==null?n:JSON.stringify(n)}return n},fromAttribute(n,e){let t=n;switch(e){case Boolean:t=n!==null;break;case Number:t=n===null?null:Number(n);break;case Object:case Array:try{t=JSON.parse(n)}catch{t=null}}return t}},ae=(n,e)=>!fe(n,e),J={attribute:!0,type:String,converter:R,reflect:!1,useDefault:!1,hasChanged:ae};Symbol.metadata??=Symbol("metadata"),H.litPropertyMetadata??=new WeakMap;let S=class extends HTMLElement{static addInitializer(e){this._$Ei(),(this.l??=[]).push(e)}static get observedAttributes(){return this.finalize(),this._$Eh&&[...this._$Eh.keys()]}static createProperty(e,t=J){if(t.state&&(t.attribute=!1),this._$Ei(),this.prototype.hasOwnProperty(e)&&((t=Object.create(t)).wrapped=!0),this.elementProperties.set(e,t),!t.noAccessor){const r=Symbol(),i=this.getPropertyDescriptor(e,r,t);i!==void 0&&be(this.prototype,e,i)}}static getPropertyDescriptor(e,t,r){const{get:i,set:o}=ve(this.prototype,e)??{get(){return this[t]},set(s){this[t]=s}};return{get:i,set(s){const c=i?.call(this);o?.call(this,s),this.requestUpdate(e,c,r)},configurable:!0,enumerable:!0}}static getPropertyOptions(e){return this.elementProperties.get(e)??J}static _$Ei(){if(this.hasOwnProperty(_("elementProperties")))return;const e=ye(this);e.finalize(),e.l!==void 0&&(this.l=[...e.l]),this.elementProperties=new Map(e.elementProperties)}static finalize(){if(this.hasOwnProperty(_("finalized")))return;if(this.finalized=!0,this._$Ei(),this.hasOwnProperty(_("properties"))){const t=this.properties,r=[...xe(t),...we(t)];for(const i of r)this.createProperty(i,t[i])}const e=this[Symbol.metadata];if(e!==null){const t=litPropertyMetadata.get(e);if(t!==void 0)for(const[r,i]of t)this.elementProperties.set(r,i)}this._$Eh=new Map;for(const[t,r]of this.elementProperties){const i=this._$Eu(t,r);i!==void 0&&this._$Eh.set(i,t)}this.elementStyles=this.finalizeStyles(this.styles)}static finalizeStyles(e){const t=[];if(Array.isArray(e)){const r=new Set(e.flat(1/0).reverse());for(const i of r)t.unshift(V(i))}else e!==void 0&&t.push(V(e));return t}static _$Eu(e,t){const r=t.attribute;return r===!1?void 0:typeof r=="string"?r:typeof e=="string"?e.toLowerCase():void 0}constructor(){super(),this._$Ep=void 0,this.isUpdatePending=!1,this.hasUpdated=!1,this._$Em=null,this._$Ev()}_$Ev(){this._$ES=new Promise(e=>this.enableUpdating=e),this._$AL=new Map,this._$E_(),this.requestUpdate(),this.constructor.l?.forEach(e=>e(this))}addController(e){(this._$EO??=new Set).add(e),this.renderRoot!==void 0&&this.isConnected&&e.hostConnected?.()}removeController(e){this._$EO?.delete(e)}_$E_(){const e=new Map,t=this.constructor.elementProperties;for(const r of t.keys())this.hasOwnProperty(r)&&(e.set(r,this[r]),delete this[r]);e.size>0&&(this._$Ep=e)}createRenderRoot(){const e=this.shadowRoot??this.attachShadow(this.constructor.shadowRootOptions);return ge(e,this.constructor.elementStyles),e}connectedCallback(){this.renderRoot??=this.createRenderRoot(),this.enableUpdating(!0),this._$EO?.forEach(e=>e.hostConnected?.())}enableUpdating(e){}disconnectedCallback(){this._$EO?.forEach(e=>e.hostDisconnected?.())}attributeChangedCallback(e,t,r){this._$AK(e,r)}_$ET(e,t){const r=this.constructor.elementProperties.get(e),i=this.constructor._$Eu(e,r);if(i!==void 0&&r.reflect===!0){const o=(r.converter?.toAttribute!==void 0?r.converter:R).toAttribute(t,r.type);this._$Em=e,o==null?this.removeAttribute(i):this.setAttribute(i,o),this._$Em=null}}_$AK(e,t){const r=this.constructor,i=r._$Eh.get(e);if(i!==void 0&&this._$Em!==i){const o=r.getPropertyOptions(i),s=typeof o.converter=="function"?{fromAttribute:o.converter}:o.converter?.fromAttribute!==void 0?o.converter:R;this._$Em=i;const c=s.fromAttribute(t,o.type);this[i]=c??this._$Ej?.get(i)??c,this._$Em=null}}requestUpdate(e,t,r,i=!1,o){if(e!==void 0){const s=this.constructor;if(i===!1&&(o=this[e]),r??=s.getPropertyOptions(e),!((r.hasChanged??ae)(o,t)||r.useDefault&&r.reflect&&o===this._$Ej?.get(e)&&!this.hasAttribute(s._$Eu(e,r))))return;this.C(e,t,r)}this.isUpdatePending===!1&&(this._$ES=this._$EP())}C(e,t,{useDefault:r,reflect:i,wrapped:o},s){r&&!(this._$Ej??=new Map).has(e)&&(this._$Ej.set(e,s??t??this[e]),o!==!0||s!==void 0)||(this._$AL.has(e)||(this.hasUpdated||r||(t=void 0),this._$AL.set(e,t)),i===!0&&this._$Em!==e&&(this._$Eq??=new Set).add(e))}async _$EP(){this.isUpdatePending=!0;try{await this._$ES}catch(t){Promise.reject(t)}const e=this.scheduleUpdate();return e!=null&&await e,!this.isUpdatePending}scheduleUpdate(){return this.performUpdate()}performUpdate(){if(!this.isUpdatePending)return;if(!this.hasUpdated){if(this.renderRoot??=this.createRenderRoot(),this._$Ep){for(const[i,o]of this._$Ep)this[i]=o;this._$Ep=void 0}const r=this.constructor.elementProperties;if(r.size>0)for(const[i,o]of r){const{wrapped:s}=o,c=this[i];s!==!0||this._$AL.has(i)||c===void 0||this.C(i,void 0,o,c)}}let e=!1;const t=this._$AL;try{e=this.shouldUpdate(t),e?(this.willUpdate(t),this._$EO?.forEach(r=>r.hostUpdate?.()),this.update(t)):this._$EM()}catch(r){throw e=!1,this._$EM(),r}e&&this._$AE(t)}willUpdate(e){}_$AE(e){this._$EO?.forEach(t=>t.hostUpdated?.()),this.hasUpdated||(this.hasUpdated=!0,this.firstUpdated(e)),this.updated(e)}_$EM(){this._$AL=new Map,this.isUpdatePending=!1}get updateComplete(){return this.getUpdateComplete()}getUpdateComplete(){return this._$ES}shouldUpdate(e){return!0}update(e){this._$Eq&&=this._$Eq.forEach(t=>this._$ET(t,this[t])),this._$EM()}updated(e){}firstUpdated(e){}};S.elementStyles=[],S.shadowRootOptions={mode:"open"},S[_("elementProperties")]=new Map,S[_("finalized")]=new Map,$e?.({ReactiveElement:S}),(H.reactiveElementVersions??=[]).push("2.1.2");const W=globalThis,Z=n=>n,O=W.trustedTypes,Q=O?O.createPolicy("lit-html",{createHTML:n=>n}):void 0,le="$lit$",y=`lit$${Math.random().toFixed(9).slice(2)}$`,de="?"+y,Ce=`<${de}>`,C=document,B=()=>C.createComment(""),j=n=>n===null||typeof n!="object"&&typeof n!="function",Y=Array.isArray,Ee=n=>Y(n)||typeof n?.[Symbol.iterator]=="function",D=`[ 	
+\f\r]`,A=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,ee=/-->/g,te=/>/g,k=RegExp(`>|${D}(?:([^\\s"'>=/]+)(${D}*=${D}*(?:[^ 	
+\f\r"'\`<>=]|("|')|))|$)`,"g"),re=/'/g,ie=/"/g,ce=/^(?:script|style|textarea|title)$/i,Se=n=>(e,...t)=>({_$litType$:n,strings:e,values:t}),a=Se(1),z=Symbol.for("lit-noChange"),f=Symbol.for("lit-nothing"),oe=new WeakMap,$=C.createTreeWalker(C,129);function he(n,e){if(!Y(n)||!n.hasOwnProperty("raw"))throw Error("invalid template strings array");return Q!==void 0?Q.createHTML(e):e}const ze=(n,e)=>{const t=n.length-1,r=[];let i,o=e===2?"<svg>":e===3?"<math>":"",s=A;for(let c=0;c<t;c++){const h=n[c];let d,m,l=-1,g=0;for(;g<h.length&&(s.lastIndex=g,m=s.exec(h),m!==null);)g=s.lastIndex,s===A?m[1]==="!--"?s=ee:m[1]!==void 0?s=te:m[2]!==void 0?(ce.test(m[2])&&(i=RegExp("</"+m[2],"g")),s=k):m[3]!==void 0&&(s=k):s===k?m[0]===">"?(s=i??A,l=-1):m[1]===void 0?l=-2:(l=s.lastIndex-m[2].length,d=m[1],s=m[3]===void 0?k:m[3]==='"'?ie:re):s===ie||s===re?s=k:s===ee||s===te?s=A:(s=k,i=void 0);const x=s===k&&n[c+1].startsWith("/>")?" ":"";o+=s===A?h+Ce:l>=0?(r.push(d),h.slice(0,l)+le+h.slice(l)+y+x):h+y+(l===-2?c:x)}return[he(n,o+(n[t]||"<?>")+(e===2?"</svg>":e===3?"</math>":"")),r]};class P{constructor({strings:e,_$litType$:t},r){let i;this.parts=[];let o=0,s=0;const c=e.length-1,h=this.parts,[d,m]=ze(e,t);if(this.el=P.createElement(d,r),$.currentNode=this.el.content,t===2||t===3){const l=this.el.content.firstChild;l.replaceWith(...l.childNodes)}for(;(i=$.nextNode())!==null&&h.length<c;){if(i.nodeType===1){if(i.hasAttributes())for(const l of i.getAttributeNames())if(l.endsWith(le)){const g=m[s++],x=i.getAttribute(l).split(y),E=/([.?@])?(.*)/.exec(g);h.push({type:1,index:o,name:E[2],strings:x,ctor:E[1]==="."?Ae:E[1]==="?"?_e:E[1]==="@"?Be:I}),i.removeAttribute(l)}else l.startsWith(y)&&(h.push({type:6,index:o}),i.removeAttribute(l));if(ce.test(i.tagName)){const l=i.textContent.split(y),g=l.length-1;if(g>0){i.textContent=O?O.emptyScript:"";for(let x=0;x<g;x++)i.append(l[x],B()),$.nextNode(),h.push({type:2,index:++o});i.append(l[g],B())}}}else if(i.nodeType===8)if(i.data===de)h.push({type:2,index:o});else{let l=-1;for(;(l=i.data.indexOf(y,l+1))!==-1;)h.push({type:7,index:o}),l+=y.length-1}o++}}static createElement(e,t){const r=C.createElement("template");return r.innerHTML=e,r}}function T(n,e,t=n,r){if(e===z)return e;let i=r!==void 0?t._$Co?.[r]:t._$Cl;const o=j(e)?void 0:e._$litDirective$;return i?.constructor!==o&&(i?._$AO?.(!1),o===void 0?i=void 0:(i=new o(n),i._$AT(n,t,r)),r!==void 0?(t._$Co??=[])[r]=i:t._$Cl=i),i!==void 0&&(e=T(n,i._$AS(n,e.values),i,r)),e}class Te{constructor(e,t){this._$AV=[],this._$AN=void 0,this._$AD=e,this._$AM=t}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(e){const{el:{content:t},parts:r}=this._$AD,i=(e?.creationScope??C).importNode(t,!0);$.currentNode=i;let o=$.nextNode(),s=0,c=0,h=r[0];for(;h!==void 0;){if(s===h.index){let d;h.type===2?d=new M(o,o.nextSibling,this,e):h.type===1?d=new h.ctor(o,h.name,h.strings,this,e):h.type===6&&(d=new je(o,this,e)),this._$AV.push(d),h=r[++c]}s!==h?.index&&(o=$.nextNode(),s++)}return $.currentNode=C,i}p(e){let t=0;for(const r of this._$AV)r!==void 0&&(r.strings!==void 0?(r._$AI(e,r,t),t+=r.strings.length-2):r._$AI(e[t])),t++}}class M{get _$AU(){return this._$AM?._$AU??this._$Cv}constructor(e,t,r,i){this.type=2,this._$AH=f,this._$AN=void 0,this._$AA=e,this._$AB=t,this._$AM=r,this.options=i,this._$Cv=i?.isConnected??!0}get parentNode(){let e=this._$AA.parentNode;const t=this._$AM;return t!==void 0&&e?.nodeType===11&&(e=t.parentNode),e}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(e,t=this){e=T(this,e,t),j(e)?e===f||e==null||e===""?(this._$AH!==f&&this._$AR(),this._$AH=f):e!==this._$AH&&e!==z&&this._(e):e._$litType$!==void 0?this.$(e):e.nodeType!==void 0?this.T(e):Ee(e)?this.k(e):this._(e)}O(e){return this._$AA.parentNode.insertBefore(e,this._$AB)}T(e){this._$AH!==e&&(this._$AR(),this._$AH=this.O(e))}_(e){this._$AH!==f&&j(this._$AH)?this._$AA.nextSibling.data=e:this.T(C.createTextNode(e)),this._$AH=e}$(e){const{values:t,_$litType$:r}=e,i=typeof r=="number"?this._$AC(e):(r.el===void 0&&(r.el=P.createElement(he(r.h,r.h[0]),this.options)),r);if(this._$AH?._$AD===i)this._$AH.p(t);else{const o=new Te(i,this),s=o.u(this.options);o.p(t),this.T(s),this._$AH=o}}_$AC(e){let t=oe.get(e.strings);return t===void 0&&oe.set(e.strings,t=new P(e)),t}k(e){Y(this._$AH)||(this._$AH=[],this._$AR());const t=this._$AH;let r,i=0;for(const o of e)i===t.length?t.push(r=new M(this.O(B()),this.O(B()),this,this.options)):r=t[i],r._$AI(o),i++;i<t.length&&(this._$AR(r&&r._$AB.nextSibling,i),t.length=i)}_$AR(e=this._$AA.nextSibling,t){for(this._$AP?.(!1,!0,t);e!==this._$AB;){const r=Z(e).nextSibling;Z(e).remove(),e=r}}setConnected(e){this._$AM===void 0&&(this._$Cv=e,this._$AP?.(e))}}class I{get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}constructor(e,t,r,i,o){this.type=1,this._$AH=f,this._$AN=void 0,this.element=e,this.name=t,this._$AM=i,this.options=o,r.length>2||r[0]!==""||r[1]!==""?(this._$AH=Array(r.length-1).fill(new String),this.strings=r):this._$AH=f}_$AI(e,t=this,r,i){const o=this.strings;let s=!1;if(o===void 0)e=T(this,e,t,0),s=!j(e)||e!==this._$AH&&e!==z,s&&(this._$AH=e);else{const c=e;let h,d;for(e=o[0],h=0;h<o.length-1;h++)d=T(this,c[r+h],t,h),d===z&&(d=this._$AH[h]),s||=!j(d)||d!==this._$AH[h],d===f?e=f:e!==f&&(e+=(d??"")+o[h+1]),this._$AH[h]=d}s&&!i&&this.j(e)}j(e){e===f?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,e??"")}}class Ae extends I{constructor(){super(...arguments),this.type=3}j(e){this.element[this.name]=e===f?void 0:e}}class _e extends I{constructor(){super(...arguments),this.type=4}j(e){this.element.toggleAttribute(this.name,!!e&&e!==f)}}class Be extends I{constructor(e,t,r,i,o){super(e,t,r,i,o),this.type=5}_$AI(e,t=this){if((e=T(this,e,t,0)??f)===z)return;const r=this._$AH,i=e===f&&r!==f||e.capture!==r.capture||e.once!==r.once||e.passive!==r.passive,o=e!==f&&(r===f||i);i&&this.element.removeEventListener(this.name,this,r),o&&this.element.addEventListener(this.name,this,e),this._$AH=e}handleEvent(e){typeof this._$AH=="function"?this._$AH.call(this.options?.host??this.element,e):this._$AH.handleEvent(e)}}class je{constructor(e,t,r){this.element=e,this.type=6,this._$AN=void 0,this._$AM=t,this.options=r}get _$AU(){return this._$AM._$AU}_$AI(e){T(this,e)}}const Pe=W.litHtmlPolyfillSupport;Pe?.(P,M),(W.litHtmlVersions??=[]).push("3.3.2");const Me=(n,e,t)=>{const r=t?.renderBefore??e;let i=r._$litPart$;if(i===void 0){const o=t?.renderBefore??null;r._$litPart$=i=new M(e.insertBefore(B(),o),o,void 0,t??{})}return i._$AI(n),i};const G=globalThis;class b extends S{constructor(){super(...arguments),this.renderOptions={host:this},this._$Do=void 0}createRenderRoot(){const e=super.createRenderRoot();return this.renderOptions.renderBefore??=e.firstChild,e}update(e){const t=this.render();this.hasUpdated||(this.renderOptions.isConnected=this.isConnected),super.update(e),this._$Do=Me(t,this.renderRoot,this.renderOptions)}connectedCallback(){super.connectedCallback(),this._$Do?.setConnected(!0)}disconnectedCallback(){super.disconnectedCallback(),this._$Do?.setConnected(!1)}render(){return z}}b._$litElement$=!0,b.finalized=!0,G.litElementHydrateSupport?.({LitElement:b});const Le=G.litElementPolyfillSupport;Le?.({LitElement:b});(G.litElementVersions??=[]).push("4.2.2");const Oe=v`
     :host {
         --background: #0f172a;
         --card: #1e293b;
@@ -357,11 +357,11 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
             border-width: 0.375rem;
         }
     }
-`;class He{constructor(){this.enabled=this.loadEnabledState(),this.volume=.7,this.audioContext=null,this.masterGain=null,this.buffers={},this.htmlAudio={},this.soundConfig={click:["/sounds/click.wav"],tick:["/sounds/tick.wav"],win:["/sounds/win.wav"],check:["/sounds/check.mp3"],uncheck:["/sounds/uncheck.mp3"],pling:["/sounds/pling.wav"]},this.unlockHandler=this.unlockOnFirstGesture.bind(this),window.addEventListener("pointerdown",this.unlockHandler,{once:!0,passive:!0}),this.setupAudio()}loadEnabledState(){try{const e=localStorage.getItem("soundEnabled");return e===null?!0:e==="true"}catch{return!0}}saveEnabledState(){try{localStorage.setItem("soundEnabled",this.enabled.toString())}catch{}}setupAudio(){const e=window.AudioContext||window.webkitAudioContext;if(!e){this.preloadHtmlAudio();return}this.audioContext=new e,this.masterGain=this.audioContext.createGain(),this.masterGain.gain.value=this.volume,this.masterGain.connect(this.audioContext.destination);for(const t in this.soundConfig)this.loadBuffer(t);document.addEventListener("visibilitychange",()=>{document.visibilityState==="visible"&&this.resumeAudioContext()})}async unlockOnFirstGesture(){if(this.audioContext)try{this.audioContext.state==="suspended"&&await this.audioContext.resume();const e=this.audioContext.createBuffer(1,1,this.audioContext.sampleRate),t=this.audioContext.createBufferSource();t.buffer=e,t.connect(this.audioContext.destination),t.start()}catch{}}async resumeAudioContext(){try{this.audioContext&&this.audioContext.state==="suspended"&&await this.audioContext.resume()}catch{}}async loadBuffer(e){const t=this.soundConfig[e];for(const r of t)try{const o=await(await fetch(r)).arrayBuffer(),s=await this.audioContext.decodeAudioData(o);this.buffers[e]=s;return}catch{}this.preloadHtmlAudioSingle(e)}preloadHtmlAudio(){for(const e in this.soundConfig)this.preloadHtmlAudioSingle(e)}preloadHtmlAudioSingle(e){const t=this.soundConfig[e][0],r=new Audio(t);r.preload="auto",r.volume=this.volume,this.htmlAudio[e]=r}play(e){if(this.enabled){if(this.resumeAudioContext(),this.buffers[e]){this.playWebAudio(e);return}this.htmlAudio[e]&&this.playHtmlAudio(e)}}playWebAudio(e){try{const t=this.audioContext.createBufferSource();t.buffer=this.buffers[e];const r=this.audioContext.createGain();r.gain.value=this.volume,t.connect(r),r.connect(this.masterGain),t.start()}catch{}}playHtmlAudio(e){try{const t=this.htmlAudio[e].cloneNode(!0);t.volume=this.volume,t.play().catch(()=>{})}catch{}}toggle(){return this.enabled=!this.enabled,this.saveEnabledState(),window.dispatchEvent(new CustomEvent("sound-toggled",{detail:{enabled:this.enabled}})),this.enabled}setVolume(e){this.volume=Math.max(0,Math.min(1,e)),this.masterGain&&(this.masterGain.gain.value=this.volume)}isEnabled(){return this.enabled}}const u=new He;class Ie{constructor(){this.enabled=!0}vibrate(e){this.enabled&&navigator.vibrate&&navigator.vibrate(e)}pattern(e){this.enabled&&navigator.vibrate&&navigator.vibrate(e)}toggle(){this.enabled=!this.enabled}}const p=new Ie;class De extends b{static styles=[Le];static properties={items:{type:Array},marked:{type:Set},difficulty:{type:String},hasWon:{type:Boolean},longPressIndex:{type:Number},longPressTimer:{type:Number,state:!0},wasLongPress:{type:Boolean,state:!0},customCard:{type:Object},bingoCount:{type:Number,state:!0}};constructor(){super(),this.items=[],this.marked=new Set([12]),this.difficulty="single",this.hasWon=!1,this.longPressIndex=null,this.longPressTimer=null,this.wasLongPress=!1,this.blockClick=!1,this.customCard=null,this.bingoCount=0,this.startX=null,this.startY=null,this.moveThreshold=10,this.longPressDelay=200,this.activePointerId=null}async firstUpdated(){this.customCard||await this.loadItems()}updated(e){e.has("customCard")&&(this.customCard?this.loadCustomCard():e.get("customCard")!==void 0&&this.loadItems())}loadCustomCard(){const e=this.customCard.items;if(e.length===24){const t=[...e];t.splice(12,0,{title:"Gratis",description:"Gratis vakje!"}),this.items=t,this.marked=new Set([12])}else if(e.length===25)this.items=e,this.marked=new Set;else{console.error("Invalid card: must have 24 or 25 items");return}this.hasWon=!1,this.requestUpdate()}async loadItems(){try{const t=await(await fetch(new URL("/assets/temp-3tmcDoLV.json",import.meta.url))).json(),r=this.getRandomItems(t.easy,10),i=this.getRandomItems(t.medium,10),o=this.getRandomItems(t.hard,4),s=[...r,...i,...o],c=this.shuffleArray(s);c.splice(12,0,{title:"Gratis",description:"Gratis vakje!"}),this.items=c,this.marked=new Set([12])}catch(e){console.error("Failed to load bingo items:",e)}}getRandomItems(e,t){return!e||e.length===0?(console.warn("Array is empty or undefined"),[]):e.length<=t?[...e]:this.shuffleArray([...e]).slice(0,t)}shuffleArray(e){const t=[...e];for(let r=t.length-1;r>0;r--){const i=Math.floor(Math.random()*(r+1));[t[r],t[i]]=[t[i],t[r]]}return t}reset(){this.customCard=null,this.bingoCount=0,this.items.length===25&&this.items[12]?.title==="Gratis"?this.marked=new Set([12]):this.marked=new Set,this.hasWon=!1,this.loadItems(),this.requestUpdate()}getTooltipClass(e){const t=e%5;return t===0?"tooltip-left":t===1?"tooltip-left-center":t===3?"tooltip-right-center":t===4?"tooltip-right":"tooltip-center"}getCoords(e){return e?e.clientX!=null&&e.clientY!=null?{clientX:e.clientX,clientY:e.clientY}:e.touches&&e.touches[0]?{clientX:e.touches[0].clientX,clientY:e.touches[0].clientY}:e.changedTouches&&e.changedTouches[0]?{clientX:e.changedTouches[0].clientX,clientY:e.changedTouches[0].clientY}:{clientX:null,clientY:null}:{clientX:null,clientY:null}}handlePressStart(e,t){if(this.items[e]?.title==="Gratis")return;if(t.pointerId!=null)try{t.target.setPointerCapture?.(t.pointerId),this.activePointerId=t.pointerId}catch{this.activePointerId=null}const i=this.getCoords(t);this.startX=i.clientX,this.startY=i.clientY,this.wasLongPress=!1,this.blockClick=!1,this.longPressTimer&&(clearTimeout(this.longPressTimer),this.longPressTimer=null),this.longPressTimer=setTimeout(()=>{this.wasLongPress=!0,this.blockClick=!0,this.longPressIndex=e;try{p?.vibrate?.(20)}catch{}this.requestUpdate()},this.longPressDelay)}handlePressMove(e,t){if(t.pointerId!=null&&this.activePointerId!=null&&t.pointerId!==this.activePointerId||!this.longPressTimer||this.startX==null||this.startY==null)return;const r=this.getCoords(t);if(r.clientX==null||r.clientY==null)return;const i=Math.abs(r.clientX-this.startX),o=Math.abs(r.clientY-this.startY);if(Math.sqrt(i*i+o*o)>this.moveThreshold){this.longPressTimer&&(clearTimeout(this.longPressTimer),this.longPressTimer=null),this.longPressIndex===e&&(this.longPressIndex=null),this.wasLongPress=!1,this.blockClick=!1;try{this.activePointerId!=null&&t.target.releasePointerCapture?.(this.activePointerId)}catch{}this.activePointerId=null,this.requestUpdate()}}handlePressEnd(e,t){if(this.items[e]?.title!=="Gratis"){if(t.pointerId!=null&&this.activePointerId!=null)try{t.target.releasePointerCapture?.(this.activePointerId)}catch{}this.activePointerId=null,this.longPressTimer&&(clearTimeout(this.longPressTimer),this.longPressTimer=null),this.longPressIndex===e&&(this.longPressIndex=null),this.startX=null,this.startY=null,setTimeout(()=>{this.wasLongPress=!1,this.blockClick=!1,this.requestUpdate()},50),this.requestUpdate()}}toggleSquare(e,t){if(this.items[e]?.title!=="Gratis"){if(this.blockClick||this.wasLongPress){try{t.preventDefault(),t.stopPropagation()}catch{}this.blockClick=!1,this.wasLongPress=!1;return}this.marked.has(e)?(p.vibrate(5),u.play("uncheck"),this.marked.delete(e)):(u.play("check"),p.vibrate(10),this.marked.add(e)),this.requestUpdate(),this.checkWin()}}checkWin(){if(this.difficulty==="marathon"){const t=this.countCompletedLines();t!==this.bingoCount&&(t>this.bingoCount&&u.play("pling"),this.bingoCount=t,this.dispatchEvent(new CustomEvent("bingo-count-update",{detail:{count:this.bingoCount},bubbles:!0,composed:!0})),this.requestUpdate());return}const e=this.hasValidBingo();e&&!this.hasWon&&(this.hasWon=!0,u.play("win"),this.announceWin()),!e&&this.hasWon&&(this.hasWon=!1)}countCompletedLines(){let e=0;for(let i=0;i<5;i++)[i*5,i*5+1,i*5+2,i*5+3,i*5+4].every(s=>this.marked.has(s))&&e++;for(let i=0;i<5;i++)[i,i+5,i+10,i+15,i+20].every(s=>this.marked.has(s))&&e++;const t=[0,6,12,18,24],r=[4,8,12,16,20];return t.every(i=>this.marked.has(i))&&e++,r.every(i=>this.marked.has(i))&&e++,e}hasValidBingo(){const e=this.countCompletedLines();switch(this.difficulty){case"single":return e>=1;case"double":return e>=2;case"full":return this.marked.size===25;case"marathon":return!1;default:return!1}}announceWin(){this.dispatchEvent(new CustomEvent("win",{bubbles:!0,composed:!0}))}render(){return l`
+`;class He{constructor(){this.enabled=this.loadEnabledState(),this.volume=.7,this.audioContext=null,this.masterGain=null,this.buffers={},this.htmlAudio={},this.soundConfig={click:["/sounds/click.wav"],tick:["/sounds/tick.wav"],win:["/sounds/win.wav"],check:["/sounds/check.mp3"],uncheck:["/sounds/uncheck.mp3"],pling:["/sounds/pling.wav"]},this.unlockHandler=this.unlockOnFirstGesture.bind(this),window.addEventListener("pointerdown",this.unlockHandler,{once:!0,passive:!0}),this.setupAudio()}loadEnabledState(){try{const e=localStorage.getItem("soundEnabled");return e===null?!0:e==="true"}catch{return!0}}saveEnabledState(){try{localStorage.setItem("soundEnabled",this.enabled.toString())}catch{}}setupAudio(){const e=window.AudioContext||window.webkitAudioContext;if(!e){this.preloadHtmlAudio();return}this.audioContext=new e,this.masterGain=this.audioContext.createGain(),this.masterGain.gain.value=this.volume,this.masterGain.connect(this.audioContext.destination);for(const t in this.soundConfig)this.loadBuffer(t);document.addEventListener("visibilitychange",()=>{document.visibilityState==="visible"&&this.resumeAudioContext()})}async unlockOnFirstGesture(){if(this.audioContext)try{this.audioContext.state==="suspended"&&await this.audioContext.resume();const e=this.audioContext.createBuffer(1,1,this.audioContext.sampleRate),t=this.audioContext.createBufferSource();t.buffer=e,t.connect(this.audioContext.destination),t.start()}catch{}}async resumeAudioContext(){try{this.audioContext&&this.audioContext.state==="suspended"&&await this.audioContext.resume()}catch{}}async loadBuffer(e){const t=this.soundConfig[e];for(const r of t)try{const o=await(await fetch(r)).arrayBuffer(),s=await this.audioContext.decodeAudioData(o);this.buffers[e]=s;return}catch{}this.preloadHtmlAudioSingle(e)}preloadHtmlAudio(){for(const e in this.soundConfig)this.preloadHtmlAudioSingle(e)}preloadHtmlAudioSingle(e){const t=this.soundConfig[e][0],r=new Audio(t);r.preload="auto",r.volume=this.volume,this.htmlAudio[e]=r}play(e){if(this.enabled){if(this.resumeAudioContext(),this.buffers[e]){this.playWebAudio(e);return}this.htmlAudio[e]&&this.playHtmlAudio(e)}}playWebAudio(e){try{const t=this.audioContext.createBufferSource();t.buffer=this.buffers[e];const r=this.audioContext.createGain();r.gain.value=this.volume,t.connect(r),r.connect(this.masterGain),t.start()}catch{}}playHtmlAudio(e){try{const t=this.htmlAudio[e].cloneNode(!0);t.volume=this.volume,t.play().catch(()=>{})}catch{}}toggle(){return this.enabled=!this.enabled,this.saveEnabledState(),window.dispatchEvent(new CustomEvent("sound-toggled",{detail:{enabled:this.enabled}})),this.enabled}setVolume(e){this.volume=Math.max(0,Math.min(1,e)),this.masterGain&&(this.masterGain.gain.value=this.volume)}isEnabled(){return this.enabled}}const u=new He;class Ie{constructor(){this.enabled=!0}vibrate(e){this.enabled&&navigator.vibrate&&navigator.vibrate(e)}pattern(e){this.enabled&&navigator.vibrate&&navigator.vibrate(e)}toggle(){this.enabled=!this.enabled}}const p=new Ie;class De extends b{static styles=[Oe];static properties={items:{type:Array},marked:{type:Set},difficulty:{type:String},hasWon:{type:Boolean},longPressIndex:{type:Number},longPressTimer:{type:Number,state:!0},wasLongPress:{type:Boolean,state:!0},customCard:{type:Object},bingoCount:{type:Number,state:!0}};constructor(){super(),this.items=[],this.marked=new Set([12]),this.difficulty="single",this.hasWon=!1,this.longPressIndex=null,this.longPressTimer=null,this.wasLongPress=!1,this.blockClick=!1,this.customCard=null,this.bingoCount=0,this.startX=null,this.startY=null,this.moveThreshold=10,this.longPressDelay=200,this.activePointerId=null}async firstUpdated(){this.customCard||await this.loadItems()}updated(e){e.has("customCard")&&(this.customCard?this.loadCustomCard():e.get("customCard")!==void 0&&this.loadItems())}loadCustomCard(){const e=this.customCard.items;if(e.length===24){const t=[...e];t.splice(12,0,{title:"Gratis",description:"Gratis vakje!"}),this.items=t,this.marked=new Set([12])}else if(e.length===25)this.items=e,this.marked=new Set;else{console.error("Invalid card: must have 24 or 25 items");return}this.hasWon=!1,this.requestUpdate()}async loadItems(){try{const t=await(await fetch(new URL("/assets/temp-3tmcDoLV.json",import.meta.url))).json(),r=this.getRandomItems(t.easy,10),i=this.getRandomItems(t.medium,10),o=this.getRandomItems(t.hard,4),s=[...r,...i,...o],c=this.shuffleArray(s);c.splice(12,0,{title:"Gratis",description:"Gratis vakje!"}),this.items=c,this.marked=new Set([12])}catch(e){console.error("Failed to load bingo items:",e)}}getRandomItems(e,t){return!e||e.length===0?(console.warn("Array is empty or undefined"),[]):e.length<=t?[...e]:this.shuffleArray([...e]).slice(0,t)}shuffleArray(e){const t=[...e];for(let r=t.length-1;r>0;r--){const i=Math.floor(Math.random()*(r+1));[t[r],t[i]]=[t[i],t[r]]}return t}reset(){this.customCard=null,this.bingoCount=0,this.items.length===25&&this.items[12]?.title==="Gratis"?this.marked=new Set([12]):this.marked=new Set,this.hasWon=!1,this.loadItems(),this.requestUpdate()}getTooltipClass(e){const t=e%5;return t===0?"tooltip-left":t===1?"tooltip-left-center":t===3?"tooltip-right-center":t===4?"tooltip-right":"tooltip-center"}getCoords(e){return e?e.clientX!=null&&e.clientY!=null?{clientX:e.clientX,clientY:e.clientY}:e.touches&&e.touches[0]?{clientX:e.touches[0].clientX,clientY:e.touches[0].clientY}:e.changedTouches&&e.changedTouches[0]?{clientX:e.changedTouches[0].clientX,clientY:e.changedTouches[0].clientY}:{clientX:null,clientY:null}:{clientX:null,clientY:null}}handlePressStart(e,t){if(this.items[e]?.title==="Gratis")return;if(t.pointerId!=null)try{t.target.setPointerCapture?.(t.pointerId),this.activePointerId=t.pointerId}catch{this.activePointerId=null}const i=this.getCoords(t);this.startX=i.clientX,this.startY=i.clientY,this.wasLongPress=!1,this.blockClick=!1,this.longPressTimer&&(clearTimeout(this.longPressTimer),this.longPressTimer=null),this.longPressTimer=setTimeout(()=>{this.wasLongPress=!0,this.blockClick=!0,this.longPressIndex=e;try{p?.vibrate?.(20)}catch{}this.requestUpdate()},this.longPressDelay)}handlePressMove(e,t){if(t.pointerId!=null&&this.activePointerId!=null&&t.pointerId!==this.activePointerId||!this.longPressTimer||this.startX==null||this.startY==null)return;const r=this.getCoords(t);if(r.clientX==null||r.clientY==null)return;const i=Math.abs(r.clientX-this.startX),o=Math.abs(r.clientY-this.startY);if(Math.sqrt(i*i+o*o)>this.moveThreshold){this.longPressTimer&&(clearTimeout(this.longPressTimer),this.longPressTimer=null),this.longPressIndex===e&&(this.longPressIndex=null),this.wasLongPress=!1,this.blockClick=!1;try{this.activePointerId!=null&&t.target.releasePointerCapture?.(this.activePointerId)}catch{}this.activePointerId=null,this.requestUpdate()}}handlePressEnd(e,t){if(this.items[e]?.title!=="Gratis"){if(t.pointerId!=null&&this.activePointerId!=null)try{t.target.releasePointerCapture?.(this.activePointerId)}catch{}this.activePointerId=null,this.longPressTimer&&(clearTimeout(this.longPressTimer),this.longPressTimer=null),this.longPressIndex===e&&(this.longPressIndex=null),this.startX=null,this.startY=null,setTimeout(()=>{this.wasLongPress=!1,this.blockClick=!1,this.requestUpdate()},50),this.requestUpdate()}}toggleSquare(e,t){if(this.items[e]?.title!=="Gratis"){if(this.blockClick||this.wasLongPress){try{t.preventDefault(),t.stopPropagation()}catch{}this.blockClick=!1,this.wasLongPress=!1;return}this.marked.has(e)?(p.vibrate(5),u.play("uncheck"),this.marked.delete(e)):(u.play("check"),p.vibrate(10),this.marked.add(e)),this.requestUpdate(),this.checkWin()}}checkWin(){if(this.difficulty==="marathon"){const t=this.countCompletedLines();t!==this.bingoCount&&(t>this.bingoCount&&u.play("pling"),this.bingoCount=t,this.dispatchEvent(new CustomEvent("bingo-count-update",{detail:{count:this.bingoCount},bubbles:!0,composed:!0})),this.requestUpdate());return}const e=this.hasValidBingo();e&&!this.hasWon&&(this.hasWon=!0,u.play("win"),this.announceWin()),!e&&this.hasWon&&(this.hasWon=!1)}countCompletedLines(){let e=0;for(let i=0;i<5;i++)[i*5,i*5+1,i*5+2,i*5+3,i*5+4].every(s=>this.marked.has(s))&&e++;for(let i=0;i<5;i++)[i,i+5,i+10,i+15,i+20].every(s=>this.marked.has(s))&&e++;const t=[0,6,12,18,24],r=[4,8,12,16,20];return t.every(i=>this.marked.has(i))&&e++,r.every(i=>this.marked.has(i))&&e++,e}hasValidBingo(){const e=this.countCompletedLines();switch(this.difficulty){case"single":return e>=1;case"double":return e>=2;case"full":return this.marked.size===25;case"marathon":return!1;default:return!1}}announceWin(){this.dispatchEvent(new CustomEvent("win",{bubbles:!0,composed:!0}))}render(){return a`
             <section>
-                ${this.items.map((e,t)=>{const r=this.marked.has(t),i=e?.title==="Gratis",o=this.longPressIndex===t,s=typeof e=="string"?e:e.title,c=typeof e=="string"?"":e.description,h=this.getTooltipClass(t);return l`
+                ${this.items.map((e,t)=>{const r=this.marked.has(t),i=e?.title==="Gratis",o=this.longPressIndex===t,s=typeof e=="string"?e:e.title,c=typeof e=="string"?"":e.description,h=this.getTooltipClass(t);return a`
                         <div class="tile-container">
-                            ${o&&c?l`
+                            ${o&&c?a`
                                 <div class="tooltip ${h}">
                                     ${c}
                                 </div>
@@ -376,7 +376,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                                     @contextmenu=${d=>d.preventDefault()}
                                     ?disabled=${i}
                             >
-                                ${r&&!i?l`
+                                ${r&&!i?a`
                                     <span class="checkmark">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
@@ -833,12 +833,12 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
         opacity: 0.9;
         transform: scale(0.98);
     }
-`;class Ue extends b{static styles=[Re,w];static properties={pressingButton:{type:String,state:!0},customCard:{type:Object}};constructor(){super(),this.pressingButton=null,this.customCard=null}selectDifficulty(e){u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("difficulty-selected",{detail:{difficulty:e},bubbles:!0,composed:!0}))}handleRemoveCard(e){e.stopPropagation(),u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("remove-custom-card",{bubbles:!0,composed:!0}))}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}render(){return l`
+`;class Ue extends b{static styles=[Re,w];static properties={pressingButton:{type:String,state:!0},customCard:{type:Object}};constructor(){super(),this.pressingButton=null,this.customCard=null}selectDifficulty(e){u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("difficulty-selected",{detail:{difficulty:e},bubbles:!0,composed:!0}))}handleRemoveCard(e){e.stopPropagation(),u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("remove-custom-card",{bubbles:!0,composed:!0}))}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}render(){return a`
             <div class="backdrop">
                 <div class="modal" data-nosnippet>
                     <h1>Welkom bij Dashcam Bingo</h1>
                     <h2 class="subtitle">Kies je moeilijkheidsgraad om het spel te beginnen</h2>
-                    ${this.customCard?l`
+                    ${this.customCard?a`
                     <div class="custom-card-banner">
                         <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -966,7 +966,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                     </div>
                 </div>
             </div>
-        `}}customElements.define("difficulty-selector",Ue);const Oe=v`
+        `}}customElements.define("difficulty-selector",Ue);const Ne=v`
     :host {
         --muted: #334155;
         --foreground: #f1f5f9;
@@ -1013,7 +1013,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
         height: 1.25rem;
         transition: transform 0.5s ease;
     }
-`;class Ne extends b{static styles=[Oe,w];static properties={pressing:{type:Boolean,state:!0}};constructor(){super(),this.pressing=!1}handleClick(){u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("reset-requested",{bubbles:!0,composed:!0}))}handleTouchStart(){this.pressing=!0}handleTouchEnd(){this.pressing=!1}render(){return l`
+`;class We extends b{static styles=[Ne,w];static properties={pressing:{type:Boolean,state:!0}};constructor(){super(),this.pressing=!1}handleClick(){u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("reset-requested",{bubbles:!0,composed:!0}))}handleTouchStart(){this.pressing=!0}handleTouchEnd(){this.pressing=!1}render(){return a`
             <button 
                 class="reset-btn touch-interactive ${this.pressing?"pressing":""}"
                 @click=${this.handleClick}
@@ -1027,7 +1027,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                 </svg>
                 <span>Probeer Opnieuw</span>
             </button>
-        `}}customElements.define("reset-button",Ne);const We=v`
+        `}}customElements.define("reset-button",We);const Ye=v`
     :host {
         --card: #1e293b;
         --foreground: #f1f5f9;
@@ -1148,7 +1148,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
             justify-content: flex-end;
         }
     }
-`;class Ye extends b{static styles=[We,w];static properties={open:{type:Boolean},pressingButton:{type:String,state:!0}};constructor(){super(),this.open=!1,this.pressingButton=null}handleConfirm(){u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("confirm",{detail:{confirmed:!0},bubbles:!0,composed:!0}))}handleCancel(){u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("cancel",{bubbles:!0,composed:!0}))}handleBackdropClick(e){e.target===e.currentTarget&&this.handleCancel()}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}render(){return this.open?l`
+`;class Ge extends b{static styles=[Ye,w];static properties={open:{type:Boolean},pressingButton:{type:String,state:!0}};constructor(){super(),this.open=!1,this.pressingButton=null}handleConfirm(){u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("confirm",{detail:{confirmed:!0},bubbles:!0,composed:!0}))}handleCancel(){u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("cancel",{bubbles:!0,composed:!0}))}handleBackdropClick(e){e.target===e.currentTarget&&this.handleCancel()}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}render(){return this.open?a`
       <div class="backdrop" @click=${this.handleBackdropClick}>
         <div class="modal">
           <h3>Weet je het zeker?</h3>
@@ -1178,7 +1178,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
           </div>
         </div>
       </div>
-    `:l``}}customElements.define("confirmation-modal",Ye);const Xe=v`
+    `:a``}}customElements.define("confirmation-modal",Ge);const Xe=v`
     :host {
         --card: #1e293b;
         --foreground: #f1f5f9;
@@ -1388,7 +1388,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
             font-size: 1rem;
         }
     }
-`;class Ke extends b{static styles=[Xe,w];static properties={open:{type:Boolean},pressingButton:{type:String,state:!0}};constructor(){super(),this.open=!1,this.pressingButton=null}handleClose(){u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("close",{bubbles:!0,composed:!0}))}handlePlayAgain(){u.play("click"),this.dispatchEvent(new CustomEvent("play-again",{bubbles:!0,composed:!0}))}handleBackdropClick(e){e.target===e.currentTarget&&this.handleClose()}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}render(){return this.open?l`
+`;class Ke extends b{static styles=[Xe,w];static properties={open:{type:Boolean},pressingButton:{type:String,state:!0}};constructor(){super(),this.open=!1,this.pressingButton=null}handleClose(){u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("close",{bubbles:!0,composed:!0}))}handlePlayAgain(){u.play("click"),this.dispatchEvent(new CustomEvent("play-again",{bubbles:!0,composed:!0}))}handleBackdropClick(e){e.target===e.currentTarget&&this.handleClose()}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}render(){return this.open?a`
             <div class="backdrop" @click=${this.handleBackdropClick}>
                 <div class="modal">
                     <div class="icon-container">
@@ -1429,7 +1429,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                     </div>
                 </div>
             </div>
-        `:l``}}customElements.define("winner-modal",Ke);const qe=v`
+        `:a``}}customElements.define("winner-modal",Ke);const qe=v`
     :host {
         /* ❌ VERWIJDERD - geen fixed positioning meer
         position: fixed;
@@ -1504,7 +1504,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
             height: 1.5rem;
         }
     }
-`;class Ge extends b{static styles=[qe,w];static properties={enabled:{type:Boolean,state:!0},pressing:{type:Boolean,state:!0}};constructor(){super(),this.enabled=u.isEnabled(),this.pressing=!1,this.handleSoundToggle=this.handleSoundToggle.bind(this)}connectedCallback(){super.connectedCallback(),window.addEventListener("sound-toggled",this.handleSoundToggle)}disconnectedCallback(){super.disconnectedCallback(),window.removeEventListener("sound-toggled",this.handleSoundToggle)}handleSoundToggle(e){this.enabled=e.detail.enabled}toggle(){this.enabled=u.toggle(),p.vibrate(2),this.enabled&&u.play("click")}handleTouchStart(){this.pressing=!0}handleTouchEnd(){this.pressing=!1}render(){return l`
+`;class Ve extends b{static styles=[qe,w];static properties={enabled:{type:Boolean,state:!0},pressing:{type:Boolean,state:!0}};constructor(){super(),this.enabled=u.isEnabled(),this.pressing=!1,this.handleSoundToggle=this.handleSoundToggle.bind(this)}connectedCallback(){super.connectedCallback(),window.addEventListener("sound-toggled",this.handleSoundToggle)}disconnectedCallback(){super.disconnectedCallback(),window.removeEventListener("sound-toggled",this.handleSoundToggle)}handleSoundToggle(e){this.enabled=e.detail.enabled}toggle(){this.enabled=u.toggle(),p.vibrate(2),this.enabled&&u.play("click")}handleTouchStart(){this.pressing=!0}handleTouchEnd(){this.pressing=!1}render(){return a`
             <button 
                 @click=${this.toggle}
                 @touchstart=${this.handleTouchStart}
@@ -1514,18 +1514,18 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                 title="${this.enabled?"Geluid uitschakelen":"Geluid inschakelen"}"
                 aria-label="${this.enabled?"Geluid uitschakelen":"Geluid inschakelen"}"
             >
-                ${this.enabled?l`
+                ${this.enabled?a`
                     <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
                     </svg>
-                `:l`
+                `:a`
                     <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clip-rule="evenodd" />
                         <path stroke-linecap="round" stroke-linejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
                     </svg>
                 `}
             </button>
-        `}}customElements.define("sound-toggle",Ge);const Ve=v`
+        `}}customElements.define("sound-toggle",Ve);const Fe=v`
     :host {
         display: block;
     }
@@ -1587,7 +1587,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
             height: 1.5rem;
         }
     }
-`;class Fe extends b{static styles=[Ve,w];static properties={pressing:{type:Boolean,state:!0}};constructor(){super(),this.pressing=!1}handleClick(){u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("help-requested",{bubbles:!0,composed:!0}))}handleTouchStart(){this.pressing=!0}handleTouchEnd(){this.pressing=!1}render(){return l`
+`;class Je extends b{static styles=[Fe,w];static properties={pressing:{type:Boolean,state:!0}};constructor(){super(),this.pressing=!1}handleClick(){u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("help-requested",{bubbles:!0,composed:!0}))}handleTouchStart(){this.pressing=!0}handleTouchEnd(){this.pressing=!1}render(){return a`
             <button 
                 @click=${this.handleClick}
                 @touchstart=${this.handleTouchStart}
@@ -1602,7 +1602,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                     <circle cx="12" cy="17" r="0.5" fill="currentColor"></circle>
                 </svg>
             </button>
-        `}}customElements.define("help-button",Fe);const Je=v`
+        `}}customElements.define("help-button",Je);const Ze=v`
     :host {
         --card: #1e293b;
         --foreground: #f1f5f9;
@@ -2001,7 +2001,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
             height: 20rem;
         }
     }
-`;class Ze extends b{static styles=Je;static properties={open:{type:Boolean},currentPage:{type:Number,state:!0},touchStartX:{type:Number,state:!0},touchEndX:{type:Number,state:!0}};constructor(){super(),this.open=!1,this.currentPage=0,this.pages=["intro","what-are-dashcams","rules","where-to-find"],this.touchStartX=0,this.touchEndX=0}updated(e){e.has("open")&&this.open&&(this.currentPage=0)}handleClose(){u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("close",{bubbles:!0,composed:!0}))}handleBackdropClick(e){e.target===e.currentTarget&&this.handleClose()}nextPage(){u.play("click"),p.vibrate(2),this.currentPage<this.pages.length-1&&this.currentPage++}prevPage(){u.play("click"),p.vibrate(2),this.currentPage>0&&this.currentPage--}handleTouchStart(e){this.touchStartX=e.changedTouches[0].screenX}handleTouchEnd(e){this.touchEndX=e.changedTouches[0].screenX,this.handleSwipe()}handleSwipe(){const t=this.touchStartX-this.touchEndX;Math.abs(t)>75&&(t>0?this.nextPage():this.prevPage())}renderPage(){switch(this.pages[this.currentPage]){case"intro":return l`
+`;class Qe extends b{static styles=Ze;static properties={open:{type:Boolean},currentPage:{type:Number,state:!0},touchStartX:{type:Number,state:!0},touchEndX:{type:Number,state:!0}};constructor(){super(),this.open=!1,this.currentPage=0,this.pages=["intro","what-are-dashcams","rules","where-to-find"],this.touchStartX=0,this.touchEndX=0}updated(e){e.has("open")&&this.open&&(this.currentPage=0)}handleClose(){u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("close",{bubbles:!0,composed:!0}))}handleBackdropClick(e){e.target===e.currentTarget&&this.handleClose()}nextPage(){u.play("click"),p.vibrate(2),this.currentPage<this.pages.length-1&&this.currentPage++}prevPage(){u.play("click"),p.vibrate(2),this.currentPage>0&&this.currentPage--}handleTouchStart(e){this.touchStartX=e.changedTouches[0].screenX}handleTouchEnd(e){this.touchEndX=e.changedTouches[0].screenX,this.handleSwipe()}handleSwipe(){const t=this.touchStartX-this.touchEndX;Math.abs(t)>75&&(t>0?this.nextPage():this.prevPage())}renderPage(){switch(this.pages[this.currentPage]){case"intro":return a`
                     <section>
                         <h3>Wat is Dashcam Bingo?</h3>
                         <p>Het is de bedoeling dat Dashcam Bingo gespeeld wordt tijdens het kijken van dashcamvideo's. Het doel is om zo snel mogelijk <strong>bingo</strong> te krijgen.</p>
@@ -2012,7 +2012,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                         <br>
                         <p>Dashcam Bingo speel je het beste samen.</p>
                     </section>
-                `;case"what-are-dashcams":return l`
+                `;case"what-are-dashcams":return a`
                     <section>
                         <h3>Wat zijn dashcam videos?</h3>
                         <p>Dashcam video’s zijn beelden die zijn opgenomen met een kleine camera die achter de voorruit (of soms achterruit) van een auto is gemonteerd.</p>
@@ -2021,7 +2021,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                         <br>
                         <p>Veel van deze beelden belanden online in zogenaamde compilatievideo's. Dit gebeurt vaak om asociaal weggedrag aan de kaak te stellen of puur ter vermaak.</p>
                     </section>
-                `;case"rules":return l`
+                `;case"rules":return a`
                     <section>
                         <h3>Spelregels</h3>
                         <ol>
@@ -2038,7 +2038,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                             <li><strong>Bingo!</strong> wanneer je het doel hebt gehaald</li>
                         </ol>
                     </section>
-                `;case"where-to-find":return l`
+                `;case"where-to-find":return a`
                     <section>
                         <h3>Waar vind ik dashcam videos?</h3>
                         <p>Zoek op YouTube naar "dashcam videos" of "dashcam compilatie", of kijk een video van een van de kanalen hieronder:</p>
@@ -2077,7 +2077,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                             </li>
                         </ul>
                     </section>
-                `}}render(){return this.open?l`
+                `}}render(){return this.open?a`
             <div class="backdrop" @click=${this.handleBackdropClick}>
                 <div class="modal">
                     <button class="close-btn" @click=${this.handleClose} aria-label="Sluiten">
@@ -2115,7 +2115,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                         </button>
 
                         <div class="page-indicator">
-                            ${this.pages.map((e,t)=>l`
+                            ${this.pages.map((e,t)=>a`
                                 <span class="dot ${t===this.currentPage?"active":""}"></span>
                             `)}
                         </div>
@@ -2137,7 +2137,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                     </button>
                 </div>
             </div>
-        `:l``}}customElements.define("help-modal",Ze);const Qe=v`
+        `:a``}}customElements.define("help-modal",Qe);const et=v`
     :host {
         display: block;
     }
@@ -2208,7 +2208,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
             height: 1.5rem;
         }
     }
-`;class et extends b{static styles=[Qe,w];static properties={pressingButton:{type:String,state:!0}};constructor(){super(),this.pressingButton=null}handleCreateCard(){u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("open-create-modal",{bubbles:!0,composed:!0}))}handleLoadCard(){u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("open-load-modal",{bubbles:!0,composed:!0}))}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}render(){return l`
+`;class tt extends b{static styles=[et,w];static properties={pressingButton:{type:String,state:!0}};constructor(){super(),this.pressingButton=null}handleCreateCard(){u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("open-create-modal",{bubbles:!0,composed:!0}))}handleLoadCard(){u.play("click"),p.vibrate(2),this.dispatchEvent(new CustomEvent("open-load-modal",{bubbles:!0,composed:!0}))}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}render(){return a`
             <div class="buttons-container">
                 <button
                         class="btn touch-interactive ${this.pressingButton==="load"?"pressing":""}"
@@ -2235,7 +2235,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                     </svg>
                 </button>
             </div>
-        `}}customElements.define("header-buttons",et);const tt=v`
+        `}}customElements.define("header-buttons",tt);const rt=v`
     :host {
         --background: #0f172a;
         --card: #1e293b;
@@ -2866,17 +2866,54 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
         background: var(--muted);
         cursor: not-allowed;
     }
-`,K="https://tkyibdfrvbusttfiomws.supabase.co",q="sb_publishable_faH9S0uqLXDKV0dYCQfwHg_X_dqDQJz";ue(K,q);async function rt(n){const e=await fetch(`${K}/functions/v1/quick-responder`,{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${q}`},body:JSON.stringify({items:n})});if(!e.ok){const t=await e.json();throw new Error(t.error||"Er ging iets mis")}return e.json()}async function it(n){const e=await fetch(`${K}/functions/v1/get-card?code=${n}`,{method:"GET",headers:{Authorization:`Bearer ${q}`}});if(!e.ok){const t=await e.json();throw new Error(t.error||"Kaart niet gevonden")}return e.json()}class ot extends b{static styles=[tt,w];static properties={open:{type:Boolean,reflect:!0},tiles:{type:Array,state:!0},pressingButton:{type:String,state:!0},errors:{type:Object,state:!0},showErrorPopup:{type:Boolean,state:!0},errorMessage:{type:String,state:!0},hasFreeTile:{type:Boolean,state:!0},isSubmitting:{type:Boolean,state:!0}};constructor(){super(),this.open=!1,this.tiles=this.initializeTiles(),this.pressingButton=null,this.errors={},this.showErrorPopup=!1,this.errorMessage="",this.hasFreeTile=!0,this.isSubmitting=!1}initializeTiles(){return Array(25).fill(null).map((e,t)=>({title:"",description:"",disabled:!1}))}handleFreeTileToggle(e,t){u.play("click"),p.vibrate(2);const r=this.tiles[e];r.disabled=t.target.checked,r.disabled&&(r.title="",r.description="",delete this.errors[`${e}-title`],delete this.errors[`${e}-description`]),this.requestUpdate()}handleBackdropClick(e){e.target.classList.contains("modal-backdrop")&&(u.play("click"),p.vibrate(2),this.open=!1,this.resetErrors(),this.dispatchEvent(new CustomEvent("close",{bubbles:!0,composed:!0})))}handleCloseButton(){u.play("click"),p.vibrate(2),this.open=!1,this.resetErrors(),this.dispatchEvent(new CustomEvent("close",{bubbles:!0,composed:!0}))}resetErrors(){this.errors={},this.showErrorPopup=!1,this.errorMessage="",this.tiles=this.initializeTiles()}validateTile(e,t,r){const i={title:40,description:100},o=`${e}-${t}`;return this.tiles[e].disabled?(delete this.errors[o],!0):r.trim()?r.length>i[t]?(this.errors[o]=`Max ${i[t]} karakters (${r.length}/${i[t]})`,!1):(delete this.errors[o],!0):(this.errors[o]=`${t==="title"?"Titel":"Beschrijving"} mag niet leeg zijn`,!1)}handleInput(e,t,r){const i=r.target.value;this.tiles[e][t]=i,this.validateTile(e,t,i),this.requestUpdate()}validateAllTiles(){let e=!0;const t={};return this.tiles.forEach((r,i)=>{r.disabled||(r.title.trim()?r.title.length>40&&(t[`${i}-title`]=`Max 40 karakters (${r.title.length}/40)`,e=!1):(t[`${i}-title`]="Titel mag niet leeg zijn",e=!1),r.description.trim()?r.description.length>100&&(t[`${i}-description`]=`Max 100 karakters (${r.description.length}/100)`,e=!1):(t[`${i}-description`]="Beschrijving mag niet leeg zijn",e=!1))}),this.errors=t,e}async handleCreate(){if(u.play("click"),p.vibrate(2),!this.validateAllTiles()){this.errorMessage="Vul alle velden correct in",this.showErrorPopup=!0,setTimeout(()=>{this.showErrorPopup=!1},4e3),this.scrollToFirstError();return}this.isSubmitting=!0;try{const e=this.tiles.filter(r=>!r.disabled).map(r=>({title:r.title.trim(),description:r.description.trim()})),t=await rt(e);this.open=!1,this.tiles=this.initializeTiles(),this.resetErrors(),this.isSubmitting=!1,this.dispatchEvent(new CustomEvent("card-created",{detail:{code:t.code},bubbles:!0,composed:!0}))}catch(e){console.error("Error creating card:",e),this.errorMessage=e.message,this.showErrorPopup=!0,this.isSubmitting=!1,setTimeout(()=>{this.showErrorPopup=!1},4e3)}}scrollToFirstError(){setTimeout(()=>{const e=this.shadowRoot.querySelector(".input-error, .textarea-error");e&&e.scrollIntoView({behavior:"smooth",block:"center"})},100)}handleKeydown(e){e.key==="Escape"&&this.open&&!this.isSubmitting&&this.handleCloseButton()}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}connectedCallback(){super.connectedCallback(),this.addEventListener("keydown",this.handleKeydown)}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener("keydown",this.handleKeydown)}getErrorMessage(e,t){return this.errors[`${e}-${t}`]}hasError(e,t){return!!this.errors[`${e}-${t}`]}render(){if(!this.open)return l``;const e=Object.keys(this.errors).length;return l`
+
+    .btn-create:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background: var(--muted);
+    }
+
+    .offline-warning {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem 1rem;
+        gap: 1rem;
+    }
+
+    .offline-icon {
+        width: 64px;
+        height: 64px;
+        color: var(--error);
+        stroke-width: 1.5;
+    }
+
+    .offline-warning h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--foreground);
+    }
+
+    .offline-warning p {
+        margin: 0;
+        font-size: 1rem;
+        color: var(--muted-foreground);
+        line-height: 1.5;
+    }
+`,X="https://tkyibdfrvbusttfiomws.supabase.co",K="sb_publishable_faH9S0uqLXDKV0dYCQfwHg_X_dqDQJz";pe(X,K);async function it(n){const e=await fetch(`${X}/functions/v1/quick-responder`,{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${K}`},body:JSON.stringify({items:n})});if(!e.ok){const t=await e.json();throw new Error(t.error||"Er ging iets mis")}return e.json()}async function ot(n){const e=await fetch(`${X}/functions/v1/get-card?code=${n}`,{method:"GET",headers:{Authorization:`Bearer ${K}`}});if(!e.ok){const t=await e.json();throw new Error(t.error||"Kaart niet gevonden")}return e.json()}class nt{constructor(){this.isOnline=navigator.onLine,window.addEventListener("online",()=>{this.isOnline=!0,this.notifyListeners()}),window.addEventListener("offline",()=>{this.isOnline=!1,this.notifyListeners()})}check(){return navigator.onLine}notifyListeners(){window.dispatchEvent(new CustomEvent("connection-change",{detail:{isOnline:this.isOnline}}))}}const ue=new nt;class st extends b{static styles=[rt,w];static properties={open:{type:Boolean,reflect:!0},tiles:{type:Array,state:!0},pressingButton:{type:String,state:!0},errors:{type:Object,state:!0},showErrorPopup:{type:Boolean,state:!0},errorMessage:{type:String,state:!0},hasFreeTile:{type:Boolean,state:!0},isSubmitting:{type:Boolean,state:!0},isOffline:{type:Boolean,state:!0}};constructor(){super(),this.open=!1,this.tiles=this.initializeTiles(),this.pressingButton=null,this.errors={},this.showErrorPopup=!1,this.errorMessage="",this.hasFreeTile=!0,this.isSubmitting=!1,this.isOffline=!ue.check(),this.handleConnectionChange=this.handleConnectionChange.bind(this)}initializeTiles(){return Array(25).fill(null).map((e,t)=>({title:"",description:"",disabled:!1}))}handleConnectionChange(e){this.isOffline=!e.detail.isOnline}handleFreeTileToggle(e,t){u.play("click"),p.vibrate(2);const r=this.tiles[e];r.disabled=t.target.checked,r.disabled&&(r.title="",r.description="",delete this.errors[`${e}-title`],delete this.errors[`${e}-description`]),this.requestUpdate()}handleBackdropClick(e){e.target.classList.contains("modal-backdrop")&&(u.play("click"),p.vibrate(2),this.open=!1,this.resetErrors(),this.dispatchEvent(new CustomEvent("close",{bubbles:!0,composed:!0})))}handleCloseButton(){u.play("click"),p.vibrate(2),this.open=!1,this.resetErrors(),this.dispatchEvent(new CustomEvent("close",{bubbles:!0,composed:!0}))}resetErrors(){this.errors={},this.showErrorPopup=!1,this.errorMessage="",this.tiles=this.initializeTiles()}validateTile(e,t,r){const i={title:40,description:100},o=`${e}-${t}`;return this.tiles[e].disabled?(delete this.errors[o],!0):r.trim()?r.length>i[t]?(this.errors[o]=`Max ${i[t]} karakters (${r.length}/${i[t]})`,!1):(delete this.errors[o],!0):(this.errors[o]=`${t==="title"?"Titel":"Beschrijving"} mag niet leeg zijn`,!1)}handleInput(e,t,r){const i=r.target.value;this.tiles[e][t]=i,this.validateTile(e,t,i),this.requestUpdate()}validateAllTiles(){let e=!0;const t={};return this.tiles.forEach((r,i)=>{r.disabled||(r.title.trim()?r.title.length>40&&(t[`${i}-title`]=`Max 40 karakters (${r.title.length}/40)`,e=!1):(t[`${i}-title`]="Titel mag niet leeg zijn",e=!1),r.description.trim()?r.description.length>100&&(t[`${i}-description`]=`Max 100 karakters (${r.description.length}/100)`,e=!1):(t[`${i}-description`]="Beschrijving mag niet leeg zijn",e=!1))}),this.errors=t,e}async handleCreate(){if(u.play("click"),p.vibrate(2),!this.validateAllTiles()){this.errorMessage="Vul alle velden correct in",this.showErrorPopup=!0,setTimeout(()=>{this.showErrorPopup=!1},4e3),this.scrollToFirstError();return}this.isSubmitting=!0;try{const e=this.tiles.filter(r=>!r.disabled).map(r=>({title:r.title.trim(),description:r.description.trim()})),t=await it(e);this.open=!1,this.tiles=this.initializeTiles(),this.resetErrors(),this.isSubmitting=!1,this.dispatchEvent(new CustomEvent("card-created",{detail:{code:t.code},bubbles:!0,composed:!0}))}catch(e){console.error("Error creating card:",e),this.errorMessage=e.message,this.showErrorPopup=!0,this.isSubmitting=!1,setTimeout(()=>{this.showErrorPopup=!1},4e3)}}scrollToFirstError(){setTimeout(()=>{const e=this.shadowRoot.querySelector(".input-error, .textarea-error");e&&e.scrollIntoView({behavior:"smooth",block:"center"})},100)}handleKeydown(e){e.key==="Escape"&&this.open&&!this.isSubmitting&&this.handleCloseButton()}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}connectedCallback(){super.connectedCallback(),this.addEventListener("keydown",this.handleKeydown),window.addEventListener("connection-change",this.handleConnectionChange)}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener("keydown",this.handleKeydown),window.removeEventListener("connection-change",this.handleConnectionChange)}getErrorMessage(e,t){return this.errors[`${e}-${t}`]}hasError(e,t){return!!this.errors[`${e}-${t}`]}render(){if(!this.open)return a``;const e=Object.keys(this.errors).length;return a`
             <div class="modal-backdrop" @click=${this.handleBackdropClick}>
                 <div class="modal">
-                    ${this.isSubmitting?l`
+                    ${this.isSubmitting?a`
                         <div class="loading-overlay">
                             <div class="spinner"></div>
                             <p>Kaart wordt aangemaakt...</p>
                         </div>
                     `:""}
 
-                    ${this.showErrorPopup?l`
+                    ${this.showErrorPopup?a`
                         <div class="error-popup">
                             <svg class="error-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"></circle>
@@ -2905,13 +2942,27 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                     </div>
 
                     <div class="modal-body">
+                        ${this.isOffline?a`
+                            <div class="offline-warning">
+                                <svg class="offline-icon" role="img" aria-label="Geen internetverbinding" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M2.88 8.15a13.94 13.94 0 0 1 18.24 0"></path>
+                                    <path d="M6.46 11.73a9.96 9.96 0 0 1 11.08 0"></path>
+                                    <path d="M10.04 15.31a5.98 5.98 0 0 1 3.92 0"></path>
+                                    <circle cx="12" cy="18.5" r="0.8" fill="currentColor" stroke="none"></circle>
+                                    <line x1="3" y1="3" x2="21" y2="21"></line>
+                                </svg>
+
+                                <h3>Geen internetverbinding</h3>
+                                <p>Je hebt een internetverbinding nodig om een kaart aan te maken.</p>
+                            </div>
+                        `:a`
                         <div class="tiles-list">
-                            ${this.tiles.map((t,r)=>{const i=r===12;return l`
+                            ${this.tiles.map((t,r)=>{const i=r===12;return a`
                                     <div class="tile-item ${t.disabled?"disabled":""}">
                                         <div class="tile-number-badge ${t.disabled?"free":""}">${t.disabled?"🎉":r+1}</div>
 
                                         <div class="tile-content">
-                                            ${i?l`
+                                            ${i?a`
                                                 <div class="free-tile-toggle-row">
                                                     <label class="toggle-label">
                                                         <input
@@ -2938,7 +2989,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                                                         @input=${o=>this.handleInput(r,"title",o)}
                                                         maxlength="50"
                                                     />
-                                                    ${this.hasError(r,"title")?l`
+                                                    ${this.hasError(r,"title")?a`
                                                         <span class="error-message">${this.getErrorMessage(r,"title")}</span>
                                                     `:""}
                                                 </div>
@@ -2956,7 +3007,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                                                         rows="2"
                                                         maxlength="150"
                                                     ></textarea>
-                                                    ${this.hasError(r,"description")?l`
+                                                    ${this.hasError(r,"description")?a`
                                                         <span class="error-message">${this.getErrorMessage(r,"description")}</span>
                                                     `:""}
                                                 </div>
@@ -2965,6 +3016,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                                     </div>
                                 `})}
                         </div>
+                        `}
                     </div>
 
                     <div class="modal-footer">
@@ -2983,8 +3035,8 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                             @touchstart=${()=>this.handleTouchStart("create")}
                             @touchend=${this.handleTouchEnd}
                             @touchcancel=${this.handleTouchEnd}
-                            ?disabled=${this.isSubmitting}>
-                            ${this.isSubmitting?l`
+                            ?disabled=${this.isSubmitting||this.isOffline}>
+                            ${this.isSubmitting?a`
                                 <span class="btn-spinner"></span>
                                 Maken...
                             `:"Maken"}
@@ -2992,7 +3044,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                     </div>
                 </div>
             </div>
-        `}}customElements.define("create-card-modal",ot);const nt=v`
+        `}}customElements.define("create-card-modal",st);const at=v`
     :host {
         --background: #0f172a;
         --card: #1e293b;
@@ -3353,10 +3405,10 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
             flex-direction: column-reverse;
         }
     }
-`;class st extends b{static styles=[nt,w];static properties={open:{type:Boolean,reflect:!0},code:{type:String},pressingButton:{type:String,state:!0},copied:{type:Boolean,state:!0},showWarning:{type:Boolean,state:!0}};constructor(){super(),this.open=!1,this.code="",this.pressingButton=null,this.copied=!1,this.showWarning=!1}async handleCopyCode(){u.play("click"),p.vibrate(2);try{navigator.clipboard&&navigator.clipboard.writeText?(await navigator.clipboard.writeText(this.code),this.copied=!0):this.fallbackCopyToClipboard(this.code),setTimeout(()=>{this.copied=!1},2e3)}catch(e){console.error("Copy failed, trying fallback:",e),this.fallbackCopyToClipboard(this.code)}}fallbackCopyToClipboard(e){const t=document.createElement("textarea");if(t.value=e,t.style.position="fixed",t.style.top="0",t.style.left="0",t.style.width="2em",t.style.height="2em",t.style.padding="0",t.style.border="none",t.style.outline="none",t.style.boxShadow="none",t.style.background="transparent",t.setAttribute("readonly",""),t.style.opacity="0",document.body.appendChild(t),t.focus(),t.select(),navigator.userAgent.match(/ipad|iphone/i)){const r=document.createRange();r.selectNodeContents(t);const i=window.getSelection();i.removeAllRanges(),i.addRange(r),t.setSelectionRange(0,999999)}try{document.execCommand("copy")&&(this.copied=!0,setTimeout(()=>{this.copied=!1},2e3))}catch(r){console.error("Fallback copy failed:",r),alert(`Kon niet automatisch kopiëren. Code: ${e}`)}document.body.removeChild(t)}handleCloseAttempt(){u.play("click"),p.vibrate(2),this.showWarning=!0}handleConfirmClose(){u.play("click"),p.vibrate(2),this.open=!1,this.showWarning=!1,this.copied=!1,this.dispatchEvent(new CustomEvent("close",{bubbles:!0,composed:!0}))}handleCancelClose(){u.play("click"),p.vibrate(2),this.showWarning=!1}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}render(){return this.open?l`
+`;class lt extends b{static styles=[at,w];static properties={open:{type:Boolean,reflect:!0},code:{type:String},pressingButton:{type:String,state:!0},copied:{type:Boolean,state:!0},showWarning:{type:Boolean,state:!0}};constructor(){super(),this.open=!1,this.code="",this.pressingButton=null,this.copied=!1,this.showWarning=!1}async handleCopyCode(){u.play("click"),p.vibrate(2);try{navigator.clipboard&&navigator.clipboard.writeText?(await navigator.clipboard.writeText(this.code),this.copied=!0):this.fallbackCopyToClipboard(this.code),setTimeout(()=>{this.copied=!1},2e3)}catch(e){console.error("Copy failed, trying fallback:",e),this.fallbackCopyToClipboard(this.code)}}fallbackCopyToClipboard(e){const t=document.createElement("textarea");if(t.value=e,t.style.position="fixed",t.style.top="0",t.style.left="0",t.style.width="2em",t.style.height="2em",t.style.padding="0",t.style.border="none",t.style.outline="none",t.style.boxShadow="none",t.style.background="transparent",t.setAttribute("readonly",""),t.style.opacity="0",document.body.appendChild(t),t.focus(),t.select(),navigator.userAgent.match(/ipad|iphone/i)){const r=document.createRange();r.selectNodeContents(t);const i=window.getSelection();i.removeAllRanges(),i.addRange(r),t.setSelectionRange(0,999999)}try{document.execCommand("copy")&&(this.copied=!0,setTimeout(()=>{this.copied=!1},2e3))}catch(r){console.error("Fallback copy failed:",r),alert(`Kon niet automatisch kopiëren. Code: ${e}`)}document.body.removeChild(t)}handleCloseAttempt(){u.play("click"),p.vibrate(2),this.showWarning=!0}handleConfirmClose(){u.play("click"),p.vibrate(2),this.open=!1,this.showWarning=!1,this.copied=!1,this.dispatchEvent(new CustomEvent("close",{bubbles:!0,composed:!0}))}handleCancelClose(){u.play("click"),p.vibrate(2),this.showWarning=!1}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}render(){return this.open?a`
             <div class="modal-backdrop">
                 <div class="modal">
-                    ${this.showWarning?l`
+                    ${this.showWarning?a`
                         <div class="warning-overlay">
                             <div class="warning-box">
                                 <svg class="warning-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3419,12 +3471,12 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                             @touchstart=${()=>this.handleTouchStart("copy")}
                             @touchend=${this.handleTouchEnd}
                             @touchcancel=${this.handleTouchEnd}>
-                            ${this.copied?l`
+                            ${this.copied?a`
                                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 Gekopieerd!
-                            `:l`
+                            `:a`
                                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                                     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -3447,7 +3499,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                     </div>
                 </div>
             </div>
-        `:l``}}customElements.define("success-modal",st);const at=v`
+        `:a``}}customElements.define("success-modal",lt);const dt=v`
     :host {
         --background: #0f172a;
         --card: #1e293b;
@@ -3756,10 +3808,41 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
             flex-direction: column-reverse;
         }
     }
-`;class lt extends b{static styles=[at,w];static properties={open:{type:Boolean,reflect:!0},code:{type:String,state:!0},pressingButton:{type:String,state:!0},error:{type:String,state:!0},isLoading:{type:Boolean,state:!0}};constructor(){super(),this.open=!1,this.code="",this.pressingButton=null,this.error="",this.isLoading=!1}handleBackdropClick(e){e.target.classList.contains("modal-backdrop")&&!this.isLoading&&(u.play("click"),p.vibrate(2),this.close())}handleCloseButton(){this.isLoading||(u.play("click"),p.vibrate(2),this.close())}close(){this.open=!1,this.code="",this.error="",this.dispatchEvent(new CustomEvent("close",{bubbles:!0,composed:!0}))}handleInput(e){let t=e.target.value.replace(/\D/g,"");t.length>6&&(t=t.slice(0,6)),this.code=t,this.error=""}async handleLoad(){if(u.play("click"),p.vibrate(2),this.code.length!==6){this.error="Code moet 6 cijfers zijn";return}this.isLoading=!0,this.error="";try{const e=await it(this.code);this.isLoading=!1,this.open=!1,this.dispatchEvent(new CustomEvent("card-loaded",{detail:{items:e.items,code:e.code},bubbles:!0,composed:!0})),this.code="",this.error=""}catch(e){console.error("Error loading card:",e),this.error=e.message,this.isLoading=!1}}handleKeydown(e){e.key==="Escape"&&this.open&&!this.isLoading&&this.handleCloseButton(),e.key==="Enter"&&this.code.length===6&&!this.isLoading&&this.handleLoad()}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}connectedCallback(){super.connectedCallback(),this.addEventListener("keydown",this.handleKeydown)}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener("keydown",this.handleKeydown)}render(){return this.open?l`
+
+    .offline-warning {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem 1rem;
+        gap: 1rem;
+    }
+
+    .offline-icon {
+        width: 64px;
+        height: 64px;
+        color: var(--error);
+        stroke-width: 1.5;
+    }
+
+    .offline-warning h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--foreground);
+    }
+
+    .offline-warning p {
+        margin: 0;
+        font-size: 1rem;
+        color: var(--muted-foreground);
+        line-height: 1.5;
+    }
+`;class ct extends b{static styles=[dt,w];static properties={open:{type:Boolean,reflect:!0},code:{type:String,state:!0},pressingButton:{type:String,state:!0},error:{type:String,state:!0},isLoading:{type:Boolean,state:!0},isOffline:{type:Boolean,state:!0}};constructor(){super(),this.open=!1,this.code="",this.pressingButton=null,this.error="",this.isLoading=!1,this.isOffline=!ue.check(),this.handleConnectionChange=this.handleConnectionChange.bind(this)}handleConnectionChange(e){this.isOffline=!e.detail.isOnline}connectedCallback(){super.connectedCallback(),this.addEventListener("keydown",this.handleKeydown),window.addEventListener("connection-change",this.handleConnectionChange)}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener("keydown",this.handleKeydown),window.removeEventListener("connection-change",this.handleConnectionChange)}handleBackdropClick(e){e.target.classList.contains("modal-backdrop")&&!this.isLoading&&(u.play("click"),p.vibrate(2),this.close())}handleCloseButton(){this.isLoading||(u.play("click"),p.vibrate(2),this.close())}close(){this.open=!1,this.code="",this.error="",this.dispatchEvent(new CustomEvent("close",{bubbles:!0,composed:!0}))}handleInput(e){let t=e.target.value.replace(/\D/g,"");t.length>6&&(t=t.slice(0,6)),this.code=t,this.error=""}async handleLoad(){if(u.play("click"),p.vibrate(2),this.code.length!==6){this.error="Code moet 6 cijfers zijn";return}this.isLoading=!0,this.error="";try{const e=await ot(this.code);this.isLoading=!1,this.open=!1,this.dispatchEvent(new CustomEvent("card-loaded",{detail:{items:e.items,code:e.code},bubbles:!0,composed:!0})),this.code="",this.error=""}catch(e){console.error("Error loading card:",e),this.error=e.message,this.isLoading=!1}}handleKeydown(e){e.key==="Escape"&&this.open&&!this.isLoading&&this.handleCloseButton(),e.key==="Enter"&&this.code.length===6&&!this.isLoading&&this.handleLoad()}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}render(){return this.open?a`
             <div class="modal-backdrop" @click=${this.handleBackdropClick}>
                 <div class="modal">
-                    ${this.isLoading?l`
+                    ${this.isLoading?a`
                         <div class="loading-overlay">
                             <div class="spinner"></div>
                             <p>Kaart wordt geladen...</p>
@@ -3781,6 +3864,20 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                     </div>
 
                     <div class="modal-body">
+                        ${this.isOffline?a`
+                            <div class="offline-warning">
+                                <svg class="offline-icon" role="img" aria-label="Geen internetverbinding" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M2.88 8.15a13.94 13.94 0 0 1 18.24 0"></path>
+                                    <path d="M6.46 11.73a9.96 9.96 0 0 1 11.08 0"></path>
+                                    <path d="M10.04 15.31a5.98 5.98 0 0 1 3.92 0"></path>
+                                    <circle cx="12" cy="18.5" r="0.8" fill="currentColor" stroke="none"></circle>
+                                    <line x1="3" y1="3" x2="21" y2="21"></line>
+                                </svg>
+
+                                <h3>Geen internetverbinding</h3>
+                                <p>Je hebt een internetverbinding nodig om een kaart aan te maken.</p>
+                            </div>
+                        `:a`
                         <p class="instructions">Voer je 6-cijferige kaart code in:</p>
 
                         <div class="code-input-wrapper">
@@ -3796,7 +3893,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                                 ?disabled=${this.isLoading}
                                 autofocus
                             />
-                            ${this.error?l`
+                            ${this.error?a`
                                 <span class="error-message">${this.error}</span>
                             `:""}
                         </div>
@@ -3809,6 +3906,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                             </svg>
                             <p>Deze code heb je gekregen na het aanmaken van een eigen kaart.</p>
                         </div>
+                        `}
                     </div>
 
                     <div class="modal-footer">
@@ -3827,8 +3925,8 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                             @touchstart=${()=>this.handleTouchStart("load")}
                             @touchend=${this.handleTouchEnd}
                             @touchcancel=${this.handleTouchEnd}
-                            ?disabled=${this.isLoading||this.code.length!==6}>
-                            ${this.isLoading?l`
+                            ?disabled=${this.isLoading||this.code.length!==6||this.isOffline}>
+                        ${this.isLoading?a`
                                 <span class="btn-spinner"></span>
                                 Laden...
                             `:"Laden"}
@@ -3836,7 +3934,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                     </div>
                 </div>
             </div>
-        `:l``}}customElements.define("load-card-modal",lt);class dt extends b{static styles=v`
+        `:a``}}customElements.define("load-card-modal",ct);class ht extends b{static styles=v`
         :host {
             display: flex;
             font-family: system-ui;
@@ -4077,7 +4175,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                 font-size: 1rem;
             }
         }
-    `;static properties={gameStarted:{type:Boolean},difficulty:{type:String},showConfirmation:{type:Boolean},showWinner:{type:Boolean},showHelp:{type:Boolean},showCreateModal:{type:Boolean},showSuccessModal:{type:Boolean},cardCode:{type:String},showLoadModal:{type:Boolean},loadedCard:{type:Object},bingoCount:{type:Number}};constructor(){super(),this.gameStarted=!1,this.difficulty="",this.showConfirmation=!1,this.showWinner=!1,this.showHelp=!1,this.showCreateModal=!1,this.showSuccessModal=!1,this.cardCode="",this.showLoadModal=!1,this.loadedCard=null,this.bingoCount=0}connectedCallback(){super.connectedCallback(),document.body.style.overflow="hidden",document.documentElement.style.overflow="hidden",document.body.style.margin="0",document.body.style.padding="0",document.body.style.width="100%",document.body.style.height="100%",this.addEventListener("open-create-modal",this.handleOpenCreateModal),this.addEventListener("card-created",this.handleCardCreated),this.addEventListener("open-load-modal",this.handleOpenLoadModal),this.addEventListener("card-loaded",this.handleCardLoaded),this.addEventListener("remove-custom-card",this.handleRemoveCustomCard),this.addEventListener("bingo-count-update",this.handleBingoCountUpdate)}disconnectedCallback(){super.disconnectedCallback(),document.body.style.overflow="",document.documentElement.style.overflow=""}handleBingoCountUpdate(e){this.bingoCount=e.detail.count}handleCardCreated(e){this.cardCode=e.detail.code,this.showSuccessModal=!0,this.showCreateModal=!1}handleSuccessModalClose(){this.showSuccessModal=!1,this.cardCode="";const e=this.shadowRoot.querySelector("create-card-modal");e&&(e.open=!1,e.resetErrors())}handleOpenCreateModal(){this.showCreateModal=!0}handleCreateModalClose(){this.showCreateModal=!1}handleOpenLoadModal(){this.showLoadModal=!0}handleCardLoaded(e){this.showLoadModal=!1,this.loadedCard=e.detail,this.gameStarted=!1}handleRemoveCustomCard(){this.loadedCard=null,this.gameStarted=!1,this.difficulty="";const e=this.shadowRoot.querySelector("bingo-grid");e&&(e.customCard=null,e.reset()),this.requestUpdate()}handleDifficultySelect(e){this.difficulty=e.detail.difficulty,this.gameStarted=!0,this.loadedCard&&setTimeout(()=>{const t=this.shadowRoot.querySelector("bingo-grid");t&&(t.customCard=this.loadedCard)},0)}handleResetRequest(){this.showConfirmation=!0}handleConfirmReset(e){e.detail.confirmed&&this.resetGame(),this.showConfirmation=!1}handleCancelReset(){this.showConfirmation=!1}handleWin(){this.showWinner=!0}handleCloseWinner(){this.showWinner=!1}handlePlayAgain(){this.showWinner=!1,this.resetGame()}handleHelpOpen(){this.showHelp=!0}handleHelpClose(){this.showHelp=!1}resetGame(){this.gameStarted=!1,this.difficulty="",this.loadedCard=null,this.bingoCount=0,this.shadowRoot.querySelector("bingo-grid")?.reset()}render(){return l`
+    `;static properties={gameStarted:{type:Boolean},difficulty:{type:String},showConfirmation:{type:Boolean},showWinner:{type:Boolean},showHelp:{type:Boolean},showCreateModal:{type:Boolean},showSuccessModal:{type:Boolean},cardCode:{type:String},showLoadModal:{type:Boolean},loadedCard:{type:Object},bingoCount:{type:Number}};constructor(){super(),this.gameStarted=!1,this.difficulty="",this.showConfirmation=!1,this.showWinner=!1,this.showHelp=!1,this.showCreateModal=!1,this.showSuccessModal=!1,this.cardCode="",this.showLoadModal=!1,this.loadedCard=null,this.bingoCount=0}connectedCallback(){super.connectedCallback(),document.body.style.overflow="hidden",document.documentElement.style.overflow="hidden",document.body.style.margin="0",document.body.style.padding="0",document.body.style.width="100%",document.body.style.height="100%",this.addEventListener("open-create-modal",this.handleOpenCreateModal),this.addEventListener("card-created",this.handleCardCreated),this.addEventListener("open-load-modal",this.handleOpenLoadModal),this.addEventListener("card-loaded",this.handleCardLoaded),this.addEventListener("remove-custom-card",this.handleRemoveCustomCard),this.addEventListener("bingo-count-update",this.handleBingoCountUpdate)}disconnectedCallback(){super.disconnectedCallback(),document.body.style.overflow="",document.documentElement.style.overflow=""}handleBingoCountUpdate(e){this.bingoCount=e.detail.count}handleCardCreated(e){this.cardCode=e.detail.code,this.showSuccessModal=!0,this.showCreateModal=!1}handleSuccessModalClose(){this.showSuccessModal=!1,this.cardCode="";const e=this.shadowRoot.querySelector("create-card-modal");e&&(e.open=!1,e.resetErrors())}handleOpenCreateModal(){this.showCreateModal=!0}handleCreateModalClose(){this.showCreateModal=!1}handleOpenLoadModal(){this.showLoadModal=!0}handleCardLoaded(e){this.showLoadModal=!1,this.loadedCard=e.detail,this.gameStarted=!1}handleRemoveCustomCard(){this.loadedCard=null,this.gameStarted=!1,this.difficulty="";const e=this.shadowRoot.querySelector("bingo-grid");e&&(e.customCard=null,e.reset()),this.requestUpdate()}handleDifficultySelect(e){this.difficulty=e.detail.difficulty,this.gameStarted=!0,this.loadedCard&&setTimeout(()=>{const t=this.shadowRoot.querySelector("bingo-grid");t&&(t.customCard=this.loadedCard)},0)}handleResetRequest(){this.showConfirmation=!0}handleConfirmReset(e){e.detail.confirmed&&this.resetGame(),this.showConfirmation=!1}handleCancelReset(){this.showConfirmation=!1}handleWin(){this.showWinner=!0}handleCloseWinner(){this.showWinner=!1}handlePlayAgain(){this.showWinner=!1,this.resetGame()}handleHelpOpen(){this.showHelp=!0}handleHelpClose(){this.showHelp=!1}resetGame(){this.gameStarted=!1,this.difficulty="",this.loadedCard=null,this.bingoCount=0,this.shadowRoot.querySelector("bingo-grid")?.reset()}render(){return a`
             <div class="left-buttons">
                 <help-button @help-requested=${this.handleHelpOpen}></help-button>
                 <sound-toggle></sound-toggle>
@@ -4091,7 +4189,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                 <div class="title-container">
                     <div class="title-row">
                         <h1>Dashcam Bingo</h1>
-                        ${this.gameStarted&&this.difficulty==="marathon"?l`
+                        ${this.gameStarted&&this.difficulty==="marathon"?a`
                             <div class="bingo-counter">
                                 <span class="counter-label">Bingos:</span>
                                 <span class="counter-value">${this.bingoCount}</span>
@@ -4101,7 +4199,7 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                     <div class="title-underline"></div>
                 </div>
 
-                ${this.gameStarted&&this.loadedCard?l`
+                ${this.gameStarted&&this.loadedCard?a`
                     <div class="card-indicator">
                         <span class="card-label">Kaart:</span>
                         <span class="card-code">${this.loadedCard.code}</span>
@@ -4113,13 +4211,13 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                             .customCard=${this.loadedCard}
                             @win=${this.handleWin}>
                     </bingo-grid>
-                    ${this.gameStarted?l`
+                    ${this.gameStarted?a`
                         <reset-button @reset-requested=${this.handleResetRequest}></reset-button>
                     `:""}
                 </div>
             </div>
 
-            ${this.gameStarted?"":l`
+            ${this.gameStarted?"":a`
                 <difficulty-selector
                         .customCard=${this.loadedCard}
                         @difficulty-selected=${this.handleDifficultySelect}>
@@ -4158,4 +4256,4 @@ import{createClient as ue}from"https://cdn.jsdelivr.net/npm/@supabase/supabase-j
                     .code=${this.cardCode}
                     @close=${this.handleSuccessModalClose}>
             </success-modal>
-        `}}customElements.define("dashcam-app",dt);const ct="modulepreload",ht=function(n){return"/"+n},ne={},ut=function(e,t,r){let i=Promise.resolve();if(t&&t.length>0){let h=function(d){return Promise.all(d.map(m=>Promise.resolve(m).then(a=>({status:"fulfilled",value:a}),a=>({status:"rejected",reason:a}))))};document.getElementsByTagName("link");const s=document.querySelector("meta[property=csp-nonce]"),c=s?.nonce||s?.getAttribute("nonce");i=h(t.map(d=>{if(d=ht(d),d in ne)return;ne[d]=!0;const m=d.endsWith(".css"),a=m?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${d}"]${a}`))return;const g=document.createElement("link");if(g.rel=m?"stylesheet":ct,m||(g.as="script"),g.crossOrigin="",g.href=d,c&&g.setAttribute("nonce",c),document.head.appendChild(g),m)return new Promise((x,E)=>{g.addEventListener("load",x),g.addEventListener("error",()=>E(new Error(`Unable to preload CSS for ${d}`)))})}))}function o(s){const c=new Event("vite:preloadError",{cancelable:!0});if(c.payload=s,window.dispatchEvent(c),!c.defaultPrevented)throw s}return i.then(s=>{for(const c of s||[])c.status==="rejected"&&o(c.reason);return e().catch(o)})};function pt(n={}){const{immediate:e=!1,onNeedRefresh:t,onOfflineReady:r,onRegistered:i,onRegisteredSW:o,onRegisterError:s}=n;let c,h;const d=async(a=!0)=>{await h};async function m(){if("serviceWorker"in navigator){if(c=await ut(async()=>{const{Workbox:a}=await import("./workbox-window.prod.es5-BIl4cyR9.js");return{Workbox:a}},[]).then(({Workbox:a})=>new a("/sw.js",{scope:"/",type:"classic"})).catch(a=>{s?.(a)}),!c)return;c.addEventListener("activated",a=>{(a.isUpdate||a.isExternal)&&window.location.reload()}),c.addEventListener("installed",a=>{a.isUpdate||r?.()}),c.register({immediate:e}).then(a=>{o?o("/sw.js",a):i?.(a)}).catch(a=>{s?.(a)})}}return h=m(),d}pt({immediate:!0});window.addEventListener("beforeinstallprompt",n=>{n.preventDefault(),window.deferredPrompt=n});
+        `}}customElements.define("dashcam-app",ht);const ut="modulepreload",pt=function(n){return"/"+n},ne={},mt=function(e,t,r){let i=Promise.resolve();if(t&&t.length>0){let h=function(d){return Promise.all(d.map(m=>Promise.resolve(m).then(l=>({status:"fulfilled",value:l}),l=>({status:"rejected",reason:l}))))};document.getElementsByTagName("link");const s=document.querySelector("meta[property=csp-nonce]"),c=s?.nonce||s?.getAttribute("nonce");i=h(t.map(d=>{if(d=pt(d),d in ne)return;ne[d]=!0;const m=d.endsWith(".css"),l=m?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${d}"]${l}`))return;const g=document.createElement("link");if(g.rel=m?"stylesheet":ut,m||(g.as="script"),g.crossOrigin="",g.href=d,c&&g.setAttribute("nonce",c),document.head.appendChild(g),m)return new Promise((x,E)=>{g.addEventListener("load",x),g.addEventListener("error",()=>E(new Error(`Unable to preload CSS for ${d}`)))})}))}function o(s){const c=new Event("vite:preloadError",{cancelable:!0});if(c.payload=s,window.dispatchEvent(c),!c.defaultPrevented)throw s}return i.then(s=>{for(const c of s||[])c.status==="rejected"&&o(c.reason);return e().catch(o)})};function gt(n={}){const{immediate:e=!1,onNeedRefresh:t,onOfflineReady:r,onRegistered:i,onRegisteredSW:o,onRegisterError:s}=n;let c,h;const d=async(l=!0)=>{await h};async function m(){if("serviceWorker"in navigator){if(c=await mt(async()=>{const{Workbox:l}=await import("./workbox-window.prod.es5-BIl4cyR9.js");return{Workbox:l}},[]).then(({Workbox:l})=>new l("/sw.js",{scope:"/",type:"classic"})).catch(l=>{s?.(l)}),!c)return;c.addEventListener("activated",l=>{(l.isUpdate||l.isExternal)&&window.location.reload()}),c.addEventListener("installed",l=>{l.isUpdate||r?.()}),c.register({immediate:e}).then(l=>{o?o("/sw.js",l):i?.(l)}).catch(l=>{s?.(l)})}}return h=m(),d}gt({immediate:!0});window.addEventListener("beforeinstallprompt",n=>{n.preventDefault(),window.deferredPrompt=n});

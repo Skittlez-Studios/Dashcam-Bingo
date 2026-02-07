@@ -2,6 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /src/sw.js
 Disallow: /sw.js
-Disallow: *.js$
+Allow: /*.js$
 
 Sitemap: https://dashcam-bingo.nl/sitemap.xml

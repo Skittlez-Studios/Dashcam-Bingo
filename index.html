@@ -3,6 +3,17 @@
 <head>
     <meta charset="UTF-8" />
 
+    <!-- ===== PERFORMANCE HINTS ===== -->
+
+    <!-- 1. CRITICAL: Preconnect to Google Analytics -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+    <!-- 2. CRITICAL: Preload your main CSS (blocking render) -->
+    <link rel="preload" href="./src/index.css" as="style">
+
+    <!-- ===== END PERFORMANCE HINTS ===== -->
+
     <meta name="theme-color" content="#0f172a">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a">
 

@@ -1,6 +1,14 @@
 {
   "easy": [
     {
+      "title": "Jij hebt geen voorang",
+      "description": "Weggebruiker neemt voorang waar dat niet mag."
+    },
+    {
+      "title": "Grof taalgebruik",
+      "description": "Weggebruiker laat frustratie horen."
+    },
+    {
       "title": "Brake Check",
       "description": "Een bestuurder trapt zonder noodzaak hard op de rem om de achterligger te pesten."
     },
@@ -195,6 +203,14 @@
   ],
   "medium": [
     {
+      "title": "Kleuters op de weg",
+      "description": "Weggebruikers gedragen zich als kleuters (onnodig ruzie, fout ritsen)."
+    },
+    {
+      "title": "Kutmuziek",
+      "description": "Bestuurder heeft kutmuziek draaien in voertuig."
+    },
+    {
       "title": "Uitstappen",
       "description": "Bestuurder van voertuig stapt uit waar dat niet mag."
     },
@@ -317,9 +333,17 @@
     {
       "title": "Vangrail knuffelen",
       "description": "Voertuig raakt de vangrail."
+    },
+    {
+      "title": "Tutututu Max Verstappen",
+      "description": "Weggebruiker is over de weg aan het 'racen'."
     }
   ],
   "hard": [
+    {
+      "title": "Losse aanhanger",
+      "description": "Aanhanger van voertuig is losgeraakt op de weg."
+    },
     {
       "title": "Drunk Driver",
       "description": "Weggebruiker heeft duidelijk iets te diep in het glaasje gekeken."

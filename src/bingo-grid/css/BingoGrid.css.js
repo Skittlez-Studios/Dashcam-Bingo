@@ -357,4 +357,31 @@ export const BingoGridCss = css`
             border-width: 0.375rem;
         }
     }
+    .info-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem;
+        color: var(--muted-foreground);
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+    }
+
+    .info-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        flex-shrink: 0;
+    }
+
+    @media (max-width: 640px) {
+        .info-text {
+            font-size: 0.8125rem;
+        }
+
+        .info-icon {
+            width: 1.125rem;
+            height: 1.125rem;
+        }
+    }
 `;
